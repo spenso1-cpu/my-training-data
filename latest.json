@@ -12,7 +12,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-02-28T18:58:57.856767",
+    "last_updated": "2026-02-28T19:38:05.924572",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.5.1"
@@ -231,7 +231,7 @@
     "p_max": 1116,
     "power_model_source": "wellness.sportInfo",
     "vo2max": 61.0,
-    "calculation_timestamp": "2026-02-28T18:58:57.855965",
+    "calculation_timestamp": "2026-02-28T19:38:05.923637",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -696,6 +696,15 @@
   "planned_workouts": [
     {
       "id": "event_1",
+      "date": "2026-03-01T00:00:00",
+      "name": "Planned Workout",
+      "type": "RACE_C",
+      "description": null,
+      "planned_tss": 60,
+      "duration_hours": 0.0
+    },
+    {
+      "id": "event_2",
       "date": "2026-03-02T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -704,7 +713,7 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_2",
+      "id": "event_3",
       "date": "2026-03-02T00:00:00",
       "name": "Planned Workout",
       "type": "PLAN",
@@ -713,7 +722,7 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_3",
+      "id": "event_4",
       "date": "2026-03-09T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -722,17 +731,8 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_4",
-      "date": "2026-03-16T00:00:00",
-      "name": "Planned Workout",
-      "type": "TARGET",
-      "description": null,
-      "planned_tss": null,
-      "duration_hours": 0.0
-    },
-    {
       "id": "event_5",
-      "date": "2026-03-23T00:00:00",
+      "date": "2026-03-16T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
       "description": null,
@@ -743,13 +743,22 @@
       "id": "event_6",
       "date": "2026-03-23T00:00:00",
       "name": "Planned Workout",
+      "type": "TARGET",
+      "description": null,
+      "planned_tss": null,
+      "duration_hours": 0.0
+    },
+    {
+      "id": "event_7",
+      "date": "2026-03-23T00:00:00",
+      "name": "Planned Workout",
       "type": "NOTE",
       "description": "Focus on easier efforts, reduced volume, and allowing your body to adapt to training stress",
       "planned_tss": null,
       "duration_hours": 0.0
     },
     {
-      "id": "event_7",
+      "id": "event_8",
       "date": "2026-03-30T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -758,7 +767,7 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_8",
+      "id": "event_9",
       "date": "2026-04-06T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -775,8 +784,26 @@
     "avg_resting_hr": 41.6
   },
   "race_calendar": {
-    "next_race": null,
-    "all_races": [],
+    "next_race": {
+      "name": "10km Payerne",
+      "date": "2026-03-01",
+      "category": "RACE_C",
+      "type": "Run",
+      "days_until": 1,
+      "moving_time_seconds": null,
+      "distance_meters": 10000.0
+    },
+    "all_races": [
+      {
+        "name": "10km Payerne",
+        "date": "2026-03-01",
+        "category": "RACE_C",
+        "type": "Run",
+        "days_until": 1,
+        "moving_time_seconds": null,
+        "distance_meters": 10000.0
+      }
+    ],
     "taper_alert": {
       "active": false
     },
