@@ -12,7 +12,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-01T23:59:20.759441",
+    "last_updated": "2026-03-02T05:08:32.869033",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.5.1"
@@ -72,11 +72,11 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 55.68,
-      "atl": 66.1,
-      "tsb": -10.42,
-      "ramp_rate": 2.4,
-      "fitness_source": "From Intervals.icu API (reflects completed workouts)"
+      "ctl": 54.37,
+      "atl": 57.3,
+      "tsb": -2.93,
+      "ramp_rate": 2.34,
+      "fitness_source": "Decayed from yesterday (today's planned workouts not yet completed)"
     },
     "thresholds": {
       "ftp_outdoor": 270,
@@ -87,24 +87,24 @@
       "w_prime": 20588,
       "w_prime_kj": 20.6,
       "p_max": 1116,
-      "vo2max": 63.0
+      "vo2max": null
     },
     "current_metrics": {
       "weight_kg": 72.0,
-      "resting_hr": 38,
-      "hrv": 124.0,
-      "sleep_quality": 1,
-      "sleep_hours": 8.62
+      "resting_hr": 44,
+      "hrv": null,
+      "sleep_quality": null,
+      "sleep_hours": null
     }
   },
   "derived_metrics": {
-    "recovery_index": 1.63,
-    "hrv_baseline_7d": 82.1,
-    "rhr_baseline_7d": 41.1,
+    "recovery_index": null,
+    "hrv_baseline_7d": 83.0,
+    "rhr_baseline_7d": 41.4,
     "hrv_baseline_28d": 76.8,
     "rhr_baseline_28d": 44.4,
-    "latest_hrv": 124.0,
-    "latest_rhr": 38,
+    "latest_hrv": null,
+    "latest_rhr": 44,
     "acwr": 1.85,
     "acwr_interpretation": "danger",
     "monotony": 1.41,
@@ -116,7 +116,7 @@
     "multi_sport_detected": true,
     "strain": 677.0,
     "stress_tolerance": 4.8,
-    "load_recovery_ratio": 2.9,
+    "load_recovery_ratio": null,
     "tss_7d_total": 480.0,
     "tss_28d_total": 1038.0,
     "zone_distribution_7d": {
@@ -230,14 +230,14 @@
     "w_prime_kj": 20.6,
     "p_max": 1116,
     "power_model_source": "wellness.sportInfo",
-    "vo2max": 63.0,
-    "calculation_timestamp": "2026-03-01T23:59:20.758636",
+    "vo2max": null,
+    "calculation_timestamp": "2026-03-02T05:08:32.868253",
     "data_quality": {
-      "hrv_data_points": 7,
+      "hrv_data_points": 6,
       "rhr_data_points": 7,
       "activities_7d": 8,
-      "activities_28d": 29,
-      "planned_workouts_7d": 1,
+      "activities_28d": 27,
+      "planned_workouts_7d": 3,
       "ftp_history_days": {
         "indoor": 0,
         "outdoor": 0
@@ -636,21 +636,6 @@
   ],
   "wellness_data": [
     {
-      "date": "2026-02-23",
-      "weight_kg": null,
-      "resting_hr": 42,
-      "hrv_rmssd": 77.0,
-      "hrv_sdnn": null,
-      "sleep_hours": 8.0,
-      "sleep_quality": 1,
-      "sleep_score": 90.0,
-      "mental_energy": null,
-      "fatigue": null,
-      "soreness": null,
-      "avg_sleeping_hr": null,
-      "vo2max": null
-    },
-    {
       "date": "2026-02-24",
       "weight_kg": null,
       "resting_hr": 41,
@@ -739,20 +724,26 @@
       "soreness": null,
       "avg_sleeping_hr": null,
       "vo2max": 63.0
+    },
+    {
+      "date": "2026-03-02",
+      "weight_kg": null,
+      "resting_hr": 44,
+      "hrv_rmssd": null,
+      "hrv_sdnn": null,
+      "sleep_hours": null,
+      "sleep_quality": null,
+      "sleep_score": null,
+      "mental_energy": null,
+      "fatigue": null,
+      "soreness": null,
+      "avg_sleeping_hr": null,
+      "vo2max": null
     }
   ],
   "planned_workouts": [
     {
       "id": "event_1",
-      "date": "2026-03-01T00:00:00",
-      "name": "Planned Workout",
-      "type": "RACE_C",
-      "description": null,
-      "planned_tss": 60,
-      "duration_hours": 0.0
-    },
-    {
-      "id": "event_2",
       "date": "2026-03-02T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -761,7 +752,7 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_3",
+      "id": "event_2",
       "date": "2026-03-02T00:00:00",
       "name": "Planned Workout",
       "type": "PLAN",
@@ -770,7 +761,7 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_4",
+      "id": "event_3",
       "date": "2026-03-09T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -779,8 +770,17 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_5",
+      "id": "event_4",
       "date": "2026-03-16T00:00:00",
+      "name": "Planned Workout",
+      "type": "TARGET",
+      "description": null,
+      "planned_tss": null,
+      "duration_hours": 0.0
+    },
+    {
+      "id": "event_5",
+      "date": "2026-03-23T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
       "description": null,
@@ -791,22 +791,13 @@
       "id": "event_6",
       "date": "2026-03-23T00:00:00",
       "name": "Planned Workout",
-      "type": "TARGET",
-      "description": null,
-      "planned_tss": null,
-      "duration_hours": 0.0
-    },
-    {
-      "id": "event_7",
-      "date": "2026-03-23T00:00:00",
-      "name": "Planned Workout",
       "type": "NOTE",
       "description": "Focus on easier efforts, reduced volume, and allowing your body to adapt to training stress",
       "planned_tss": null,
       "duration_hours": 0.0
     },
     {
-      "id": "event_8",
+      "id": "event_7",
       "date": "2026-03-30T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
@@ -815,8 +806,17 @@
       "duration_hours": 0.0
     },
     {
-      "id": "event_9",
+      "id": "event_8",
       "date": "2026-04-06T00:00:00",
+      "name": "Planned Workout",
+      "type": "TARGET",
+      "description": null,
+      "planned_tss": null,
+      "duration_hours": 0.0
+    },
+    {
+      "id": "event_9",
+      "date": "2026-04-13T00:00:00",
       "name": "Planned Workout",
       "type": "TARGET",
       "description": null,
@@ -828,30 +828,12 @@
     "total_training_hours": 8.78,
     "total_tss": 480,
     "activities_count": 8,
-    "avg_hrv": 82.1,
-    "avg_resting_hr": 41.1
+    "avg_hrv": 83.0,
+    "avg_resting_hr": 41.4
   },
   "race_calendar": {
-    "next_race": {
-      "name": "10km Payerne",
-      "date": "2026-03-01",
-      "category": "RACE_C",
-      "type": "Run",
-      "days_until": 0,
-      "moving_time_seconds": null,
-      "distance_meters": 10000.0
-    },
-    "all_races": [
-      {
-        "name": "10km Payerne",
-        "date": "2026-03-01",
-        "category": "RACE_C",
-        "type": "Run",
-        "days_until": 0,
-        "moving_time_seconds": null,
-        "distance_meters": 10000.0
-      }
-    ],
+    "next_race": null,
+    "all_races": [],
     "taper_alert": {
       "active": false
     },
