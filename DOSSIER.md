@@ -5,7 +5,7 @@
 **Primary sports:** Cycling and Running  
 **Training experience:** 10+ years consistent endurance training  
 **Primary goal:** Sub-2:40 marathon at Valencia Marathon (6 December 2026)  
-**Secondary goal:** Complete 68 km trail race (summer 2026, low priority)  
+**Secondary goal:** Get cycling FTP to 300w 
 **Current phase:** Aerobic base building with mixed cycling and running
 
 ---
