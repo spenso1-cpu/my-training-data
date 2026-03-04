@@ -3,7 +3,7 @@
     "instruction_for_ai": "DO NOT calculate totals from individual activities. Use the pre-calculated values in 'summary', 'weekly_summary', and 'derived_metrics' sections below. These are already computed accurately from the API data.",
     "data_period": "Last 7 days (including today)",
     "extended_data_note": "ACWR and baselines calculated from 28 days of data",
-    "capability_metrics_note": "The 'capability' block in derived_metrics contains durability trend (aggregate decoupling 7d/28d) and TID comparison (7d vs 28d distribution drift). These measure HOW the athlete expresses fitness, not just load. Use these for coaching context alongside traditional load metrics. Durability trend direction matters more than absolute values.",
+    "capability_metrics_note": "The 'capability' block in derived_metrics contains durability trend (aggregate decoupling 7d/28d), efficiency factor trend (aggregate EF 7d/28d), and TID comparison (7d vs 28d distribution drift). These measure HOW the athlete expresses fitness, not just load. Use these for coaching context alongside traditional load metrics. Durability and EF trend direction matters more than absolute values.",
     "quick_stats": {
       "total_training_hours": 9.16,
       "total_activities": 9,
@@ -12,10 +12,10 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-04T19:53:45.756599",
+    "last_updated": "2026-03-04T21:33:19.509921",
     "data_range_days": 7,
     "extended_range_days": 28,
-    "version": "3.5.1"
+    "version": "3.6.0"
   },
   "alerts": [
     {
@@ -193,6 +193,14 @@
         "trend": null,
         "note": "Steady-state power sessions only (VI <= 1.05, VI > 0, >= 90min, power data). Negative decoupling = strong durability. Trend compares 7d vs 28d mean (+/-1% = stable)."
       },
+      "efficiency_factor": {
+        "mean_ef_7d": null,
+        "mean_ef_28d": null,
+        "qualifying_sessions_7d": 1,
+        "qualifying_sessions_28d": 1,
+        "trend": null,
+        "note": "Steady-state cycling sessions only (VI <= 1.05, VI > 0, >= 20min, power+HR data). Rising EF = improving aerobic efficiency. Compare like-for-like sessions only \u2014 EF varies with intensity. Trend compares 7d vs 28d mean (+/-0.03 = stable)."
+      },
       "tid_comparison": {
         "classification_7d": "Pyramidal",
         "classification_28d": "High Intensity",
@@ -236,7 +244,7 @@
     "p_max": 1116,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-03-04T19:53:45.755735",
+    "calculation_timestamp": "2026-03-04T21:33:19.509076",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -277,6 +285,7 @@
       "carbs_ingested": null,
       "variability_index": 1.2365592,
       "decoupling": 8.266795,
+      "efficiency_factor": 1.8110236,
       "elevation_m": 271.0,
       "feel": null,
       "rpe": null,
@@ -326,6 +335,7 @@
       "carbs_ingested": null,
       "variability_index": null,
       "decoupling": null,
+      "efficiency_factor": null,
       "elevation_m": null,
       "feel": null,
       "rpe": null,
@@ -366,6 +376,7 @@
       "carbs_ingested": null,
       "variability_index": 1.008596,
       "decoupling": 2.4955387,
+      "efficiency_factor": 2.687023,
       "elevation_m": 52.0,
       "feel": null,
       "rpe": null,
@@ -414,6 +425,7 @@
       "carbs_ingested": null,
       "variability_index": 1.1823529,
       "decoupling": 19.44366,
+      "efficiency_factor": 1.7033899,
       "elevation_m": 907.0,
       "feel": null,
       "rpe": null,
@@ -463,6 +475,7 @@
       "carbs_ingested": null,
       "variability_index": 0.9977477,
       "decoupling": 4.757585,
+      "efficiency_factor": 2.621302,
       "elevation_m": 15.0,
       "feel": null,
       "rpe": null,
@@ -511,6 +524,7 @@
       "carbs_ingested": null,
       "variability_index": 0.98055553,
       "decoupling": 16.20226,
+      "efficiency_factor": 2.7795277,
       "elevation_m": 11.0,
       "feel": null,
       "rpe": null,
@@ -559,6 +573,7 @@
       "carbs_ingested": null,
       "variability_index": 1.0310559,
       "decoupling": 0.31270888,
+      "efficiency_factor": 2.7666667,
       "elevation_m": 148.0,
       "feel": null,
       "rpe": null,
@@ -607,6 +622,7 @@
       "carbs_ingested": 120,
       "variability_index": 1.1428572,
       "decoupling": -4.8858185,
+      "efficiency_factor": 1.5748031,
       "elevation_m": 942.0,
       "feel": null,
       "rpe": null,
@@ -656,6 +672,7 @@
       "carbs_ingested": null,
       "variability_index": 1.0392157,
       "decoupling": 3.0164976,
+      "efficiency_factor": 1.4587156,
       "elevation_m": 307.0,
       "feel": null,
       "rpe": null,
