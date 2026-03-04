@@ -1,36 +1,29 @@
-
 #!/usr/bin/env python3
 """
 Intervals.icu → GitHub/Local JSON Export
 Exports training data for LLM access.
 Supports both automated GitHub sync and manual local export.
 
-Version 3.6.5 - Activity notes + coach annotations on planned workouts
-  - Parse NOTE: lines from activity descriptions into "coach_notes" array
-  - Parse NOTE: lines from planned workout descriptions into "coach_notes" array
-  - NOTE: lines stripped from planned workout descriptions to avoid duplication
-  - Fetch activity chat messages (has_messages) into "chat_notes" array
-  - Activity and event IDs always real (opaque keys, not PII) — enables annotate round-trip
-  - Supports push.py v0.3 annotate round-trip (write via push.py, read via sync.py)
+Version 3.6.0 - Efficiency Factor (EF) tracking
+  - Pull icu_efficiency_factor (NP/Avg HR, Coggan) per activity from Intervals.icu API
+  - Aggregate EF 7d/28d with trend (improving/stable/declining)
+  - Qualifying filters: cycling, VI <= 1.05, >= 20min, power+HR
+  - Added to capability namespace alongside durability and TID comparison
 
-Version 3.6.4 - READ_THIS_FIRST display_formatting instruction + report template alignment
-  - Added display_formatting note in READ_THIS_FIRST directing AI to use _formatted fields
-  - All report templates updated: XhYm format for sleep, duration, training hours
-  - All report examples updated: zero decimal hours remaining in templates or prose
-  - Formatting Rule section added to all four templates (pre/post/weekly/block)
+Version 3.5.1 - HRV Outlier Filter
+  - Add _is_valid_hrv() helper to filter sensor errors (10-250ms range)
+  - Applied to: baselines (7d/28d), Recovery Index, persistence counts, summaries
+  - Fixes false alarms from sensor glitches (e.g., 255ms Amazfit/Garmin errors)
 
-Version 3.6.3 - Human-readable formatted fields (no virtual math)
-  - duration_formatted on planned workouts (from moving_time seconds, not decimal hours)
-  - sleep_formatted on current_status, wellness_data, and daily tier rows
-  - total_training_formatted on quick_stats and weekly_summary
-  - All formatted fields floored to minutes (no stray seconds in output)
-
-Version 3.6.2 - Workout summary parser (Pattern A/B), tiered planned workout detail (0-7d full, 8-42d skeleton)
-Version 3.6.1 - Hard day HR zone fallback (2-rung ladder), intensity_basis audit field
-Version 3.6.0 - Efficiency Factor (EF) tracking, 7d/28d aggregate with trend
-
-Version 3.5.1 - HRV outlier filter (_is_valid_hrv(), 10-250ms range), applied to baselines/RI/summaries
-Version 3.5.0 - Race calendar (90-day, RACE_A/B/C), race-week protocol (D-7 to D-0), TSB projection
+Version 3.5.0 - Race Calendar & Race-Week Protocol
+  - 90-day race calendar from Intervals.icu RACE_A/B/C event categories
+  - Three-layer race awareness: calendar (D-90), taper onset (D-14 to D-8), race week (D-7 to D-0)
+  - Race-week protocol: day-by-day load targets (% of CTL), zone guidance, purpose labels
+  - TSB projection for race day using PMC decay with zero assumed load
+  - Event duration classification (short/medium/long) from moving_time
+  - Carb loading triggers (≥90min events), opener scheduling (D-2), go/no-go checklist
+  - RACE_B lighter taper (50-65% budget vs 40-55% for RACE_A)
+  - Race-specific alerts integrated into main alerts array
 
 Version 3.4.1 - KeyError fix, defensive .get(), anonymization improvements
 Version 3.4.0 - Aggregate durability (7d/28d decoupling), dual-timeframe TID, capability namespace
@@ -60,7 +53,7 @@ class IntervalsSync:
     HISTORY_FILE = "history.json"
     UPSTREAM_REPO = "CrankAddict/section-11"
     CHANGELOG_FILE = "changelog.json"
-    VERSION = "3.6.5"
+    VERSION = "3.6.0"
 
     # Sport family mapping for per-sport monotony calculation
     # Multi-sport athletes get inflated total monotony when cross-training
@@ -112,23 +105,6 @@ class IntervalsSync:
         response = requests.get(url, headers=headers, params=params)
         response.raise_for_status()
         return response.json()
-
-    def _get_activity_messages(self, activity_id: str) -> List[str]:
-        """Fetch messages/notes for a completed activity. Returns list of text strings."""
-        url = f"{self.INTERVALS_BASE_URL}/activity/{activity_id}/messages"
-        headers = {
-            "Authorization": f"Basic {self.intervals_auth}",
-            "Accept": "application/json"
-        }
-        try:
-            response = requests.get(url, headers=headers)
-            response.raise_for_status()
-            messages = response.json()
-            if isinstance(messages, list):
-                return [m.get("content", m.get("text", "")) for m in messages if (m.get("content") or m.get("text", "")).strip()]
-            return []
-        except Exception:
-            return []
     
     def _fetch_today_wellness(self) -> Dict:
         """
@@ -332,8 +308,12 @@ class IntervalsSync:
         print("Fetching athlete data...")
         athlete = self._intervals_get("")
         
-        # Extract per-sport-family thesholds from user settings
-        sport_settings = self._build_sport_thresholds(athlete)
+        cycling_settings = None
+        if athlete.get("sportSettings"):
+            for sport in athlete["sportSettings"]:
+                if "Ride" in sport.get("types", []) or "VirtualRide" in sport.get("types", []):
+                    cycling_settings = sport
+                    break
         
         # Fetch extended activity range for ACWR
         print(f"Fetching activities (extended {days_for_acwr} days for ACWR)...")
@@ -395,7 +375,7 @@ class IntervalsSync:
         print("Fetching planned workouts (past + future for Consistency Index + race calendar)...")
         oldest_events = (datetime.now() - timedelta(days=days_back - 1)).strftime("%Y-%m-%d")
         newest_ahead = (datetime.now() + timedelta(days=90)).strftime("%Y-%m-%d")
-        events = self._intervals_get("events", {"oldest": oldest_events, "newest": newest_ahead, "resolve": "true"})
+        events = self._intervals_get("events", {"oldest": oldest_events, "newest": newest_ahead})
         
         # Split events into past (for consistency), near future (for planned workouts display), and all future (for race calendar)
         past_events = [e for e in events if e.get("start_date_local", "")[:10] <= today]
@@ -423,10 +403,9 @@ class IntervalsSync:
         
         tsb = round(ctl - atl, 2) if (ctl is not None and atl is not None) else None
         
-        # Get both FTP values for cycling (user-set, not estimated)
-        cycling = sport_settings.get("cycling", {})
-        current_ftp_indoor = cycling.get("ftp_indoor")
-        current_ftp_outdoor = cycling.get("ftp")
+        # Get both FTP values (user-set, not estimated)
+        current_ftp_indoor = cycling_settings.get("indoor_ftp") if cycling_settings else None
+        current_ftp_outdoor = cycling_settings.get("ftp") if cycling_settings else None
         
         # Load and update FTP history (tracks both indoor and outdoor)
         print("Updating FTP history...")
@@ -510,13 +489,11 @@ class IntervalsSync:
         data = {
             "READ_THIS_FIRST": {
                 "instruction_for_ai": "DO NOT calculate totals from individual activities. Use the pre-calculated values in 'summary', 'weekly_summary', and 'derived_metrics' sections below. These are already computed accurately from the API data.",
-                "display_formatting": "For durations and sleep, always display the '_formatted' fields (e.g., sleep_formatted, duration_formatted, total_training_formatted) instead of converting decimal '_hours' values. The formatted fields are pre-calculated from raw seconds and avoid rounding errors.",
                 "data_period": f"Last {days_back} days (including today)",
                 "extended_data_note": f"ACWR and baselines calculated from {days_for_acwr} days of data",
                 "capability_metrics_note": "The 'capability' block in derived_metrics contains durability trend (aggregate decoupling 7d/28d), efficiency factor trend (aggregate EF 7d/28d), and TID comparison (7d vs 28d distribution drift). These measure HOW the athlete expresses fitness, not just load. Use these for coaching context alongside traditional load metrics. Durability and EF trend direction matters more than absolute values.",
                 "quick_stats": {
                     "total_training_hours": round(sum(act.get("moving_time", 0) for act in activities_display) / 3600, 2),
-                    "total_training_formatted": self._format_duration(int(sum(act.get("moving_time", 0) for act in activities_display)) // 60 * 60),
                     "total_activities": len(activities_display),
                     "total_tss": round(sum(act.get("icu_training_load", 0) for act in activities_display if act.get("icu_training_load")), 0)
                 }
@@ -540,66 +517,33 @@ class IntervalsSync:
                     "fitness_source": fitness_source
                 },
                 "thresholds": {
+                    "ftp_outdoor": current_ftp_outdoor,
+                    "ftp_indoor": current_ftp_indoor,
                     "eftp": power_model.get("eftp"),
+                    "lthr": cycling_settings.get("lthr") if cycling_settings else None,
+                    "max_hr": cycling_settings.get("max_hr") if cycling_settings else None,
                     "w_prime": power_model.get("w_prime"),
                     "w_prime_kj": power_model.get("w_prime_kj"),
                     "p_max": power_model.get("p_max"),
-                    "vo2max": vo2max,                    
-                    "sports": sport_settings
+                    "vo2max": vo2max
                 },
                 "current_metrics": {
                     "weight_kg": latest_wellness.get("weight") or athlete.get("icu_weight"),
                     "resting_hr": latest_wellness.get("restingHR") or athlete.get("icu_resting_hr"),
                     "hrv": latest_wellness.get("hrv"),
                     "sleep_quality": latest_wellness.get("sleepQuality"),
-                    "sleep_hours": round(latest_wellness.get("sleepSecs", 0) / 3600, 2) if latest_wellness.get("sleepSecs") else None,
-                    "sleep_formatted": self._format_duration(int(latest_wellness.get("sleepSecs", 0)) // 60 * 60) if latest_wellness.get("sleepSecs") else None
+                    "sleep_hours": round(latest_wellness.get("sleepSecs", 0) / 3600, 2) if latest_wellness.get("sleepSecs") else None
                 }
             },
             "derived_metrics": derived_metrics,
             "recent_activities": self._format_activities(activities_display, anonymize),
             "wellness_data": self._format_wellness(wellness),
-            "planned_workouts": self._format_events(near_future_events, anonymize, today=today),
-            "workout_summary_stats": getattr(self, '_summary_stats', {}),
+            "planned_workouts": self._format_events(near_future_events, anonymize),
             "weekly_summary": self._compute_weekly_summary(activities_display, wellness),
             "race_calendar": race_calendar
         }
         
         return data
-
-    def _build_sport_thresholds(self, athlete: dict) -> dict:
-        """
-        Build per-sport-family threshold map from athlete sportSettings.
-        Returns a dict keyed by sport family (e.g. {"cycling": {...}, "run": {...}})
-        """
-        candidates: dict[str, tuple[dict, int, str]] = {}
-
-        for sport in athlete.get("sportSettings", []):
-            for sport_type in sport.get("types", []):
-                family = self.SPORT_FAMILIES.get(sport_type)
-                if not family:
-                    continue
-
-                raw_pace = sport.get("threshold_pace")
-                threshold_pace = raw_pace if (raw_pace is not None and raw_pace != 0) else None
-                pace_units = sport.get("pace_units") if threshold_pace is not None else None
-
-                entry = {
-                    "lthr": sport.get("lthr"),
-                    "max_hr": sport.get("max_hr"),
-                    "threshold_pace": threshold_pace,
-                    "pace_units": pace_units,
-                    "ftp": sport.get("ftp") or None,
-                    "ftp_indoor": sport.get("indoor_ftp") or None,
-                }
-
-                populated = sum(1 for v in entry.values() if v is not None)
-
-                if family not in candidates or populated > candidates[family][1] or \
-                   (populated == candidates[family][1] and sport_type < candidates[family][2]):
-                    candidates[family] = (entry, populated, sport_type)
-
-        return {family: data for family, (data, _, _) in candidates.items()}
     
     def _calculate_derived_metrics(self, activities_7d: List[Dict], activities_28d: List[Dict],
                                     wellness_7d: List[Dict], wellness_extended: List[Dict],
@@ -807,9 +751,9 @@ class IntervalsSync:
         )
         
         # === HARD DAYS THIS WEEK ===
-        # Uses _classify_hard_day() for consistent power/HR evaluation.
-        # Power: 5-rung cumulative ladder (Seiler/Foster)
-        # HR fallback: 2-rung conservative ladder (above LT2 only)
+        # Zone ladder with cumulative thresholds (z+ = zone + all above)
+        # z3+ >= 1800s, z4+ >= 600s, z5+ >= 300s, z6+ >= 120s, z7 >= 60s
+        # Per Seiler's polarized model + Foster's session RPE scaling
         hard_days_this_week = 0
         activities_by_date_7d = {}
         for a in activities_7d:
@@ -819,16 +763,36 @@ class IntervalsSync:
             activities_by_date_7d[a_date].append(a)
         
         for date_str, day_acts in activities_by_date_7d.items():
-            day_zones_by_basis = {}
+            day_z3 = 0
+            day_z4 = 0
+            day_z5 = 0
+            day_z6 = 0
+            day_z7 = 0
             for a in day_acts:
-                zones, basis = self._get_activity_zones(a)
-                if zones and basis:
-                    if basis not in day_zones_by_basis:
-                        day_zones_by_basis[basis] = {}
-                    for zid, secs in zones.items():
-                        day_zones_by_basis[basis][zid] = day_zones_by_basis[basis].get(zid, 0) + secs
-            
-            is_hard, _basis = self._classify_hard_day(day_zones_by_basis)
+                icu_zone_times = a.get("icu_zone_times", [])
+                if icu_zone_times:
+                    for zone in icu_zone_times:
+                        zid = zone.get("id", "").lower()
+                        secs = zone.get("secs", 0)
+                        if zid == "z3":
+                            day_z3 += secs
+                        elif zid == "z4":
+                            day_z4 += secs
+                        elif zid == "z5":
+                            day_z5 += secs
+                        elif zid == "z6":
+                            day_z6 += secs
+                        elif zid == "z7":
+                            day_z7 += secs
+            # Zone ladder: cumulative thresholds (z+ = zone + all above)
+            # Per Seiler's polarized model + Foster's session RPE scaling
+            is_hard = (
+                (day_z3 + day_z4 + day_z5 + day_z6 + day_z7) >= 1800 or  # z3+: 30 min tempo+
+                (day_z4 + day_z5 + day_z6 + day_z7) >= 600 or            # z4+: 10 min threshold+
+                (day_z5 + day_z6 + day_z7) >= 300 or                      # z5+: 5 min VO2max+
+                (day_z6 + day_z7) >= 120 or                                # z6+: 2 min anaerobic+
+                day_z7 >= 60                                                # z7:  1 min neuromuscular
+            )
             if is_hard:
                 hard_days_this_week += 1
         
@@ -892,7 +856,7 @@ class IntervalsSync:
             "polarisation_index": polarisation_index,
             "polarisation_note": "Easy time (Z1+Z2) / Total - target ~80% in polarized training",
             "hard_days_this_week": hard_days_this_week,
-            "hard_days_note": "Power ladder: z3+ >= 30min, z4+ >= 10min, z5+ >= 5min, z6+ >= 2min, z7 >= 1min. HR fallback (when no power): z4+ >= 10min, z5+ >= 5min. Per Seiler 3-zone model + Foster. HR-based days flagged with intensity_basis: hr",
+            "hard_days_note": "Zone ladder: z3+ >= 30min, z4+ >= 10min, z5+ >= 5min, z6+ >= 2min, z7 >= 1min. Cumulative thresholds per Seiler/Foster — higher zones need less time to qualify as hard",
             
             # Tier 3: Seiler TID (Training Intensity Distribution)
             "seiler_tid_7d": seiler_tid_all,
@@ -1129,125 +1093,6 @@ class IntervalsSync:
 
         return result
 
-    # === ZONE EXTRACTION & HARD DAY CLASSIFICATION ===
-    # Shared helpers used by _aggregate_zones, derived metrics, and all tier builders.
-    # Power zones (icu_zone_times) preferred; HR zones (icu_hr_zone_times) as fallback.
-    # HR and power zones are NOT interchangeable — different widths, lag characteristics,
-    # and physiological meaning. They are kept in separate accumulators.
-
-    @staticmethod
-    def _get_activity_zones(activity: Dict) -> tuple:
-        """
-        Extract zone times from a single activity.
-        
-        Returns (zones_dict, basis) where:
-        - zones_dict: {"z1": secs, "z2": secs, ...} 
-        - basis: "power" | "hr" | None
-        
-        Power zones (icu_zone_times): list of {"id": "Z3", "secs": 600}
-        HR zones (icu_hr_zone_times): flat array of seconds [0, 120, 300, 180, 60]
-        
-        Power preferred. HR fallback only when power unavailable.
-        HR zones typically 5-zone (indices 0-4 → z1-z5), sometimes 7.
-        """
-        # Try power zones first
-        icu_zone_times = activity.get("icu_zone_times", [])
-        if icu_zone_times:
-            pz = {}
-            for zone in icu_zone_times:
-                zone_id = zone.get("id", "").lower()
-                secs = zone.get("secs", 0)
-                if zone_id in ("z1", "z2", "z3", "z4", "z5", "z6", "z7"):
-                    pz[zone_id] = secs
-            if pz:
-                return (pz, "power")
-        
-        # Fallback to HR zones
-        icu_hr_zone_times = activity.get("icu_hr_zone_times", [])
-        if icu_hr_zone_times:
-            zone_labels = ("z1", "z2", "z3", "z4", "z5", "z6", "z7")
-            hz = {}
-            for idx, secs in enumerate(icu_hr_zone_times):
-                if idx < len(zone_labels) and secs:
-                    hz[zone_labels[idx]] = secs
-            if hz:
-                return (hz, "hr")
-        
-        return ({}, None)
-
-    @staticmethod
-    def _classify_hard_day(day_zones_by_basis: Dict) -> tuple:
-        """
-        Classify whether a day is hard based on accumulated zone times.
-        
-        Args:
-            day_zones_by_basis: {"power": {"z3": N, "z4": N, ...}, "hr": {"z4": N, "z5": N, ...}}
-                Power and HR zones accumulated SEPARATELY across the day's activities.
-        
-        Returns (is_hard, basis) where:
-        - is_hard: True | False | None (None = no zone data, unknown)
-        - basis: "power" | "hr" | "mixed" | None
-        
-        Power ladder (5 rungs, per Seiler/Foster):
-            z3+ >= 1800s, z4+ >= 600s, z5+ >= 300s, z6+ >= 120s, z7 >= 60s
-        
-        HR ladder (2 rungs, conservative — per Seiler 3-zone model):
-            z4+ >= 600s (sustained above LT2)
-            z5+ >= 300s (VO2max)
-        
-        HR zones are too wide and lagged for fine-grained classification.
-        Short-duration rungs (z6+/z7) invalid for HR due to cardiac lag.
-        Z3 skipped for HR to avoid false positives on steady-state runs.
-        """
-        pz = day_zones_by_basis.get("power", {})
-        hz = day_zones_by_basis.get("hr", {})
-        
-        has_power = bool(pz)
-        has_hr = bool(hz)
-        
-        if not has_power and not has_hr:
-            return (None, None)
-        
-        # Power ladder (unchanged)
-        power_hard = False
-        if has_power:
-            p_z3 = pz.get("z3", 0)
-            p_z4 = pz.get("z4", 0)
-            p_z5 = pz.get("z5", 0)
-            p_z6 = pz.get("z6", 0)
-            p_z7 = pz.get("z7", 0)
-            power_hard = (
-                (p_z3 + p_z4 + p_z5 + p_z6 + p_z7) >= 1800 or  # z3+: 30 min tempo+
-                (p_z4 + p_z5 + p_z6 + p_z7) >= 600 or            # z4+: 10 min threshold+
-                (p_z5 + p_z6 + p_z7) >= 300 or                    # z5+: 5 min VO2max+
-                (p_z6 + p_z7) >= 120 or                            # z6+: 2 min anaerobic+
-                p_z7 >= 60                                          # z7:  1 min neuromuscular
-            )
-        
-        # HR ladder (conservative fallback)
-        hr_hard = False
-        if has_hr:
-            h_z4 = hz.get("z4", 0)
-            h_z5 = hz.get("z5", 0)
-            h_z6 = hz.get("z6", 0)
-            h_z7 = hz.get("z7", 0)
-            hr_hard = (
-                (h_z4 + h_z5 + h_z6 + h_z7) >= 600 or  # z4+: 10 min above LT2
-                (h_z5 + h_z6 + h_z7) >= 300              # z5+: 5 min VO2max
-            )
-        
-        is_hard = power_hard or hr_hard
-        
-        # Determine basis
-        if has_power and has_hr:
-            basis = "mixed"
-        elif has_power:
-            basis = "power"
-        else:
-            basis = "hr"
-        
-        return (is_hard, basis)
-
     def _aggregate_zones(self, activities: List[Dict]) -> Dict:
         """
         Aggregate zone times across all activities.
@@ -1257,8 +1102,6 @@ class IntervalsSync:
         - Z1-Z2: Easy (below LT1)
         - Z3: Grey zone / Tempo (between LT1 and LT2) - to be minimized
         - Z4+: Hard / Quality (above LT2) - ~20% target
-        
-        Uses _get_activity_zones() for consistent power/HR fallback.
         """
         z1_time = 0
         z2_time = 0
@@ -1267,7 +1110,32 @@ class IntervalsSync:
         total_time = 0
         
         for act in activities:
-            zones, _basis = self._get_activity_zones(act)
+            zones = None
+            
+            # Check for zone data in raw activity
+            icu_zone_times = act.get("icu_zone_times", [])
+            icu_hr_zone_times = act.get("icu_hr_zone_times", [])
+            
+            # Power zones (preferred for cycling)
+            if icu_zone_times:
+                pz = {}
+                for zone in icu_zone_times:
+                    zone_id = zone.get("id", "").lower()
+                    secs = zone.get("secs", 0)
+                    if zone_id in ["z1", "z2", "z3", "z4", "z5", "z6", "z7"]:
+                        pz[zone_id] = secs
+                if pz:
+                    zones = pz
+            
+            # HR zones (fallback)
+            if not zones and icu_hr_zone_times:
+                zone_labels = ["z1", "z2", "z3", "z4", "z5", "z6", "z7"]
+                hz = {}
+                for idx, secs in enumerate(icu_hr_zone_times):
+                    if idx < len(zone_labels) and secs:
+                        hz[zone_labels[idx]] = secs
+                if hz:
+                    zones = hz
             
             if zones:
                 z1_time += zones.get("z1", 0)
@@ -2351,17 +2219,37 @@ class IntervalsSync:
             total_seconds = sum(a.get("moving_time", 0) or 0 for a in day_activities)
             activity_types = list(set(a.get("type", "Unknown") for a in day_activities)) if day_activities else ["Rest"]
             
-            # Hard day detection via shared classifier (power + HR fallback)
-            day_zones_by_basis = {}
+            # Zone ladder for hard day detection
+            # Cumulative thresholds: z3+ / z4+ / z5+ / z6+ / z7
+            # Per Seiler's polarized model + Foster's session RPE scaling
+            day_z3 = 0
+            day_z4 = 0
+            day_z5 = 0
+            day_z6 = 0
+            day_z7 = 0
             for a in day_activities:
-                zones, basis = self._get_activity_zones(a)
-                if zones and basis:
-                    if basis not in day_zones_by_basis:
-                        day_zones_by_basis[basis] = {}
-                    for zid, secs in zones.items():
-                        day_zones_by_basis[basis][zid] = day_zones_by_basis[basis].get(zid, 0) + secs
-            
-            is_hard, intensity_basis = self._classify_hard_day(day_zones_by_basis)
+                icu_zone_times = a.get("icu_zone_times", [])
+                if icu_zone_times:
+                    for zone in icu_zone_times:
+                        zid = zone.get("id", "").lower()
+                        secs = zone.get("secs", 0)
+                        if zid == "z3":
+                            day_z3 += secs
+                        elif zid == "z4":
+                            day_z4 += secs
+                        elif zid == "z5":
+                            day_z5 += secs
+                        elif zid == "z6":
+                            day_z6 += secs
+                        elif zid == "z7":
+                            day_z7 += secs
+            is_hard = (
+                (day_z3 + day_z4 + day_z5 + day_z6 + day_z7) >= 1800 or
+                (day_z4 + day_z5 + day_z6 + day_z7) >= 600 or
+                (day_z5 + day_z6 + day_z7) >= 300 or
+                (day_z6 + day_z7) >= 120 or
+                day_z7 >= 60
+            )
             
             rows.append({
                 "date": date_str,
@@ -2375,12 +2263,10 @@ class IntervalsSync:
                 "hrv": wellness.get("hrv"),
                 "rhr": wellness.get("restingHR"),
                 "sleep_hours": round(wellness.get("sleepSecs", 0) / 3600, 2) if wellness.get("sleepSecs") else None,
-                "sleep_formatted": self._format_duration(int(wellness.get("sleepSecs", 0)) // 60 * 60) if wellness.get("sleepSecs") else None,
                 "sleep_quality": wellness.get("sleepQuality"),
                 "feel": None,  # Not available in wellness, only in activities
                 "weight_kg": wellness.get("weight"),
-                "is_hard_day": is_hard,
-                "intensity_basis": intensity_basis
+                "is_hard_day": is_hard
             })
             
             # Check feel from activities
@@ -2457,37 +2343,52 @@ class IntervalsSync:
                 atl_end = wellness.get("atl") or atl_end
                 ramp_rate = wellness.get("rampRate") or ramp_rate
                 
-                # Zone distribution + hard day analysis (shared helper)
-                day_zones_by_basis = {}
+                # Zone and hard day analysis
+                day_z3 = 0
+                day_z4 = 0
+                day_z5 = 0
+                day_z6 = 0
+                day_z7 = 0
                 for a in day_activities:
                     ride_seconds = a.get("moving_time", 0) or 0
                     if ride_seconds > longest_ride:
                         longest_ride = ride_seconds
                     
-                    zones, basis = self._get_activity_zones(a)
-                    if zones and basis:
-                        # Accumulate for hard day classification (separate by basis)
-                        if basis not in day_zones_by_basis:
-                            day_zones_by_basis[basis] = {}
-                        for zid, secs in zones.items():
-                            day_zones_by_basis[basis][zid] = day_zones_by_basis[basis].get(zid, 0) + secs
-                        
-                        # Accumulate for weekly zone distribution (combined)
-                        for zid, secs in zones.items():
-                            if zid in ("z1", "z2"):
+                    icu_zone_times = a.get("icu_zone_times", [])
+                    if icu_zone_times:
+                        for zone in icu_zone_times:
+                            zid = zone.get("id", "").lower()
+                            secs = zone.get("secs", 0)
+                            if zid in ["z1", "z2"]:
                                 z1_z2_time += secs
                             elif zid == "z3":
                                 z3_time += secs
-                            elif zid in ("z4", "z5", "z6", "z7"):
+                                day_z3 += secs
+                            elif zid == "z4":
                                 z4_plus_time += secs
+                                day_z4 += secs
+                            elif zid == "z5":
+                                z4_plus_time += secs
+                                day_z5 += secs
+                            elif zid == "z6":
+                                z4_plus_time += secs
+                                day_z6 += secs
+                            elif zid == "z7":
+                                z4_plus_time += secs
+                                day_z7 += secs
                             total_zone_time += secs
                     
                     feel = a.get("feel")
                     if feel:
                         week_feel.append(feel)
                 
-                is_hard, _basis = self._classify_hard_day(day_zones_by_basis)
-                if is_hard:
+                if (
+                    (day_z3 + day_z4 + day_z5 + day_z6 + day_z7) >= 1800 or
+                    (day_z4 + day_z5 + day_z6 + day_z7) >= 600 or
+                    (day_z5 + day_z6 + day_z7) >= 300 or
+                    (day_z6 + day_z7) >= 120 or
+                    day_z7 >= 60
+                ):
                     hard_days += 1
             
             if ctl_end and atl_end:
@@ -2581,32 +2482,47 @@ class IntervalsSync:
                 if wellness.get("ctl"):
                     ctl_values.append(wellness["ctl"])
                 
-                day_zones_by_basis = {}
+                day_z3 = 0
+                day_z4 = 0
+                day_z5 = 0
+                day_z6 = 0
+                day_z7 = 0
                 for a in day_activities:
                     ride_seconds = a.get("moving_time", 0) or 0
                     if ride_seconds > longest_ride:
                         longest_ride = ride_seconds
                     
-                    zones, basis = self._get_activity_zones(a)
-                    if zones and basis:
-                        # Accumulate for hard day classification (separate by basis)
-                        if basis not in day_zones_by_basis:
-                            day_zones_by_basis[basis] = {}
-                        for zid, secs in zones.items():
-                            day_zones_by_basis[basis][zid] = day_zones_by_basis[basis].get(zid, 0) + secs
-                        
-                        # Accumulate for monthly zone distribution (combined)
-                        for zid, secs in zones.items():
-                            if zid in ("z1", "z2"):
+                    icu_zone_times = a.get("icu_zone_times", [])
+                    if icu_zone_times:
+                        for zone in icu_zone_times:
+                            zid = zone.get("id", "").lower()
+                            secs = zone.get("secs", 0)
+                            if zid in ["z1", "z2"]:
                                 z1_z2_time += secs
                             elif zid == "z3":
                                 z3_time += secs
-                            elif zid in ("z4", "z5", "z6", "z7"):
+                                day_z3 += secs
+                            elif zid == "z4":
                                 z4_plus_time += secs
+                                day_z4 += secs
+                            elif zid == "z5":
+                                z4_plus_time += secs
+                                day_z5 += secs
+                            elif zid == "z6":
+                                z4_plus_time += secs
+                                day_z6 += secs
+                            elif zid == "z7":
+                                z4_plus_time += secs
+                                day_z7 += secs
                             total_zone_time += secs
                 
-                is_hard, _basis = self._classify_hard_day(day_zones_by_basis)
-                if is_hard:
+                if (
+                    (day_z3 + day_z4 + day_z5 + day_z6 + day_z7) >= 1800 or
+                    (day_z4 + day_z5 + day_z6 + day_z7) >= 600 or
+                    (day_z5 + day_z6 + day_z7) >= 300 or
+                    (day_z6 + day_z7) >= 120 or
+                    day_z7 >= 60
+                ):
                     hard_days_total += 1
                 
                 date += timedelta(days=1)
@@ -2974,7 +2890,7 @@ class IntervalsSync:
                     activity_name = "Training Session"
             
             activity = {
-                "id": act.get("id", f"unknown_{i+1}"),
+                "id": f"activity_{i+1}" if anonymize else act.get("id", f"unknown_{i+1}"),
                 "date": act.get("start_date_local", "unknown"),
                 "type": act.get("type", "Unknown"),
                 "name": activity_name,
@@ -3006,29 +2922,6 @@ class IntervalsSync:
                 "rpe": act.get("icu_rpe"),
                 "zone_distribution": zone_dist
             }
-
-            # Parse NOTE: lines from activity description (v0.3 — coach annotations)
-            raw_desc = act.get("description") or ""
-            if raw_desc.strip():
-                coach_notes = []
-                for line in raw_desc.split("\n"):
-                    stripped = line.strip()
-                    if stripped.upper().startswith("NOTE:"):
-                        note_text = stripped[5:].strip()
-                        if note_text:
-                            coach_notes.append(note_text)
-                    elif stripped:
-                        break  # stop at first non-NOTE, non-blank line
-                if coach_notes:
-                    activity["coach_notes"] = coach_notes
-
-            # Fetch activity chat messages if available (v0.3 — --chat annotations)
-            if act.get("has_messages"):
-                activity_id = act.get("id")
-                if activity_id:
-                    notes = self._get_activity_messages(activity_id)
-                    if notes:
-                        activity["chat_notes"] = notes
             
             formatted.append(activity)
         
@@ -3045,7 +2938,6 @@ class IntervalsSync:
                 "hrv_rmssd": w.get("hrv"),
                 "hrv_sdnn": w.get("hrvSdnn"),
                 "sleep_hours": round(w["sleepSecs"] / 3600, 2) if w.get("sleepSecs") else None,
-                "sleep_formatted": self._format_duration(int(w["sleepSecs"]) // 60 * 60) if w.get("sleepSecs") else None,
                 "sleep_quality": w.get("sleepQuality"),
                 "sleep_score": w.get("sleepScore"),
                 "mental_energy": w.get("mentalEnergy"),
@@ -3059,541 +2951,17 @@ class IntervalsSync:
         
         return formatted
     
-    def _summarize_workout_doc(self, workout_doc: Dict) -> str:
-        """
-        Summarize a structured workout_doc into a human-readable one-liner.
-        
-        Uses two deterministic patterns:
-          Pattern A: Explicit repeats (step has 'reps' + nested 'steps')
-          Pattern B: Flat alternating work/rest pairs (min 3 reps, strict guards)
-        
-        Returns summary string or None if workout doesn't match either pattern
-        or if workout_doc is missing/malformed. Never raises exceptions.
-        
-        Note: workout_doc availability depends on how the workout was created in
-        Intervals.icu. Workouts created via the builder will have it; imported or
-        manually typed workouts may not. When absent, raw description is preserved.
-        """
-        try:
-            if not workout_doc or not isinstance(workout_doc, dict):
-                return None
-            steps = workout_doc.get("steps")
-            if not steps or not isinstance(steps, list):
-                return None
-            
-            parts = []
-            for step in steps:
-                rendered = self._render_step(step)
-                if rendered:
-                    parts.append(rendered)
-            
-            if not parts:
-                return None
-            
-            # Check if any part is an interval summary (the whole point of this)
-            has_interval = any(
-                "×" in p or "sets" in p.lower() 
-                for p in parts
-            )
-            if not has_interval:
-                return None  # All flat steps — no wall-of-text problem, skip summary
-            
-            return self._merge_interval_blocks(parts)
-        except Exception:
-            return None
-    
-    def _merge_interval_blocks(self, parts: List[str]) -> str:
-        """
-        Merge consecutive identical interval blocks in summary parts.
-        
-        E.g., ["5×10s @700W / 3m rec", "5×10s @700W / 3m rec"] → ["2 × 5×10s @700W / 3m rec"]
-        
-        No WU/CD labeling — that's a coaching interpretation, not structural data.
-        Strict string equality only.
-        """
-        if not parts:
-            return ""
-        
-        result = []
-        i = 0
-        while i < len(parts):
-            current = parts[i]
-            count = 1
-            while i + count < len(parts) and parts[i + count] == current:
-                count += 1
-            if count > 1:
-                result.append(f"{count} × {current}")
-            else:
-                result.append(current)
-            i += count
-        
-        return " | ".join(result)
-    
-    def _render_step(self, step: Dict) -> str:
-        """Render a single workout_doc step. Returns string or None."""
-        try:
-            if not isinstance(step, dict):
-                return None
-            
-            # Pattern A: Explicit repeats
-            if "reps" in step and "steps" in step and isinstance(step["steps"], list):
-                return self._render_repeat_block(step)
-            
-            # Pattern B: Check later at block level (handled in _summarize_workout_doc 
-            # by scanning sequences). Individual flat steps just render simply.
-            return self._render_flat_step(step)
-        except Exception:
-            return None
-    
-    def _render_flat_step(self, step: Dict) -> str:
-        """Render a non-repeat step as 'duration @power'."""
-        try:
-            dur = step.get("duration")
-            if not dur or not isinstance(dur, (int, float)):
-                return None
-            
-            dur_str = self._format_duration(int(dur))
-            
-            # Get power target
-            power = step.get("_power") or step.get("power")
-            if power and isinstance(power, dict):
-                val = power.get("value")
-                if val is not None:
-                    return f"{dur_str} @{int(round(val))}W"
-            
-            # HR target
-            hr = step.get("_hr") or step.get("hr")
-            if hr and isinstance(hr, dict):
-                val = hr.get("value")
-                if val is not None:
-                    return f"{dur_str} @{int(round(val))}bpm"
-            
-            # Duration only (freeride, etc)
-            return f"{dur_str}"
-        except Exception:
-            return None
-    
-    def _render_repeat_block(self, step: Dict) -> str:
-        """
-        Render a repeat block (Pattern A).
-        
-        Handles:
-        - Simple: reps × (work + rest) → "N×dur @power / rest rec"
-        - With set recovery: first nested step is low-power rest, then alternating pairs
-        
-        Bails to None if nested structure has >3 unique step types or is too complex.
-        """
-        try:
-            reps = step.get("reps", 1)
-            nested = step.get("steps", [])
-            if not nested or not isinstance(nested, list):
-                return None
-            
-            # Simple case: 2 nested steps (work + rest)
-            if len(nested) == 2:
-                work, rest = nested[0], nested[1]
-                work_str = self._describe_work_step(work)
-                rest_str = self._describe_rest_duration(rest)
-                if work_str and rest_str:
-                    return f"{reps}×{work_str} / {rest_str} rec"
-                elif work_str:
-                    return f"{reps}×{work_str}"
-                return None
-            
-            # Check for alternating work/rest pattern inside nested steps
-            # (e.g., 30/15 sessions: set_recovery, then work, rest, work, rest...)
-            if len(nested) >= 3:
-                result = self._detect_alternating_in_nested(nested, reps)
-                if result:
-                    return result
-            
-            # Too complex — bail
-            return None
-        except Exception:
-            return None
-    
-    def _detect_alternating_in_nested(self, nested: List[Dict], outer_reps: int) -> str:
-        """
-        Detect alternating work/rest pairs inside a nested step list.
-        Used for 30/15-style sessions where the builder unrolls reps inside a set.
-        
-        Guards:
-        - Both work and rest must have numeric power targets
-        - All work targets within ±2W, all rest targets within ±2W
-        - All work durations equal, all rest durations equal (one tail exception allowed)
-        - Minimum 3 pairs
-        """
-        try:
-            # Check if first step is a set recovery (low power, before the main work)
-            set_rec = None
-            start_idx = 0
-            if len(nested) >= 5:  # need at least set_rec + 2 pairs
-                first = nested[0]
-                second = nested[1]
-                first_power = self._get_power(first)
-                second_power = self._get_power(second)
-                first_dur = first.get("duration", 0)
-                second_dur = second.get("duration", 0)
-                # Set recovery: longer duration, lower or equal power than work steps
-                if (first_power is not None and second_power is not None 
-                    and first_power <= second_power and first_dur > second_dur):
-                    set_rec = first
-                    start_idx = 1
-            
-            # Collect remaining steps as candidate pairs
-            remaining = nested[start_idx:]
-            if len(remaining) < 6:  # need at least 3 pairs
-                return None
-            
-            # Try to consume as (work, rest) pairs
-            pairs = []
-            i = 0
-            while i + 1 < len(remaining):
-                work = remaining[i]
-                rest = remaining[i + 1]
-                w_power = self._get_power(work)
-                r_power = self._get_power(rest)
-                w_dur = work.get("duration")
-                r_dur = rest.get("duration")
-                
-                if w_power is None or r_power is None or w_dur is None or r_dur is None:
-                    return None  # Can't compare — bail
-                w_power = int(round(w_power))
-                r_power = int(round(r_power))
-                if w_power <= r_power:
-                    return None  # Work should be harder than rest
-                if abs(w_power - r_power) < max(10, 0.05 * w_power):
-                    return None  # Targets must be meaningfully distinct
-                
-                pairs.append((w_dur, w_power, r_dur, r_power))
-                i += 2
-            
-            if len(pairs) < 3:
-                return None
-            
-            # Consistency check
-            ref_w_dur, ref_w_power, ref_r_dur, ref_r_power = pairs[0]
-            for j, (wd, wp, rd, rp) in enumerate(pairs):
-                if wd != ref_w_dur:
-                    return None  # Work durations must match exactly
-                if abs(wp - ref_w_power) > 2:
-                    return None  # Work power within ±2W
-                if abs(rp - ref_r_power) > 2:
-                    return None  # Rest power within ±2W
-                # Rest duration: allow last pair to differ (tail exception)
-                if rd != ref_r_dur and j < len(pairs) - 1:
-                    return None
-            
-            # Build summary
-            n_reps = len(pairs)
-            work_dur_str = self._format_duration(ref_w_dur)
-            work_power = int(round(ref_w_power))
-            rest_dur_str = self._format_duration(ref_r_dur)
-            
-            inner = f"{n_reps}×{work_dur_str} @{work_power}W / {rest_dur_str} rec"
-            
-            if outer_reps > 1:
-                if set_rec:
-                    sr_dur = self._format_duration(set_rec.get("duration", 0))
-                    return f"{outer_reps} sets × {inner} ({sr_dur} set rec)"
-                return f"{outer_reps} sets × {inner}"
-            
-            if set_rec:
-                sr_dur = self._format_duration(set_rec.get("duration", 0))
-                return f"{inner} ({sr_dur} set rec)"
-            return inner
-        except Exception:
-            return None
-    
-    def _get_power(self, step: Dict) -> float:
-        """Extract resolved power value from a step. Returns float or None."""
-        try:
-            power = step.get("_power") or step.get("power")
-            if power and isinstance(power, dict):
-                val = power.get("value")
-                if val is not None:
-                    return float(val)
-            return None
-        except Exception:
-            return None
-    
-    def _describe_work_step(self, step: Dict) -> str:
-        """Describe a work step as 'dur @power'."""
-        try:
-            dur = step.get("duration")
-            if not dur:
-                return None
-            dur_str = self._format_duration(int(dur))
-            
-            power = self._get_power(step)
-            if power is not None:
-                return f"{dur_str} @{int(round(power))}W"
-            
-            hr = step.get("_hr") or step.get("hr")
-            if hr and isinstance(hr, dict):
-                val = hr.get("value")
-                if val is not None:
-                    return f"{dur_str} @{int(round(val))}bpm"
-            
-            return dur_str
-        except Exception:
-            return None
-    
-    def _describe_rest_duration(self, step: Dict) -> str:
-        """Describe a rest step duration."""
-        try:
-            dur = step.get("duration")
-            if not dur:
-                return None
-            return self._format_duration(int(dur))
-        except Exception:
-            return None
-    
-    @staticmethod
-    def _format_duration(seconds: int) -> str:
-        """Format seconds into human-readable duration (e.g., 300 → '5m', 90 → '1m30s')."""
-        if seconds <= 0:
-            return "0s"
-        hours = seconds // 3600
-        minutes = (seconds % 3600) // 60
-        secs = seconds % 60
-        
-        parts = []
-        if hours:
-            parts.append(f"{hours}h")
-        if minutes:
-            parts.append(f"{minutes}m")
-        if secs:
-            parts.append(f"{secs}s")
-        return "".join(parts) if parts else "0s"
-    
-    def _detect_flat_alternating(self, workout_doc: Dict) -> str:
-        """
-        Pattern B: Detect flat alternating work/rest pairs in top-level steps.
-        
-        For workouts like sprint openers where intervals are unrolled without
-        repeat markers. Scans top-level steps for blocks of alternating high/low
-        power pairs separated by non-matching steps (warmup, cooldown, etc).
-        
-        Guards:
-        - Both work and rest must have numeric power targets (via _power or power)
-        - All work targets within ±2W, all rest targets within ±2W
-        - All work durations equal, all rest durations equal (one tail exception)
-        - Minimum 3 pairs per block
-        - Work power must be higher than rest power
-        """
-        try:
-            steps = workout_doc.get("steps")
-            if not steps or not isinstance(steps, list) or len(steps) < 6:
-                return None
-            
-            # Skip steps that are repeat blocks (already handled by Pattern A)
-            if any(s.get("reps") for s in steps if isinstance(s, dict)):
-                return None
-            
-            # Collect (duration, power) for each step
-            step_data = []
-            for s in steps:
-                if not isinstance(s, dict):
-                    return None
-                dur = s.get("duration")
-                power = self._get_power(s)
-                step_data.append((dur, power))
-            
-            # Try to find alternating blocks
-            # Strategy: scan for regions where pairs repeat
-            parts = []
-            i = 0
-            while i < len(step_data):
-                dur_i, pow_i = step_data[i]
-                
-                # Try to start an alternating block at position i
-                if (i + 1 < len(step_data) 
-                    and dur_i is not None and pow_i is not None
-                    and step_data[i+1][0] is not None and step_data[i+1][1] is not None):
-                    
-                    block = self._try_alternating_block(step_data, i)
-                    if block:
-                        count, work_dur, work_power, rest_dur = block
-                        wd_str = self._format_duration(work_dur)
-                        rd_str = self._format_duration(rest_dur)
-                        parts.append(f"{count}×{wd_str} @{int(round(work_power))}W / {rd_str} rec")
-                        i += count * 2
-                        continue
-                
-                # Not part of an alternating block — render as flat step
-                if dur_i is not None:
-                    flat = self._render_flat_step(steps[i])
-                    if flat:
-                        parts.append(flat)
-                i += 1
-            
-            if not parts:
-                return None
-            
-            # Only return if we found at least one alternating block
-            has_block = any("×" in p for p in parts)
-            if not has_block:
-                return None
-            
-            return self._merge_interval_blocks(parts)
-        except Exception:
-            return None
-    
-    def _try_alternating_block(self, step_data: List, start: int) -> tuple:
-        """
-        Try to consume an alternating work/rest block starting at 'start'.
-        Returns (count, work_dur, work_power, rest_dur) or None.
-        """
-        try:
-            ref_w_dur, ref_w_power = step_data[start]
-            ref_r_dur, ref_r_power = step_data[start + 1]
-            
-            if ref_w_power is None or ref_r_power is None:
-                return None
-            # Normalize watts to ints before all comparisons
-            ref_w_power = int(round(ref_w_power))
-            ref_r_power = int(round(ref_r_power))
-            if ref_w_power <= ref_r_power:
-                return None  # Work must be harder than rest
-            if abs(ref_w_power - ref_r_power) < max(10, 0.05 * ref_w_power):
-                return None  # Targets must be meaningfully distinct
-            if ref_w_dur is None or ref_r_dur is None:
-                return None
-            
-            count = 1
-            j = start + 2
-            while j + 1 < len(step_data):
-                wd, wp = step_data[j]
-                rd, rp = step_data[j + 1]
-                
-                if wp is None or rp is None or wd is None or rd is None:
-                    break
-                wp = int(round(wp))
-                rp = int(round(rp))
-                if abs(wd - ref_w_dur) > 1:
-                    break  # Work duration tolerance ±1s
-                if abs(wp - ref_w_power) > 2:
-                    break
-                if abs(rp - ref_r_power) > 2:
-                    break
-                # Rest duration: allow tail exception on last pair
-                if abs(rd - ref_r_dur) > 2:
-                    # Long rest (≥1.5× normal) = set break — always consume as tail
-                    if rd >= ref_r_dur * 1.5:
-                        count += 1
-                        j += 2
-                        break
-                    # Otherwise check if more matching pairs follow
-                    if j + 3 < len(step_data):
-                        nwd, nwp = step_data[j + 2]
-                        if (nwd is not None and abs(nwd - ref_w_dur) <= 1 
-                            and nwp is not None and abs(int(round(nwp)) - ref_w_power) <= 2):
-                            break  # Not the last pair — strict fail
-                    count += 1
-                    j += 2
-                    break  # Tail exception consumed, stop
-                
-                count += 1
-                j += 2
-            
-            if count < 3:
-                return None
-            
-            return (count, ref_w_dur, ref_w_power, ref_r_dur)
-        except Exception:
-            return None
-    
-    def _format_events(self, events: List[Dict], anonymize: bool = False, today: str = None) -> List[Dict]:
-        """
-        Format planned workouts with workout_summary and tiered detail (v3.6.2).
-        
-        Tiering:
-        - Days 0-7: full output (description + workout_summary + all fields)
-        - Days 8-42: skeleton (name, date, type, TSS, duration, workout_summary).
-          If workout_summary is null, keeps description_preview (first 3 lines).
-        
-        Sets self._summary_stats with coverage telemetry.
-        """
-        if today is None:
-            today = datetime.now().strftime("%Y-%m-%d")
-        
-        day7_cutoff = (datetime.strptime(today, "%Y-%m-%d") + timedelta(days=7)).strftime("%Y-%m-%d")
-        
-        stats = {"attempted": 0, "success": 0, "patternA": 0, "patternB": 0,
-                 "bail_no_workout_doc": 0, "bail_no_match": 0}
-        
-        result = []
-        for i, evt in enumerate(events):
-            evt_date = (evt.get("start_date_local") or "unknown")[:10]
-            is_near = evt_date <= day7_cutoff
-            
-            # Generate workout_summary from workout_doc
-            workout_doc = evt.get("workout_doc")
-            summary = None
-            
-            if workout_doc and isinstance(workout_doc, dict) and workout_doc.get("steps"):
-                stats["attempted"] += 1
-                summary = self._summarize_workout_doc(workout_doc)
-                if summary:
-                    stats["patternA"] += 1
-                else:
-                    # Try Pattern B (flat alternating)
-                    summary = self._detect_flat_alternating(workout_doc)
-                    if summary:
-                        stats["patternB"] += 1
-                    else:
-                        stats["bail_no_match"] += 1
-                if summary:
-                    stats["success"] += 1
-            elif evt.get("description", "").strip():
-                stats["bail_no_workout_doc"] += 1
-
-            # Parse NOTE: lines from description (v0.3 — coach annotations)
-            raw_desc = evt.get("description", "")
-            coach_notes = []
-            clean_desc_lines = []
-            past_notes = False
-            for line in raw_desc.split("\n"):
-                stripped = line.strip()
-                if not past_notes and stripped.upper().startswith("NOTE:"):
-                    note_text = stripped[5:].strip()
-                    if note_text:
-                        coach_notes.append(note_text)
-                elif not past_notes and stripped == "":
-                    continue  # skip blank lines between NOTE: lines and workout
-                else:
-                    past_notes = True
-                    clean_desc_lines.append(line)
-            clean_desc = "\n".join(clean_desc_lines).strip()
-
-            entry = {
-                "id": evt.get("id", f"unknown_{i+1}"),
-                "date": evt_date,
-                "name": evt.get("name", ""),
-                "type": evt.get("category", ""),
-                "planned_tss": evt.get("icu_training_load"),
-                "duration_hours": round(evt.get("moving_time", 0) / 3600, 2),
-                "duration_formatted": self._format_duration(int(evt.get("moving_time", 0))),
-                "workout_summary": summary
-            }
-
-            if coach_notes:
-                entry["coach_notes"] = coach_notes
-            
-            if is_near:
-                # Days 0-7: full detail
-                entry["description"] = clean_desc
-            else:
-                # Days 8-42: skeleton only
-                if summary is None:
-                    lines = [l.strip() for l in clean_desc.split("\n") if l.strip()][:3]
-                    entry["description_preview"] = "\n".join(lines) if lines else None
-            
-            result.append(entry)
-        
-        self._summary_stats = stats
-        return result
+    def _format_events(self, events: List[Dict], anonymize: bool = False) -> List[Dict]:
+        """Format planned workouts"""
+        return [{
+            "id": f"event_{i+1}" if anonymize else evt.get("id", f"unknown_{i+1}"),
+            "date": evt.get("start_date_local", "unknown"),
+            "name": "Planned Workout" if anonymize else evt.get("name", ""),
+            "type": evt.get("category", ""),
+            "description": evt.get("description", ""),
+            "planned_tss": evt.get("icu_training_load"),
+            "duration_hours": round(evt.get("duration", 0) / 3600, 2)
+        } for i, evt in enumerate(events)]
     
     def _build_race_calendar(self, future_events: List[Dict], current_ctl: float,
                               current_atl: float, current_tsb: float,
@@ -3963,7 +3331,6 @@ class IntervalsSync:
 
         return {
             "total_training_hours": round(total_hours, 2),
-            "total_training_formatted": self._format_duration(int(total_seconds) // 60 * 60),
             "total_tss": round(total_tss, 0),
             "activities_count": len(activities),
             "avg_hrv": avg_hrv,
