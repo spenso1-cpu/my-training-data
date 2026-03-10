@@ -15,7 +15,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-10T11:55:55.791510",
+    "last_updated": "2026-03-10T14:35:16.166612",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.77"
@@ -79,7 +79,7 @@
   "history": {
     "available": true,
     "last_generated": "2026-02-25",
-    "age_days": 12,
+    "age_days": 13,
     "total_months": 35,
     "history_confidence": "high"
   },
@@ -143,7 +143,7 @@
           "max_hr": 190,
           "threshold_pace": 4.5662103,
           "pace_units": "MINS_KM",
-          "ftp": 425,
+          "ftp": 436,
           "ftp_indoor": null
         },
         "swim": {
@@ -303,9 +303,9 @@
           "planned_tss_delta": null,
           "hard_sessions_planned": 0,
           "race_proximity": null,
-          "next_week_load": null,
+          "next_week_load": 1.6,
           "plan_coverage_current_week": 0.0,
-          "plan_coverage_next_week": 0.2
+          "plan_coverage_next_week": 1.6
         },
         "data_quality": "good",
         "stream_agreement": null
@@ -338,7 +338,7 @@
     "p_max": 1116,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-03-10T11:55:55.790752",
+    "calculation_timestamp": "2026-03-10T14:35:16.165862",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -825,6 +825,83 @@
       "description": ""
     },
     {
+      "id": 97668839,
+      "date": "2026-03-16",
+      "name": "W1 Mon \u2014 Easy Bike Z1",
+      "type": "WORKOUT",
+      "planned_tss": 50,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description": "Easy Z1 ride 60\u201390 min (< 150W / < 120 bpm). No running. Active recovery and aerobic maintenance."
+    },
+    {
+      "id": 97668840,
+      "date": "2026-03-17",
+      "name": "W1 Tue \u2014 KEY RUN 1: Tempo 4\u00d78min",
+      "type": "WORKOUT",
+      "planned_tss": 65,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description": "Warm-up 15min easy (5:15/km). 4 \u00d7 8min @ Z3 tempo (3:45/km, 158\u2013163 bpm). 3min jog recovery. Cool-down 10min easy.\n\nTarget: ~12 km total. HR-capped warm-up and cool-down strictly Z1\u2013Z2."
+    },
+    {
+      "id": 97668841,
+      "date": "2026-03-18",
+      "name": "W1 Wed \u2014 Easy Run Z1\u2013Z2",
+      "type": "WORKOUT",
+      "planned_tss": 45,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "60min entirely Z1\u2013Z2 (4:30\u20135:00/km, < 150 bpm). HR-capped \u2014 slow down if HR climbs above 150. Pure aerobic volume.\nTarget: ~12 km."
+    },
+    {
+      "id": 97668843,
+      "date": "2026-03-19",
+      "name": "W1 Thu \u2014 KEY RUN 2: Threshold 3\u00d712min",
+      "type": "WORKOUT",
+      "planned_tss": 75,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 3 \u00d7 12min @ Z3\u2013Z4 threshold (3:45\u20133:50/km, 162\u2013168 bpm). 4min jog recovery. Cool-down 10min easy.\nTarget: ~13 km total."
+    },
+    {
+      "id": 97668844,
+      "date": "2026-03-20",
+      "name": "W1 Fri \u2014 Light Bike or Rest",
+      "type": "WORKOUT",
+      "planned_tss": 30,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Light Z1 ride 45\u201360 min, or full rest. Judge by fatigue. No running. HR < 120 bpm if riding."
+    },
+    {
+      "id": 97668846,
+      "date": "2026-03-21",
+      "name": "W1 Sat \u2014 Long Run Z1\u2013Z2",
+      "type": "WORKOUT",
+      "planned_tss": 65,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "75min easy Z1\u2013Z2. Final 15min pick up to Z3 if feeling good and HR permits.\nTarget: ~15 km. HR ceiling 152 bpm throughout \u2014 if HR drifts above, slow down."
+    },
+    {
+      "id": 97668847,
+      "date": "2026-03-22",
+      "name": "W1 Sun \u2014 Easy Run or Bike (Active Recovery)",
+      "type": "WORKOUT",
+      "planned_tss": 25,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "30\u201340min easy Z1 run OR swap for easy bike. Active recovery only. HR < 135 bpm.\nTarget: ~5 km if running."
+    },
+    {
       "id": 95627322,
       "date": "2026-03-23",
       "name": "Weekly",
@@ -834,6 +911,83 @@
       "duration_formatted": "0s",
       "workout_summary": null,
       "description_preview": null
+    },
+    {
+      "id": 97668849,
+      "date": "2026-03-23",
+      "name": "W2 Mon \u2014 Easy Bike Z1 or Rest",
+      "type": "WORKOUT",
+      "planned_tss": 50,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Z1 ride 60\u201390 min or full rest. No running. Legs fresh for Tuesday key session."
+    },
+    {
+      "id": 97668850,
+      "date": "2026-03-24",
+      "name": "W2 Tue \u2014 KEY RUN 1: Tempo 5\u00d78min",
+      "type": "WORKOUT",
+      "planned_tss": 72,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 5 \u00d7 8min @ Z3 tempo (3:45/km, 158\u2013163 bpm). 3min jog recovery. Cool-down 10min easy.\nTarget: ~13 km total."
+    },
+    {
+      "id": 97668851,
+      "date": "2026-03-25",
+      "name": "W2 Wed \u2014 Easy Run Z1\u2013Z2",
+      "type": "WORKOUT",
+      "planned_tss": 48,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "65min Z1\u2013Z2 (< 150 bpm). Pure aerobic \u2014 no pushing. Recover from Tuesday.\nTarget: ~13 km."
+    },
+    {
+      "id": 97668852,
+      "date": "2026-03-26",
+      "name": "W2 Thu \u2014 KEY RUN 2: Threshold 2\u00d720min",
+      "type": "WORKOUT",
+      "planned_tss": 85,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 2 \u00d7 20min @ Z4 threshold (3:35\u20133:45/km, 168\u2013172 bpm). 5min jog recovery. Cool-down 10min easy.\nTarget: ~14 km total. This is the primary fitness stimulus of the week."
+    },
+    {
+      "id": 97668853,
+      "date": "2026-03-27",
+      "name": "W2 Fri \u2014 Easy Bike or Rest",
+      "type": "WORKOUT",
+      "planned_tss": 30,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Z1 ride 45\u201360 min or rest. No running."
+    },
+    {
+      "id": 97668855,
+      "date": "2026-03-28",
+      "name": "W2 Sat \u2014 Long Run Z2",
+      "type": "WORKOUT",
+      "planned_tss": 70,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "80min easy Z2. Consistent HR 140\u2013150 bpm throughout. Check cardiac decoupling \u2014 if HR drifts >10% relative to pace in second half, cut short.\nTarget: ~16 km."
+    },
+    {
+      "id": 97668856,
+      "date": "2026-03-29",
+      "name": "W2 Sun \u2014 Easy Run Z1",
+      "type": "WORKOUT",
+      "planned_tss": 22,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "35\u201340min easy Z1. Keep HR under 140. Active recovery.\nTarget: ~5 km."
     },
     {
       "id": 95627323,
@@ -847,6 +1001,83 @@
       "description_preview": null
     },
     {
+      "id": 97668857,
+      "date": "2026-03-30",
+      "name": "W3 Mon \u2014 Full Rest",
+      "type": "WORKOUT",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Full rest. No running, no hard cycling. Recovery week begins."
+    },
+    {
+      "id": 97668858,
+      "date": "2026-03-31",
+      "name": "W3 Tue \u2014 KEY RUN 1: Tempo 3\u00d78min (Recovery Week)",
+      "type": "WORKOUT",
+      "planned_tss": 52,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 3 \u00d7 8min @ Z3 tempo (3:45/km). 3min jog recovery. Cool-down 10min. Shorter than Week 1 \u2014 recovery week.\nTarget: ~10 km total."
+    },
+    {
+      "id": 97668860,
+      "date": "2026-04-01",
+      "name": "W3 Wed \u2014 Easy Run Z1",
+      "type": "WORKOUT",
+      "planned_tss": 30,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "45min easy Z1 (< 140 bpm). Very easy \u2014 recovery focus. Walk breaks allowed if HR climbs.\nTarget: ~9 km."
+    },
+    {
+      "id": 97668861,
+      "date": "2026-04-02",
+      "name": "W3 Thu \u2014 KEY RUN 2: Threshold 3\u00d710min (Recovery Week)",
+      "type": "WORKOUT",
+      "planned_tss": 60,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 3 \u00d7 10min @ Z3\u2013Z4 (3:40\u20133:50/km). 4min recovery. Cool-down 10min.\nTarget: ~11 km total."
+    },
+    {
+      "id": 97668864,
+      "date": "2026-04-03",
+      "name": "W3 Fri \u2014 Easy Bike or Rest",
+      "type": "WORKOUT",
+      "planned_tss": 25,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Easy bike 45min Z1, or full rest."
+    },
+    {
+      "id": 97668866,
+      "date": "2026-04-04",
+      "name": "W3 Sat \u2014 Long Run Z1\u2013Z2 (Easy)",
+      "type": "WORKOUT",
+      "planned_tss": 55,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "65min easy Z1\u2013Z2. No progression. Pure easy \u2014 HR ceiling 148 bpm.\nTarget: ~13 km."
+    },
+    {
+      "id": 97668868,
+      "date": "2026-04-05",
+      "name": "W3 Sun \u2014 Full Rest",
+      "type": "WORKOUT",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Full rest. Prioritise sleep and nutrition. Absorb Weeks 1\u20132."
+    },
+    {
       "id": 95627324,
       "date": "2026-04-06",
       "name": "Weekly",
@@ -858,6 +1089,83 @@
       "description_preview": null
     },
     {
+      "id": 97668869,
+      "date": "2026-04-06",
+      "name": "W4 Mon \u2014 Easy Bike Z1\u2013Z2",
+      "type": "WORKOUT",
+      "planned_tss": 45,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Z1\u2013Z2 bike 60\u201375 min (< 200W). Aerobic maintenance only. No hard cycling this week."
+    },
+    {
+      "id": 97668870,
+      "date": "2026-04-07",
+      "name": "W4 Tue \u2014 KEY RUN 1: Race Pace 6\u00d71km",
+      "type": "WORKOUT",
+      "planned_tss": 80,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 6 \u00d7 1km @ race pace (3:15\u20133:20/km, 175\u2013177 bpm). 90sec standing recovery between reps. Cool-down 10min easy.\nTarget: ~14 km total. First race-specific session \u2014 controlled execution."
+    },
+    {
+      "id": 97668871,
+      "date": "2026-04-08",
+      "name": "W4 Wed \u2014 Easy Run Z1\u2013Z2",
+      "type": "WORKOUT",
+      "planned_tss": 45,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "60min easy Z1\u2013Z2. Full recovery from Tuesday's race-pace work.\nTarget: ~12 km."
+    },
+    {
+      "id": 97668872,
+      "date": "2026-04-09",
+      "name": "W4 Thu \u2014 KEY RUN 2: Threshold 3\u00d715min",
+      "type": "WORKOUT",
+      "planned_tss": 90,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 3 \u00d7 15min @ Z4 threshold (3:35\u20133:40/km, 168\u2013172 bpm). 4min jog recovery. Cool-down 10min easy.\nTarget: ~15 km total."
+    },
+    {
+      "id": 97668875,
+      "date": "2026-04-10",
+      "name": "W4 Fri \u2014 Easy Bike or Rest",
+      "type": "WORKOUT",
+      "planned_tss": 25,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Easy Z1 bike 45min or full rest. No running."
+    },
+    {
+      "id": 97668876,
+      "date": "2026-04-11",
+      "name": "W4 Sat \u2014 Long Run Z2",
+      "type": "WORKOUT",
+      "planned_tss": 70,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "80min Z2. Controlled \u2014 HR stays 140\u2013152 bpm. Check cardiac decoupling in second half.\nTarget: ~16 km."
+    },
+    {
+      "id": 97668878,
+      "date": "2026-04-12",
+      "name": "W4 Sun \u2014 Easy Run Z1",
+      "type": "WORKOUT",
+      "planned_tss": 22,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "30\u201340min easy Z1.\nTarget: ~5 km."
+    },
+    {
       "id": 95627325,
       "date": "2026-04-13",
       "name": "Weekly",
@@ -867,6 +1175,83 @@
       "duration_formatted": "0s",
       "workout_summary": null,
       "description_preview": null
+    },
+    {
+      "id": 97668879,
+      "date": "2026-04-13",
+      "name": "W5 Mon \u2014 Full Rest or Easy Bike",
+      "type": "WORKOUT",
+      "planned_tss": 20,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Full rest or Z1 bike 45min. Legs fresh for Tuesday. This is the hardest week \u2014 protect Monday."
+    },
+    {
+      "id": 97668880,
+      "date": "2026-04-14",
+      "name": "W5 Tue \u2014 KEY RUN 1: Race Pace 8\u00d71km (PEAK SESSION)",
+      "type": "WORKOUT",
+      "planned_tss": 92,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 8 \u00d7 1km @ race pace (3:15\u20133:20/km, 175\u2013177 bpm). 90sec standing recovery. Cool-down 10min easy.\nTarget: ~15 km total. Peak quality session \u2014 first 2 reps conservative. If HR exceeds 179 bpm before rep 5, stop at 6."
+    },
+    {
+      "id": 97668881,
+      "date": "2026-04-15",
+      "name": "W5 Wed \u2014 Easy Run Z1\u2013Z2",
+      "type": "WORKOUT",
+      "planned_tss": 45,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "60min easy Z1\u2013Z2. Do not push. Full recovery from Tuesday.\nTarget: ~12 km."
+    },
+    {
+      "id": 97668882,
+      "date": "2026-04-16",
+      "name": "W5 Thu \u2014 KEY RUN 2: Threshold 2\u00d720min (Peak)",
+      "type": "WORKOUT",
+      "planned_tss": 90,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 2 \u00d7 20min @ threshold (3:35\u20133:40/km, 168\u2013172 bpm). 5min jog recovery. Cool-down 10min.\nTarget: ~15 km total. Peak threshold session."
+    },
+    {
+      "id": 97668883,
+      "date": "2026-04-17",
+      "name": "W5 Fri \u2014 Easy Bike or Rest",
+      "type": "WORKOUT",
+      "planned_tss": 30,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Z1 bike 60min or rest. Manage cycling load carefully this week."
+    },
+    {
+      "id": 97668884,
+      "date": "2026-04-18",
+      "name": "W5 Sat \u2014 Long Run Z2 (Longest of Plan)",
+      "type": "WORKOUT",
+      "planned_tss": 75,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "85min Z2. Largest long run of the plan \u2014 consistent HR 140\u2013152 bpm.\nTarget: ~17 km."
+    },
+    {
+      "id": 97668886,
+      "date": "2026-04-19",
+      "name": "W5 Sun \u2014 Easy Run Z1",
+      "type": "WORKOUT",
+      "planned_tss": 22,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "30\u201340min easy Z1.\nTarget: ~5 km."
     },
     {
       "id": 95627326,
@@ -889,6 +1274,28 @@
       "duration_formatted": "0s",
       "workout_summary": null,
       "description_preview": "Focus on easier efforts, reduced volume, and allowing your body to adapt to training stress"
+    },
+    {
+      "id": 97668888,
+      "date": "2026-04-20",
+      "name": "W6 Mon \u2014 Full Rest",
+      "type": "WORKOUT",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Full rest. No compromise \u2014 legs need it after Week 5. Final race-specific stimulus week."
+    },
+    {
+      "id": 97668889,
+      "date": "2026-04-21",
+      "name": "W6 Tue \u2014 KEY RUN 1: Race Pace 5\u00d71km (Final Stimulus)",
+      "type": "WORKOUT",
+      "planned_tss": 70,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 5 \u00d7 1km @ race pace (3:15\u20133:20/km). 90sec standing recovery. Cool-down 10min easy.\nTarget: ~12 km. Sharper and lighter than Week 5 \u2014 quality not volume."
     }
   ],
   "workout_summary_stats": {
@@ -896,7 +1303,7 @@
     "success": 0,
     "patternA": 0,
     "patternB": 0,
-    "bail_no_workout_doc": 1,
+    "bail_no_workout_doc": 38,
     "bail_no_match": 0
   },
   "weekly_summary": {
