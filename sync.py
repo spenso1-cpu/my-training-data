@@ -4,6 +4,24 @@ Intervals.icu → GitHub/Local JSON Export
 Exports training data for LLM access.
 Supports both automated GitHub sync and manual local export.
 
+Version 3.80 - --update orphan cleanup: detects and removes local files no longer in the upstream
+  manifest (e.g. files moved or deleted in a repo restructure), and standalone empty directories.
+  Runs after the pull step, shows orphaned items with [removed from repo] / [empty directory] tags,
+  prompts for confirmation. Empty parent directories cleaned up automatically.
+  Skips manifest.json, .tmp files, and hidden files/directories.
+
+Version 3.79 - Feel/RPE fix: removed feel from daily history rows (activity-level field, not wellness),
+  added RPE to weekly history tier, correct activity-sourced aggregation with counts.
+  - _build_daily_rows: removed incorrect feel flattening to daily scalar
+  - _build_weekly_tier: added week_rpe collector, avg_rpe + rpe_count + feel_count in output
+  - Fixed null safety: feel collection uses `is not None` instead of truthy check
+  - Report templates updated: feel/RPE in post-workout, pre-workout, weekly, block reports
+
+Version 3.78 - Bug fix: weekly history aligned to configured week start (was hardcoded Monday)
+  - _build_weekly_tier respects week_start_day setting; fixes Sunday-start week misalignment
+  - Update checker: removed manifest.json fallback from _check_for_updates(), changelog.json only
+  - Log rotation: sync.log trimmed to 200 lines when over 1MB
+
 Version 3.77 - Hash-based manifest for --update (all repo files tracked, no manual version bumps)
   - --generate-manifest: maintainer command, walks repo, hashes all files, writes manifest.json
   - --update: compares SHA256 hashes instead of version strings, detects new files automatically
@@ -32,45 +50,13 @@ Version 3.75 - Working directory awareness + local setup
   - --lockfile flag: prevent overlapping runs for automated timers (stale detection via PID + 10-min age)
   - Update notifications: manifest.json preferred, changelog.json fallback (backward compatible)
   - Bootstrap flow: python sync.py --setup → python sync.py --init → use section11/examples/sync.py going forward
+  
+Version 3.73 - Phase detection: Stream 2 windows aligned to training week, configurable week start (config/env/CLI)
+Version 3.72 - Readiness Decision: pre-computed go/modify/skip via P0-P3 priority ladder, 7 signals, phase modifiers
+Version 3.71 - HRRc integration: 7d/28d aggregate trend in capability namespace (display only)
+Version 3.7 - Phase detection v2: dual-stream (retrospective + prospective), 8 states, confidence scoring, hysteresis
 
-Version 3.73 - Phase detection: week-aligned prospective windows
-  - Stream 2 windows aligned to training week instead of rolling 7-day from today
-  - Fixes mid-week deload misclassification: rolling window leaked next week's build sessions
-  - Configurable week start: .sync_config.json "week_start", WEEK_START env var, or --week-start CLI
-  - Default Monday (ISO). Set once in config, never think about it again
-  - Current week window: today → week end. Next week: next full training week
-  - Planned TSS delta projected to full-week equivalent from remaining days
-  - Hard sessions and plan coverage scoped to current week remainder only
-
-Version 3.72 - Readiness Decision (AAS formalization)
-  - Pre-computed go/modify/skip via P0-P3 priority ladder (safety → overload → fatigue → green light)
-  - 7 signals evaluated: HRV, RHR, Sleep, TSB, ACWR, Feel, RI — green/amber/red/unavailable
-  - Phase modifiers: Build loosens (3 amber), Taper/Race week tighten (1 amber), others default (2)
-  - Structured modification output: triggers + adjustment directions (intensity/volume/cap_zone)
-  - Wires into existing tier-1 alerts (P0/P1) — no duplication
-  - Top-level readiness_decision object in output JSON, alongside alerts
-
-Version 3.71 - HRRc (heart rate recovery) integration
-  - Added icu_hrr (HRRc) field to formatted activity output as "hrrc"
-  - Added _calculate_hrrc_trend(): 7d/28d aggregate HRRc in capability namespace
-  - Qualifying: icu_hrr not null, min 1 session/7d, min 3 sessions/28d
-  - Trend: >10% difference = improving/declining (conservative for field noise)
-  - Display only — not wired into readiness_decision signals
-
-Version 3.7 - Phase detection v2: dual-stream architecture (retrospective + prospective)
-  - Stream 1: 4-week lookback from weekly_180d — CTL slope, ACWR trend, hard-day density, monotony
-  - Stream 2: planned workouts + race calendar — planned TSS delta, hard sessions, race proximity
-  - 8 phase states: Build/Base/Peak/Taper/Deload/Recovery/Overreached/null
-  - Confidence scoring (high/medium/low), reason codes, hysteresis from previous_phase
-  - weekly_180d enriched: per-week phase_detected, acwr, monotony, intensity_basis_breakdown
-  - Overreached false-positive fixes, Peak/Deload gate refinements
-
-Version 3.6.5 - Real IDs + Coach Notes
-  - Activity/event IDs always real (opaque keys, not PII). Athlete ID still REDACTED when anonymized
-  - coach_notes array: NOTE: lines parsed from activity/event descriptions
-  - chat_notes array: fetches activity messages endpoint when has_messages is true
-  - Enables push.py v0.3 annotate round-trip (write via push.py, read via sync.py)
-
+Version 3.6.5 - Real activity/event IDs, coach_notes + chat_notes arrays, push.py annotate round-trip
 Version 3.6.4 - READ_THIS_FIRST display_formatting instruction, report template XhYm alignment
 Version 3.6.3 - Human-readable _formatted fields (duration, sleep, training hours), floored to minutes
 Version 3.6.2 - Workout summary parser (Pattern A/B), tiered planned workout detail (0-7d full, 8-42d skeleton)
@@ -113,7 +99,7 @@ class IntervalsSync:
     HISTORY_FILE = "history.json"
     UPSTREAM_REPO = "CrankAddict/section-11"
     CHANGELOG_FILE = "changelog.json"
-    VERSION = "3.77"
+    VERSION = "3.80"
 
     # Sport family mapping for per-sport monotony calculation
     # Multi-sport athletes get inflated total monotony when cross-training
@@ -3536,18 +3522,10 @@ class IntervalsSync:
                 "sleep_hours": round(wellness.get("sleepSecs", 0) / 3600, 2) if wellness.get("sleepSecs") else None,
                 "sleep_formatted": self._format_duration(int(wellness.get("sleepSecs", 0)) // 60 * 60) if wellness.get("sleepSecs") else None,
                 "sleep_quality": wellness.get("sleepQuality"),
-                "feel": None,  # Not available in wellness, only in activities
                 "weight_kg": wellness.get("weight"),
                 "is_hard_day": is_hard,
                 "intensity_basis": intensity_basis
             })
-            
-            # Check feel from activities
-            for a in day_activities:
-                feel = a.get("feel")
-                if feel:
-                    rows[-1]["feel"] = feel
-                    break
         
         return rows
     
@@ -3559,10 +3537,11 @@ class IntervalsSync:
         
         # Calculate weeks
         start_date = now - timedelta(days=days)
-        # Align to Monday
-        start_monday = start_date - timedelta(days=start_date.weekday())
+        # Align to configured week start day
+        days_since_week_start = (start_date.weekday() - self.week_start_day) % 7
+        start_aligned = start_date - timedelta(days=days_since_week_start)
         
-        current = start_monday
+        current = start_aligned
         while current < now:
             week_end = current + timedelta(days=6)
             if week_end > now:
@@ -3575,6 +3554,7 @@ class IntervalsSync:
             week_rhr = []
             week_sleep = []
             week_feel = []
+            week_rpe = []
             week_weight = []
             hard_days = 0
             daily_tss_list = []
@@ -3645,8 +3625,11 @@ class IntervalsSync:
                             total_zone_time += secs
                     
                     feel = a.get("feel")
-                    if feel:
+                    if feel is not None:
                         week_feel.append(feel)
+                    rpe = a.get("icu_rpe")
+                    if rpe is not None:
+                        week_rpe.append(rpe)
                 
                 is_hard, hard_basis = self._classify_hard_day(day_zones_by_basis)
                 if is_hard:
@@ -3688,6 +3671,9 @@ class IntervalsSync:
                 "hard_days": hard_days,
                 "longest_ride_hours": round(longest_ride / 3600, 2),
                 "avg_feel": round(statistics.mean(week_feel), 1) if week_feel else None,
+                "feel_count": len(week_feel) if week_feel else 0,
+                "avg_rpe": round(statistics.mean(week_rpe), 1) if week_rpe else None,
+                "rpe_count": len(week_rpe) if week_rpe else 0,
                 "weight_kg": round(week_weight[-1], 1) if week_weight else None,
                 "monotony": week_monotony,
                 "intensity_basis_breakdown": intensity_basis_counts if hard_days > 0 else None,
@@ -5392,6 +5378,65 @@ def _compare_files(upstream_files, section11_dir):
     return needs_update, current
 
 
+def _find_orphaned_files(upstream_files, section11_dir):
+    """Find local files inside section11/ that are no longer in the upstream manifest.
+    Returns a sorted list of relative path strings.
+    Excludes manifest.json (local-only), .tmp files, and hidden files/directories."""
+    manifest_paths = set(upstream_files.keys())
+    orphaned = []
+
+    for root, dirs, files in os.walk(section11_dir):
+        # Skip hidden directories (e.g. .git, .DS_Store folders)
+        dirs[:] = [d for d in dirs if not d.startswith('.')]
+
+        for fname in files:
+            # Skip hidden files, .tmp files, and manifest.json
+            if fname.startswith('.'):
+                continue
+            if fname.endswith('.tmp'):
+                continue
+
+            full_path = Path(root) / fname
+            rel_path = str(full_path.relative_to(section11_dir))
+
+            if rel_path == "manifest.json":
+                continue
+
+            if rel_path not in manifest_paths:
+                orphaned.append(rel_path)
+
+    return sorted(orphaned)
+
+
+def _find_empty_dirs(section11_dir):
+    """Find directories inside section11/ that contain no visible files or subdirectories.
+    Walks bottom-up so nested empty dirs are caught. Returns sorted list of relative path strings.
+    Skips hidden directories at the top level of the walk."""
+    empty_dirs = []
+
+    # Bottom-up walk so we catch nested empties
+    for root, dirs, files in os.walk(section11_dir, topdown=False):
+        rel_dir = Path(root).relative_to(section11_dir)
+
+        # Don't flag section11/ itself
+        if rel_dir == Path('.'):
+            continue
+
+        # Skip hidden directories
+        if any(part.startswith('.') for part in rel_dir.parts):
+            continue
+
+        # Visible files = non-hidden, non-.tmp
+        visible_files = [f for f in files if not f.startswith('.') and not f.endswith('.tmp')]
+        # Visible subdirs = non-hidden
+        visible_dirs = [d for d in dirs if not d.startswith('.')]
+
+        if not visible_files and not visible_dirs:
+            empty_dirs.append(str(rel_dir))
+
+    return sorted(empty_dirs)
+
+
 def do_generate_manifest():
     """
     Generate manifest.json from the current repo directory.
@@ -5572,91 +5617,154 @@ def do_update():
     # Compare hashes against local files
     needs_update, current = _compare_files(upstream_files, target_dir)
     
-    # Nothing to update
+    # Show updates or all-current message
     if not needs_update:
         print(f"✅ All {len(current)} files are current")
-        return
-    
-    # Show diff table
-    print(f"\n   Updates available ({len(needs_update)} file{'s' if len(needs_update) != 1 else ''}):\n")
-    
-    # Calculate column widths for alignment
-    path_width = max(len(u["path"]) for u in needs_update)
-    
-    for u in needs_update:
-        path_padded = u["path"].ljust(path_width)
-        desc = f"   {u['description']}" if u.get('description') else ""
-        print(f"   {path_padded}  [{u['status']}]{desc}")
-    
-    if current:
-        print(f"\n   Already current ({len(current)}):\n")
-        for c in current[:10]:  # Show first 10 to avoid wall of text
-            print(f"   ✅ {c['path']}")
-        if len(current) > 10:
-            print(f"   ... and {len(current) - 10} more")
-    
-    # Ask for confirmation
-    print()
-    try:
-        answer = input(f"   Pull {len(needs_update)} update{'s' if len(needs_update) != 1 else ''}? [y/N] ").strip().lower()
-    except (EOFError, KeyboardInterrupt):
-        print("\n   Cancelled")
-        return
-    
-    if answer not in ("y", "yes"):
-        print("   Cancelled")
-        return
-    
-    # Download changed files
-    print()
-    updated = []
-    failed = []
-    
-    for u in needs_update:
-        file_url = f"{SECTION11_REPO_RAW}/{u['path']}"
-        target_path = target_dir / u["path"]
-        
+    else:
+        # Show diff table
+        print(f"\n   Updates available ({len(needs_update)} file{'s' if len(needs_update) != 1 else ''}):\n")
+
+        # Calculate column widths for alignment
+        path_width = max(len(u["path"]) for u in needs_update)
+
+        for u in needs_update:
+            path_padded = u["path"].ljust(path_width)
+            desc = f"   {u['description']}" if u.get('description') else ""
+            print(f"   {path_padded}  [{u['status']}]{desc}")
+
+        if current:
+            print(f"\n   Already current ({len(current)}):\n")
+            for c in current[:10]:  # Show first 10 to avoid wall of text
+                print(f"   ✅ {c['path']}")
+            if len(current) > 10:
+                print(f"   ... and {len(current) - 10} more")
+
+        # Ask for confirmation
+        print()
         try:
-            resp = requests.get(file_url, timeout=30)
-            resp.raise_for_status()
-            
-            # Ensure target directory exists (for new files in new directories)
-            target_path.parent.mkdir(parents=True, exist_ok=True)
-            
-            # Write to temp file, then atomic replace
-            tmp_path = target_path.with_suffix(target_path.suffix + ".tmp")
-            with open(tmp_path, 'wb') as f:
-                f.write(resp.content)
-            os.replace(str(tmp_path), str(target_path))
-            
-            updated.append(u)
-            print(f"   ✅ {u['path']}  [{u['status']}]")
+            answer = input(f"   Pull {len(needs_update)} update{'s' if len(needs_update) != 1 else ''}? [y/N] ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            print("\n   Cancelled")
+            return
+
+        if answer not in ("y", "yes"):
+            print("   Cancelled")
+            return
+
+        # Download changed files
+        print()
+        updated = []
+        failed = []
+
+        for u in needs_update:
+            file_url = f"{SECTION11_REPO_RAW}/{u['path']}"
+            target_path = target_dir / u["path"]
+
+            try:
+                resp = requests.get(file_url, timeout=30)
+                resp.raise_for_status()
+
+                # Ensure target directory exists (for new files in new directories)
+                target_path.parent.mkdir(parents=True, exist_ok=True)
+
+                # Write to temp file, then atomic replace
+                tmp_path = target_path.with_suffix(target_path.suffix + ".tmp")
+                with open(tmp_path, 'wb') as f:
+                    f.write(resp.content)
+                os.replace(str(tmp_path), str(target_path))
+
+                updated.append(u)
+                print(f"   ✅ {u['path']}  [{u['status']}]")
+            except Exception as e:
+                failed.append(u)
+                print(f"   ❌ {u['path']}  failed: {e}")
+                # Clean up temp file if it exists
+                tmp_path = target_path.with_suffix(target_path.suffix + ".tmp")
+                if tmp_path.exists():
+                    try:
+                        tmp_path.unlink()
+                    except Exception:
+                        pass
+
+        # Save updated manifest.json to section11/
+        try:
+            manifest_target = target_dir / "manifest.json"
+            tmp_manifest = manifest_target.with_suffix(".json.tmp")
+            with open(tmp_manifest, 'w') as f:
+                json.dump(manifest, f, indent=2)
+            os.replace(str(tmp_manifest), str(manifest_target))
         except Exception as e:
-            failed.append(u)
-            print(f"   ❌ {u['path']}  failed: {e}")
-            # Clean up temp file if it exists
-            tmp_path = target_path.with_suffix(target_path.suffix + ".tmp")
-            if tmp_path.exists():
+            print(f"   ⚠️ Could not save manifest.json locally: {e}")
+
+        # Summary
+        if failed:
+            print(f"\n   Updated {len(updated)} file{'s' if len(updated) != 1 else ''}, {len(failed)} failed")
+        elif updated:
+            print(f"\n   ✅ {len(updated)} file{'s' if len(updated) != 1 else ''} updated")
+
+    # --- Orphan cleanup (runs regardless of whether files were updated) ---
+    orphaned_files = _find_orphaned_files(upstream_files, target_dir)
+    empty_dirs = _find_empty_dirs(target_dir)
+
+    if orphaned_files or empty_dirs:
+        total = len(orphaned_files) + len(empty_dirs)
+        print(f"\n   Orphaned items ({total} — not in repo):\n")
+
+        # Build display list with tags
+        all_items = [(p, "[removed from repo]") for p in orphaned_files]
+        all_items += [(d + "/", "[empty directory]") for d in empty_dirs]
+
+        path_width = max(len(item[0]) for item in all_items)
+        for name, tag in all_items:
+            print(f"   {name.ljust(path_width)}  {tag}")
+
+        print()
+        try:
+            answer = input(f"   Remove {total} orphaned item{'s' if total != 1 else ''}? [y/N] ").strip().lower()
+        except (EOFError, KeyboardInterrupt):
+            print("\n   Skipped")
+            return
+
+        if answer not in ("y", "yes"):
+            print("   Skipped")
+            return
+
+        removed = 0
+
+        # Delete orphaned files first
+        for p in orphaned_files:
+            full_path = target_dir / p
+            try:
+                full_path.unlink()
+                removed += 1
+                print(f"   🗑️  {p}")
+            except Exception as e:
+                print(f"   ❌ {p}  failed: {e}")
+
+        # Remove empty parent directories left behind by file deletions
+        for p in orphaned_files:
+            parent = (target_dir / p).parent
+            while parent != target_dir:
                 try:
-                    tmp_path.unlink()
-                except Exception:
-                    pass
-    
-    # Save updated manifest.json to section11/
-    try:
-        manifest_target = target_dir / "manifest.json"
-        tmp_manifest = manifest_target.with_suffix(".json.tmp")
-        with open(tmp_manifest, 'w') as f:
-            json.dump(manifest, f, indent=2)
-        os.replace(str(tmp_manifest), str(manifest_target))
-    except Exception as e:
-        print(f"   ⚠️ Could not save manifest.json locally: {e}")
-    
-    # Summary
-    if failed:
-        print(f"\n   Updated {len(updated)} file{'s' if len(updated) != 1 else ''}, {len(failed)} failed")
-    elif updated:
-        print(f"\n   ✅ {len(updated)} file{'s' if len(updated) != 1 else ''} updated")
+                    parent.rmdir()  # Only succeeds if empty
+                    print(f"   🗑️  {parent.relative_to(target_dir)}/  [empty directory]")
+                except OSError:
+                    break
+                parent = parent.parent
+
+        # Remove standalone empty directories (sorted deepest-first to handle nesting)
+        for d in sorted(empty_dirs, key=lambda x: x.count(os.sep), reverse=True):
+            dir_path = target_dir / d
+            try:
+                if dir_path.exists():
+                    dir_path.rmdir()
+                    removed += 1
+                    print(f"   🗑️  {d}/")
+            except OSError as e:
+                print(f"   ❌ {d}/  failed: {e}")
+
+        if removed:
+            print(f"\n   🗑️  {removed} orphaned item{'s' if removed != 1 else ''} removed")
 
 
 def notify_if_updates_available():
