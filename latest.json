@@ -15,7 +15,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-11T23:52:23.504509",
+    "last_updated": "2026-03-12T05:06:42.540105",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.80"
@@ -26,21 +26,21 @@
     "priority": 3,
     "signals": {
       "hrv": {
-        "status": "amber",
-        "value": 66.0,
-        "baseline_7d": 80.7,
-        "delta_pct": -18.2
+        "status": "unavailable",
+        "value": null,
+        "baseline_7d": 79.8,
+        "delta_pct": null
       },
       "rhr": {
-        "status": "green",
-        "value": 42,
-        "baseline_7d": 40.6,
-        "delta_bpm": 1.4
+        "status": "amber",
+        "value": 44,
+        "baseline_7d": 41,
+        "delta_bpm": 3
       },
       "sleep": {
-        "status": "green",
-        "hours": 8.45,
-        "quality": 2
+        "status": "unavailable",
+        "hours": null,
+        "quality": null
       },
       "acwr": {
         "status": "green",
@@ -51,19 +51,19 @@
         "value": 3
       },
       "ri": {
-        "status": "amber",
-        "value": 0.79
+        "status": "unavailable",
+        "value": null
       },
       "tsb": {
         "status": "green",
-        "value": -7.5
+        "value": -0.2
       }
     },
     "signal_summary": {
-      "green": 5,
-      "amber": 2,
+      "green": 3,
+      "amber": 1,
       "red": 0,
-      "unavailable": 0
+      "unavailable": 3
     },
     "phase_context": {
       "phase": "Build",
@@ -73,7 +73,7 @@
     },
     "race_week_defers": false,
     "modification": null,
-    "reason": "P3 green light. 5 green, 2 amber (threshold 3), 0 red.",
+    "reason": "P3 green light. 3 green, 1 amber (threshold 3), 0 red.",
     "alarm_refs": []
   },
   "history": {
@@ -111,9 +111,9 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 57.81,
-      "atl": 65.32,
-      "tsb": -7.51,
+      "ctl": 56.45,
+      "atl": 56.62,
+      "tsb": -0.17,
       "ramp_rate": 0.19,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
@@ -152,21 +152,21 @@
     },
     "current_metrics": {
       "weight_kg": 72.0,
-      "resting_hr": 42,
-      "hrv": 66.0,
-      "sleep_quality": 2,
-      "sleep_hours": 8.45,
-      "sleep_formatted": "8h27m"
+      "resting_hr": 44,
+      "hrv": null,
+      "sleep_quality": null,
+      "sleep_hours": null,
+      "sleep_formatted": null
     }
   },
   "derived_metrics": {
-    "recovery_index": 0.79,
-    "hrv_baseline_7d": 80.7,
-    "rhr_baseline_7d": 40.6,
+    "recovery_index": null,
+    "hrv_baseline_7d": 79.8,
+    "rhr_baseline_7d": 41,
     "hrv_baseline_28d": 78.3,
     "rhr_baseline_28d": 43.1,
-    "latest_hrv": 66.0,
-    "latest_rhr": 42,
+    "latest_hrv": null,
+    "latest_rhr": 44,
     "acwr": 1.0,
     "acwr_interpretation": "optimal",
     "monotony": 1.64,
@@ -178,7 +178,7 @@
     "multi_sport_detected": true,
     "strain": 669.0,
     "stress_tolerance": 4.1,
-    "load_recovery_ratio": 5.2,
+    "load_recovery_ratio": null,
     "tss_7d_total": 408.0,
     "tss_28d_total": 1634.0,
     "zone_distribution_7d": {
@@ -332,9 +332,9 @@
     "p_max": 1116,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-03-11T23:52:23.503776",
+    "calculation_timestamp": "2026-03-12T05:06:42.539355",
     "data_quality": {
-      "hrv_data_points": 7,
+      "hrv_data_points": 6,
       "rhr_data_points": 7,
       "activities_7d": 7,
       "activities_28d": 30,
@@ -702,22 +702,6 @@
   ],
   "wellness_data": [
     {
-      "date": "2026-03-05",
-      "weight_kg": null,
-      "resting_hr": 41,
-      "hrv_rmssd": 86.0,
-      "hrv_sdnn": null,
-      "sleep_hours": 8.03,
-      "sleep_formatted": "8h2m",
-      "sleep_quality": 1,
-      "sleep_score": 90.0,
-      "mental_energy": null,
-      "fatigue": null,
-      "soreness": null,
-      "avg_sleeping_hr": null,
-      "vo2max": null
-    },
-    {
       "date": "2026-03-06",
       "weight_kg": null,
       "resting_hr": 40,
@@ -812,6 +796,22 @@
       "soreness": null,
       "avg_sleeping_hr": null,
       "vo2max": null
+    },
+    {
+      "date": "2026-03-12",
+      "weight_kg": null,
+      "resting_hr": 44,
+      "hrv_rmssd": null,
+      "hrv_sdnn": null,
+      "sleep_hours": null,
+      "sleep_formatted": null,
+      "sleep_quality": null,
+      "sleep_score": null,
+      "mental_energy": null,
+      "fatigue": null,
+      "soreness": null,
+      "avg_sleeping_hr": null,
+      "vo2max": null
     }
   ],
   "planned_workouts": [
@@ -868,7 +868,7 @@
       "duration_hours": 0.0,
       "duration_formatted": "0s",
       "workout_summary": null,
-      "description_preview": "Warm-up 15min easy (5:15/km). 3 \u00d7 12min @ Z3\u2013Z4 threshold (3:45\u20133:50/km, 162\u2013168 bpm). 4min jog recovery. Cool-down 10min easy.\nTarget: ~13 km total."
+      "description": "Warm-up 15min easy (5:15/km). 3 \u00d7 12min @ Z3\u2013Z4 threshold (3:45\u20133:50/km, 162\u2013168 bpm). 4min jog recovery. Cool-down 10min easy.\n\nTarget: ~13 km total."
     },
     {
       "id": 97668844,
@@ -1309,6 +1309,17 @@
       "duration_formatted": "0s",
       "workout_summary": null,
       "description_preview": "55min easy Z1\u2013Z2.\nTarget: ~11 km."
+    },
+    {
+      "id": 97668892,
+      "date": "2026-04-23",
+      "name": "W6 Thu \u2014 KEY RUN 2: Threshold 4\u00d710min",
+      "type": "WORKOUT",
+      "planned_tss": 80,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": "Warm-up 15min easy (5:15/km). 4 \u00d7 10min @ threshold (3:35\u20133:40/km). 3min jog recovery. Cool-down 10min.\nTarget: ~14 km total.\n\u26a1 THRESHOLD RE-TEST after this session (or separately): Run 30min continuous at hardest sustainable pace. Avg HR final 20min = updated VT2. If >174 bpm, adjust race pace target."
     }
   ],
   "workout_summary_stats": {
@@ -1316,7 +1327,7 @@
     "success": 0,
     "patternA": 0,
     "patternB": 0,
-    "bail_no_workout_doc": 39,
+    "bail_no_workout_doc": 40,
     "bail_no_match": 0
   },
   "weekly_summary": {
@@ -1324,8 +1335,8 @@
     "total_training_formatted": "7h18m",
     "total_tss": 408,
     "activities_count": 7,
-    "avg_hrv": 80.7,
-    "avg_resting_hr": 40.6
+    "avg_hrv": 79.8,
+    "avg_resting_hr": 41.0
   },
   "race_calendar": {
     "next_race": null,
