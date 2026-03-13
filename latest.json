@@ -15,7 +15,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-13T17:54:43.285157",
+    "last_updated": "2026-03-13T19:47:10.940381",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.81"
@@ -179,57 +179,57 @@
     "tss_28d_total": 1770.0,
     "zone_distribution_7d": {
       "z1_hours": 2.28,
-      "z2_hours": 2.79,
-      "z3_hours": 1.85,
-      "z4_plus_hours": 1.22,
+      "z2_hours": 3.41,
+      "z3_hours": 1.49,
+      "z4_plus_hours": 0.95,
       "total_hours": 8.14
     },
-    "grey_zone_percentage": 22.7,
+    "grey_zone_percentage": 18.3,
     "grey_zone_note": "Gray Zone % (Z3/tempo) - minimize in polarized training",
-    "quality_intensity_percentage": 15.0,
+    "quality_intensity_percentage": 11.7,
     "quality_intensity_note": "Quality Intensity % (Z4+/threshold+) - target ~20% in polarized training",
-    "polarisation_index": 0.62,
+    "polarisation_index": 0.7,
     "polarisation_note": "Easy time (Z1+Z2) / Total - target ~80% in polarized training",
-    "hard_days_this_week": 4,
+    "hard_days_this_week": 3,
     "hard_days_note": "Power ladder: z3+ >= 30min, z4+ >= 10min, z5+ >= 5min, z6+ >= 2min, z7 >= 1min. HR fallback (when no power): z4+ >= 10min, z5+ >= 5min. Per Seiler 3-zone model + Foster. HR-based days flagged with intensity_basis: hr",
     "seiler_tid_7d": {
-      "z1_seconds": 18248,
-      "z2_seconds": 6647,
-      "z3_seconds": 4403,
-      "z1_pct": 62.3,
-      "z2_pct": 22.7,
-      "z3_pct": 15.0,
+      "z1_seconds": 20494,
+      "z2_seconds": 5374,
+      "z3_seconds": 3430,
+      "z1_pct": 70.0,
+      "z2_pct": 18.3,
+      "z3_pct": 11.7,
       "polarization_index": null,
       "classification": "Pyramidal"
     },
     "seiler_tid_7d_primary": {
-      "z1_seconds": 8624,
-      "z2_seconds": 4128,
-      "z3_seconds": 2703,
-      "z1_pct": 55.8,
-      "z2_pct": 26.7,
-      "z3_pct": 17.5,
+      "z1_seconds": 10870,
+      "z2_seconds": 2855,
+      "z3_seconds": 1730,
+      "z1_pct": 70.3,
+      "z2_pct": 18.5,
+      "z3_pct": 11.2,
       "polarization_index": null,
       "classification": "Pyramidal",
       "sport": "run"
     },
     "seiler_tid_28d": {
-      "z1_seconds": 50190,
-      "z2_seconds": 21331,
-      "z3_seconds": 38059,
-      "z1_pct": 45.8,
-      "z2_pct": 19.5,
-      "z3_pct": 34.7,
-      "polarization_index": 1.91,
+      "z1_seconds": 52436,
+      "z2_seconds": 20058,
+      "z3_seconds": 37086,
+      "z1_pct": 47.9,
+      "z2_pct": 18.3,
+      "z3_pct": 33.8,
+      "polarization_index": 1.95,
       "classification": "Pyramidal"
     },
     "seiler_tid_28d_primary": {
-      "z1_seconds": 17904,
-      "z2_seconds": 10824,
-      "z3_seconds": 31636,
-      "z1_pct": 29.7,
-      "z2_pct": 17.9,
-      "z3_pct": 52.4,
+      "z1_seconds": 20150,
+      "z2_seconds": 9551,
+      "z3_seconds": 30663,
+      "z1_pct": 33.4,
+      "z2_pct": 15.8,
+      "z3_pct": 50.8,
       "polarization_index": null,
       "classification": "High Intensity",
       "sport": "run"
@@ -265,7 +265,7 @@
         "classification_7d": "Pyramidal",
         "classification_28d": "Pyramidal",
         "pi_7d": null,
-        "pi_28d": 1.91,
+        "pi_28d": 1.95,
         "pi_delta": null,
         "drift": "consistent",
         "note": "Compares 7d vs 28d Seiler TID to detect distribution shifts. pi_delta positive = more polarized acutely."
@@ -328,7 +328,7 @@
     "p_max": 1116,
     "power_model_source": "wellness.sportInfo",
     "vo2max": 63.0,
-    "calculation_timestamp": "2026-03-13T17:54:43.284387",
+    "calculation_timestamp": "2026-03-13T19:47:10.939605",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -371,25 +371,23 @@
       "decoupling": -7.991663,
       "efficiency_factor": 2.781955,
       "hrrc": null,
-      "elevation_m": 41.0,
+      "elevation_m": 39.400085,
       "feel": null,
       "rpe": null,
       "zone_distribution": {
         "hr_zones": {
-          "z1_time": 725,
-          "z2_time": 2874,
+          "z1_time": 2587,
+          "z2_time": 1012,
           "z3_time": 0,
           "z4_time": 0,
           "z5_time": 0
         },
         "power_zones": {
           "z1_time": 331,
-          "z2_time": 2144,
-          "z3_time": 1056,
-          "z4_time": 68,
-          "z5_time": 0,
-          "z6_time": 0,
-          "z7_time": 0
+          "z2_time": 2602,
+          "z3_time": 666,
+          "z4_time": 0,
+          "z5_time": 0
         }
       }
     },
@@ -427,19 +425,18 @@
       "rpe": null,
       "zone_distribution": {
         "hr_zones": {
-          "z1_time": 1350,
-          "z2_time": 810,
-          "z3_time": 293,
-          "z4_time": 439,
-          "z5_time": 103
+          "z1_time": 1674,
+          "z2_time": 531,
+          "z3_time": 360,
+          "z4_time": 427,
+          "z5_time": 3
         },
         "power_zones": {
           "z1_time": 1669,
-          "z2_time": 208,
-          "z3_time": 265,
-          "z4_time": 51,
-          "z5_time": 155,
-          "z6_time": 647
+          "z2_time": 359,
+          "z3_time": 165,
+          "z4_time": 155,
+          "z5_time": 647
         }
       }
     },
@@ -528,19 +525,18 @@
       "rpe": null,
       "zone_distribution": {
         "hr_zones": {
-          "z1_time": 982,
-          "z2_time": 1717,
-          "z3_time": 5,
+          "z1_time": 1258,
+          "z2_time": 1446,
+          "z3_time": 0,
           "z4_time": 0,
           "z5_time": 0
         },
         "power_zones": {
           "z1_time": 1019,
-          "z2_time": 504,
-          "z3_time": 970,
-          "z4_time": 146,
-          "z5_time": 65,
-          "z6_time": 0
+          "z2_time": 1122,
+          "z3_time": 498,
+          "z4_time": 65,
+          "z5_time": 0
         }
       }
     },
@@ -637,11 +633,10 @@
         },
         "power_zones": {
           "z1_time": 1418,
-          "z2_time": 988,
-          "z3_time": 921,
-          "z4_time": 67,
-          "z5_time": 6,
-          "z6_time": 0
+          "z2_time": 1623,
+          "z3_time": 353,
+          "z4_time": 6,
+          "z5_time": 0
         }
       }
     },
@@ -730,19 +725,18 @@
       "rpe": null,
       "zone_distribution": {
         "hr_zones": {
-          "z1_time": 929,
-          "z2_time": 1175,
-          "z3_time": 317,
+          "z1_time": 716,
+          "z2_time": 1411,
+          "z3_time": 294,
           "z4_time": 336,
           "z5_time": 0
         },
         "power_zones": {
           "z1_time": 135,
-          "z2_time": 208,
-          "z3_time": 916,
-          "z4_time": 641,
-          "z5_time": 830,
-          "z6_time": 27
+          "z2_time": 592,
+          "z3_time": 1173,
+          "z4_time": 830,
+          "z5_time": 27
         }
       }
     }
