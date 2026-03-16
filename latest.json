@@ -68,12 +68,12 @@
       "total_training_hours": 6.8,
       "total_training_formatted": "6h47m",
       "total_activities": 7,
-      "total_tss": 395
+      "total_tss": 410
     }
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-16T15:47:36.354540",
+    "last_updated": "2026-03-16T19:36:16.474445",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.85"
@@ -102,7 +102,7 @@
       },
       "acwr": {
         "status": "green",
-        "value": 0.91
+        "value": 0.93
       },
       "ri": {
         "status": "green",
@@ -110,7 +110,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": -0.2
+        "value": -1.9
       }
     },
     "signal_summary": {
@@ -158,24 +158,24 @@
       "VirtualRun": {
         "duration_decimal_hours": 0.91,
         "count": 1,
-        "tss": 65,
+        "tss": 80,
         "distance_km": 12.7
       }
     }
   },
   "current_status": {
     "fitness": {
-      "ctl": 57.11,
-      "atl": 57.35,
-      "tsb": -0.24,
-      "ramp_rate": -0.24,
+      "ctl": 57.47,
+      "atl": 59.35,
+      "tsb": -1.88,
+      "ramp_rate": 0.11,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
-      "eftp": 245.5,
-      "w_prime": 20547,
-      "w_prime_kj": 20.5,
-      "p_max": 1114,
+      "eftp": 245.8,
+      "w_prime": 20567,
+      "w_prime_kj": 20.6,
+      "p_max": 1115,
       "vo2max": null,
       "sports": {
         "cycling": {
@@ -228,7 +228,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 3898,
+      "steps": 13913,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -247,20 +247,20 @@
     "rhr_baseline_28d": 41.2,
     "latest_hrv": 83.0,
     "latest_rhr": 39,
-    "acwr": 0.91,
+    "acwr": 0.93,
     "acwr_interpretation": "optimal",
     "monotony": 1.77,
-    "monotony_interpretation": "normal (primary sport 1.41, total 1.77 inflated by multi-sport)",
+    "monotony_interpretation": "normal (primary sport 1.37, total 1.77 inflated by multi-sport)",
     "primary_sport": "run",
-    "primary_sport_monotony": 1.41,
-    "primary_sport_tss_7d": 299.0,
-    "effective_monotony": 1.41,
+    "primary_sport_monotony": 1.37,
+    "primary_sport_tss_7d": 314.0,
+    "effective_monotony": 1.37,
     "multi_sport_detected": true,
-    "strain": 699.0,
-    "stress_tolerance": 3.9,
-    "load_recovery_ratio": 3.5,
-    "tss_7d_total": 395.0,
-    "tss_28d_total": 1743.0,
+    "strain": 726.0,
+    "stress_tolerance": 4.1,
+    "load_recovery_ratio": 3.6,
+    "tss_7d_total": 410.0,
+    "tss_28d_total": 1758.0,
     "zone_distribution_7d": {
       "z1_hours": 3.41,
       "z2_hours": 2.41,
@@ -411,13 +411,13 @@
       "benchmark_percentage": null,
       "seasonal_expected": null
     },
-    "eftp": 245.5,
-    "w_prime": 20547,
-    "w_prime_kj": 20.5,
-    "p_max": 1114,
+    "eftp": 245.8,
+    "w_prime": 20567,
+    "w_prime_kj": 20.6,
+    "p_max": 1115,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-03-16T15:47:35.968191",
+    "calculation_timestamp": "2026-03-16T19:36:16.473030",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -438,7 +438,7 @@
       "name": "Treadmill Running",
       "duration_hours": 0.91,
       "distance_km": 12.66,
-      "tss": 65,
+      "tss": 80,
       "intensity_factor": 92.201836,
       "avg_power": 376,
       "normalized_power": 402,
@@ -1043,7 +1043,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 3898,
+      "steps": 13913,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -1144,7 +1144,7 @@
   "weekly_summary": {
     "total_training_hours": 6.8,
     "total_training_formatted": "6h47m",
-    "total_tss": 395,
+    "total_tss": 410,
     "activities_count": 7,
     "avg_hrv": 76.6,
     "avg_resting_hr": 41.0
