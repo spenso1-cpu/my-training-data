@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-18T08:01:14.235227",
+  "generated_at": "2026-03-18T11:12:24.052246",
   "version": "3.85",
   "scan_hours": 72,
   "retention_days": 7,
@@ -546,6 +546,26 @@
           "avg_hr": 129,
           "max_hr": 141,
           "avg_cadence": 87.462975,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i132941843",
+      "date": "2026-03-18",
+      "type": "Run",
+      "name": "Cotswold Running",
+      "interval_summary": [
+        "1x 1h8m 4:36"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4102s@134bpm88rpm",
+          "duration_secs": 4102,
+          "avg_hr": 134,
+          "max_hr": 146,
+          "avg_cadence": 87.917694,
           "zone": 1
         }
       ]
