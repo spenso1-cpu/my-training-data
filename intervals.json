@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-17T23:49:05.090362",
+  "generated_at": "2026-03-18T05:19:40.336200",
   "version": "3.85",
   "scan_hours": 72,
   "retention_days": 7,
@@ -343,117 +343,6 @@
           "zone": 2,
           "training_load": 5.5503783,
           "decoupling": 11.498793
-        }
-      ]
-    },
-    {
-      "activity_id": "i130957159",
-      "date": "2026-03-10",
-      "type": "Run",
-      "name": "Saint-Jean-de-Sixt Running",
-      "interval_summary": [
-        "2x 3m19s 6:25"
-      ],
-      "intervals": [
-        {
-          "type": "RECOVERY",
-          "duration_secs": 995,
-          "avg_power": 347,
-          "max_power": 474,
-          "avg_hr": 124,
-          "max_hr": 145,
-          "avg_cadence": 88.41206,
-          "zone": 1,
-          "training_load": 18.117447,
-          "decoupling": -2.445129
-        },
-        {
-          "type": "WORK",
-          "label": "199s@381w88rpm",
-          "duration_secs": 193,
-          "avg_power": 382,
-          "max_power": 418,
-          "avg_hr": 146,
-          "max_hr": 150,
-          "avg_cadence": 87.80311,
-          "zone": 1,
-          "training_load": 4.202004,
-          "decoupling": 1.2555579
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 727,
-          "avg_power": 358,
-          "max_power": 457,
-          "avg_hr": 135,
-          "max_hr": 150,
-          "avg_cadence": 87.80055,
-          "zone": 1,
-          "training_load": 13.998199,
-          "decoupling": 0.482837
-        },
-        {
-          "type": "WORK",
-          "label": "199s@381w88rpm",
-          "duration_secs": 205,
-          "avg_power": 380,
-          "max_power": 431,
-          "avg_hr": 150,
-          "max_hr": 155,
-          "avg_cadence": 87.63902,
-          "zone": 1,
-          "training_load": 4.3941607,
-          "decoupling": 4.0416636
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 590,
-          "avg_power": 347,
-          "max_power": 448,
-          "avg_hr": 141,
-          "max_hr": 154,
-          "avg_cadence": 87.0274,
-          "zone": 1,
-          "training_load": 10.815269,
-          "decoupling": 5.96257
-        }
-      ]
-    },
-    {
-      "activity_id": "i130919685",
-      "date": "2026-03-10",
-      "type": "VirtualRide",
-      "name": "Zwift - Pacer Group Ride with Miguel",
-      "interval_summary": [
-        "1x 10m3s 144w",
-        "1x 1h30m 180w"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "603s@144w85rpm",
-          "duration_secs": 603,
-          "avg_power": 144,
-          "max_power": 246,
-          "avg_hr": 100,
-          "max_hr": 116,
-          "avg_cadence": 84.618576,
-          "zone": 1,
-          "training_load": 5.169753,
-          "decoupling": 3.4913929
-        },
-        {
-          "type": "WORK",
-          "label": "5438s@180w82rpm",
-          "duration_secs": 5438,
-          "avg_power": 180,
-          "max_power": 343,
-          "avg_hr": 118,
-          "max_hr": 132,
-          "avg_cadence": 82.22743,
-          "zone": 2,
-          "training_load": 54.59708,
-          "decoupling": -0.18675753
         }
       ]
     },
