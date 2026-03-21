@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-20T23:54:59.132312",
+  "generated_at": "2026-03-21T04:53:41.295046",
   "version": "3.85",
   "scan_hours": 72,
   "retention_days": 7,
@@ -21,54 +21,6 @@
           "max_hr": 148,
           "avg_cadence": 87.3065,
           "zone": 1
-        }
-      ]
-    },
-    {
-      "activity_id": "i131759173",
-      "date": "2026-03-13",
-      "type": "Run",
-      "name": "Geneva Running",
-      "interval_summary": [
-        "1x 3m45s 4:35"
-      ],
-      "intervals": [
-        {
-          "type": "RECOVERY",
-          "duration_secs": 2783,
-          "avg_power": 369,
-          "max_power": 438,
-          "avg_hr": 133,
-          "max_hr": 145,
-          "avg_cadence": 88.648186,
-          "zone": 1,
-          "training_load": 53.312027,
-          "decoupling": 0.81015706
-        },
-        {
-          "type": "WORK",
-          "label": "225s@397w89rpm",
-          "duration_secs": 225,
-          "avg_power": 397,
-          "max_power": 420,
-          "avg_hr": 133,
-          "max_hr": 140,
-          "avg_cadence": 88.76444,
-          "zone": 1,
-          "training_load": 4.924124,
-          "decoupling": 2.4686346
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 762,
-          "avg_power": 364,
-          "max_power": 425,
-          "avg_hr": 132,
-          "max_hr": 139,
-          "avg_cadence": 85.87921,
-          "zone": 1,
-          "training_load": 13.7269335,
-          "decoupling": 10.188498
         }
       ]
     },
