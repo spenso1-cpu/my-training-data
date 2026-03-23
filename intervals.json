@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-23T08:38:09.258164",
+  "generated_at": "2026-03-23T11:30:18.336713",
   "version": "3.85",
   "scan_hours": 72,
   "retention_days": 7,
@@ -702,6 +702,34 @@
           "avg_hr": 126,
           "max_hr": 147,
           "avg_cadence": 85.57702,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i134124961",
+      "date": "2026-03-23",
+      "type": "Run",
+      "name": "Hillingdon Running",
+      "interval_summary": [
+        "1x 40m32s 4:48"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "2432s@124bpm88rpm",
+          "duration_secs": 2432,
+          "avg_hr": 124,
+          "max_hr": 141,
+          "avg_cadence": 88.02951,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 126,
+          "max_hr": 126,
+          "avg_cadence": 86.0,
           "zone": 1
         }
       ]
