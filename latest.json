@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-26T19:39:38.991733",
+    "last_updated": "2026-03-26T21:03:59.168696",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.85"
@@ -143,7 +143,7 @@
   "history": {
     "available": true,
     "last_generated": "2026-03-15",
-    "age_days": 10,
+    "age_days": 11,
     "total_months": 35,
     "history_confidence": "high"
   },
@@ -238,7 +238,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 14763,
+      "steps": 15020,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -389,12 +389,12 @@
           "weeks_available": 4
         },
         "stream_2": {
-          "planned_tss_delta": null,
+          "planned_tss_delta": 0.2,
           "hard_sessions_planned": 0,
           "race_proximity": 86,
           "next_week_load": null,
-          "plan_coverage_current_week": 0.0,
-          "plan_coverage_next_week": 0.2
+          "plan_coverage_current_week": 0.2,
+          "plan_coverage_next_week": 0.6
         },
         "data_quality": "good",
         "stream_agreement": null
@@ -427,7 +427,7 @@
     "p_max": 1109,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-03-26T19:39:38.990466",
+    "calculation_timestamp": "2026-03-26T21:03:59.167435",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -1023,7 +1023,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 14763,
+      "steps": 15020,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -1036,6 +1036,17 @@
   ],
   "planned_workouts": [
     {
+      "id": 100840223,
+      "date": "2026-03-27",
+      "name": "60 mins easy",
+      "type": "WORKOUT",
+      "planned_tss": 52,
+      "duration_hours": 1.0,
+      "duration_formatted": "1h",
+      "workout_summary": null,
+      "description": "-1h z1 pace"
+    },
+    {
       "id": 95627323,
       "date": "2026-03-30",
       "name": "Weekly",
@@ -1047,10 +1058,76 @@
       "description": ""
     },
     {
+      "id": 100839865,
+      "date": "2026-04-03",
+      "name": "Sim Day one - UK",
+      "type": "NOTE",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
+      "id": 100839875,
+      "date": "2026-04-04",
+      "name": "Sim Day two - UK",
+      "type": "NOTE",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
       "id": 95627324,
       "date": "2026-04-06",
       "name": "Weekly",
       "type": "TARGET",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
+      "id": 100839975,
+      "date": "2026-04-08",
+      "name": "Work - report 12:40",
+      "type": "NOTE",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
+      "id": 100839980,
+      "date": "2026-04-09",
+      "name": "Oslo standover",
+      "type": "NOTE",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
+      "id": 100840163,
+      "date": "2026-04-10",
+      "name": "Budapest - PM available",
+      "type": "NOTE",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
+      "id": 100840171,
+      "date": "2026-04-11",
+      "name": "Work - Travel back to FR",
+      "type": "NOTE",
       "planned_tss": null,
       "duration_hours": 0.0,
       "duration_formatted": "0s",
@@ -1103,12 +1180,12 @@
     }
   ],
   "workout_summary_stats": {
-    "attempted": 0,
+    "attempted": 1,
     "success": 0,
     "patternA": 0,
     "patternB": 0,
     "bail_no_workout_doc": 0,
-    "bail_no_match": 0
+    "bail_no_match": 1
   },
   "weekly_summary": {
     "total_training_hours": 5.5,
