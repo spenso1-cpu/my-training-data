@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-29T09:59:06.603606",
+  "generated_at": "2026-03-29T10:37:17.865918",
   "version": "3.85",
   "scan_hours": 72,
   "retention_days": 7,
@@ -413,6 +413,26 @@
           "avg_hr": 144,
           "max_hr": 144,
           "avg_cadence": 85.0,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i135608157",
+      "date": "2026-03-29",
+      "type": "Run",
+      "name": "Annecy Running",
+      "interval_summary": [
+        "1x 1h10m 4:54"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4247s@128bpm88rpm",
+          "duration_secs": 4247,
+          "avg_hr": 128,
+          "max_hr": 144,
+          "avg_cadence": 87.77724,
           "zone": 1
         }
       ]
