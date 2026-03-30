@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-03-30T15:49:30.271991",
+    "last_updated": "2026-03-30T16:48:20.425860",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.85"
@@ -120,14 +120,14 @@
       "unavailable": 0
     },
     "phase_context": {
-      "phase": "Deload",
-      "phase_week": 1,
-      "amber_threshold": 2,
-      "modifier_applied": "default"
+      "phase": "Build",
+      "phase_week": 5,
+      "amber_threshold": 3,
+      "modifier_applied": "build_loosened"
     },
     "race_week_defers": false,
     "modification": null,
-    "reason": "P3 green light. 6 green, 0 amber (threshold 2), 0 red.",
+    "reason": "P3 green light. 6 green, 0 amber (threshold 3), 0 red.",
     "alarm_refs": []
   },
   "history": {
@@ -375,11 +375,9 @@
       ]
     },
     "phase_detection": {
-      "phase": "Deload",
-      "confidence": "medium",
-      "reason_codes": [
-        "BUILD_HISTORY_REDUCED_LOAD"
-      ],
+      "phase": "Build",
+      "confidence": "high",
+      "reason_codes": [],
       "basis": {
         "stream_1": {
           "ctl_slope": 0.9,
@@ -388,25 +386,23 @@
           "weeks_available": 4
         },
         "stream_2": {
-          "planned_tss_delta": 0.1,
-          "hard_sessions_planned": 1,
+          "planned_tss_delta": 0.2,
+          "hard_sessions_planned": 2,
           "race_proximity": 82,
           "next_week_load": null,
-          "plan_coverage_current_week": 0.8,
+          "plan_coverage_current_week": 1.0,
           "plan_coverage_next_week": 1.0
         },
         "data_quality": "good",
         "stream_agreement": null
       },
       "previous_phase": "Build",
-      "phase_duration_weeks": 1,
+      "phase_duration_weeks": 5,
       "dossier_declared": null,
       "dossier_agreement": null
     },
-    "phase_detected": "Deload",
-    "phase_triggers": [
-      "BUILD_HISTORY_REDUCED_LOAD"
-    ],
+    "phase_detected": "Build",
+    "phase_triggers": [],
     "seasonal_context": "Late Base / Build",
     "benchmark_indoor": {
       "current_ftp": 270,
@@ -428,7 +424,7 @@
     "p_max": 1108,
     "power_model_source": "wellness.sportInfo",
     "vo2max": 64.0,
-    "calculation_timestamp": "2026-03-30T15:49:30.270709",
+    "calculation_timestamp": "2026-03-30T16:48:20.424564",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -1102,6 +1098,17 @@
       "description": "Warmup\n- 15m easy @ 60% Pace, 60% Power\n- Rest 1m\n\nWorkout 10x\n- 3m SubT @ 15KP 96-99.3% Pace, 96-99.3% Power\n- Rest 1m"
     },
     {
+      "id": 101586665,
+      "date": "2026-04-01",
+      "name": "3x10mins SubT @ MP",
+      "type": "WORKOUT",
+      "planned_tss": 44,
+      "duration_hours": 0.84,
+      "duration_formatted": "50m30s",
+      "workout_summary": "15m @261W | 1m | 3\u00d710m @402W / 1m30s rec",
+      "description": "Warmup\n- 15m easy @ 60% Pace, 60% Power\n- Rest 1m\n\nWorkout 3x\n- 10m SubT @ MP 90.6-93.6% Pace, 90.6-93.6% Power\n- Rest 1m30s"
+    },
+    {
       "id": 100839865,
       "date": "2026-04-03",
       "name": "Sim Day one - UK",
@@ -1235,9 +1242,9 @@
     }
   ],
   "workout_summary_stats": {
-    "attempted": 1,
-    "success": 1,
-    "patternA": 1,
+    "attempted": 2,
+    "success": 2,
+    "patternA": 2,
     "patternB": 0,
     "bail_no_workout_doc": 0,
     "bail_no_match": 0
