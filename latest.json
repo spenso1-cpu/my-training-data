@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-04-04T21:03:03.677250",
+    "last_updated": "2026-04-04T21:45:02.710480",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.85"
@@ -222,7 +222,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 14668,
+      "steps": 16054,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -379,11 +379,11 @@
           "weeks_available": 4
         },
         "stream_2": {
-          "planned_tss_delta": 0.36,
-          "hard_sessions_planned": 1,
+          "planned_tss_delta": null,
+          "hard_sessions_planned": 0,
           "race_proximity": 77,
           "next_week_load": null,
-          "plan_coverage_current_week": 0.4,
+          "plan_coverage_current_week": 0.2,
           "plan_coverage_next_week": 1.0
         },
         "data_quality": "good",
@@ -417,7 +417,7 @@
     "p_max": 1106,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-04-04T21:03:03.675881",
+    "calculation_timestamp": "2026-04-04T21:45:02.709102",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -1120,7 +1120,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 14668,
+      "steps": 16054,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -1142,17 +1142,6 @@
       "duration_formatted": "0s",
       "workout_summary": null,
       "description": ""
-    },
-    {
-      "id": 102014359,
-      "date": "2026-04-05",
-      "name": "5x6mins SubT @ HMP",
-      "type": "WORKOUT",
-      "planned_tss": 46,
-      "duration_hours": 0.87,
-      "duration_formatted": "52m15s",
-      "workout_summary": "15m @261W | 1m | 5\u00d76m @418W / 1m15s rec",
-      "description": "Warmup\n- 15m easy @ 60% Pace, 60% Power\n- Rest 1m\n\nWorkout 5x\n- 6m SubT @ HMP 94.4-97.6% Pace, 94.4-97.6% Power\n- Rest 1m15s"
     },
     {
       "id": 95627324,
@@ -1266,9 +1255,9 @@
     }
   ],
   "workout_summary_stats": {
-    "attempted": 1,
-    "success": 1,
-    "patternA": 1,
+    "attempted": 0,
+    "success": 0,
+    "patternA": 0,
     "patternB": 0,
     "bail_no_workout_doc": 0,
     "bail_no_match": 0
