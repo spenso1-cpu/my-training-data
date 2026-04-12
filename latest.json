@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-04-12T18:35:18.772646",
+    "last_updated": "2026-04-12T19:27:08.790861",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.85"
@@ -120,14 +120,14 @@
       "unavailable": 0
     },
     "phase_context": {
-      "phase": "Build",
-      "phase_week": 5,
-      "amber_threshold": 3,
-      "modifier_applied": "build_loosened"
+      "phase": "Taper",
+      "phase_week": 1,
+      "amber_threshold": 1,
+      "modifier_applied": "taper_tightened"
     },
     "race_week_defers": false,
     "modification": null,
-    "reason": "P3 green light. 6 green, 0 amber (threshold 3), 0 red.",
+    "reason": "P3 green light. 6 green, 0 amber (threshold 1), 0 red.",
     "alarm_refs": []
   },
   "history": {
@@ -356,9 +356,11 @@
       "note": "No planned workouts in period"
     },
     "phase_detection": {
-      "phase": "Build",
+      "phase": "Taper",
       "confidence": "medium",
-      "reason_codes": [],
+      "reason_codes": [
+        "RACE_IMMINENT"
+      ],
       "basis": {
         "stream_1": {
           "ctl_slope": 0.9,
@@ -369,7 +371,7 @@
         "stream_2": {
           "planned_tss_delta": null,
           "hard_sessions_planned": 0,
-          "race_proximity": 69,
+          "race_proximity": 10,
           "next_week_load": null,
           "plan_coverage_current_week": 0.0,
           "plan_coverage_next_week": 0.2
@@ -378,12 +380,14 @@
         "stream_agreement": null
       },
       "previous_phase": "Build",
-      "phase_duration_weeks": 5,
+      "phase_duration_weeks": 1,
       "dossier_declared": null,
       "dossier_agreement": null
     },
-    "phase_detected": "Build",
-    "phase_triggers": [],
+    "phase_detected": "Taper",
+    "phase_triggers": [
+      "RACE_IMMINENT"
+    ],
     "seasonal_context": "Late Base / Build",
     "benchmark_indoor": {
       "current_ftp": 270,
@@ -405,13 +409,13 @@
     "p_max": 1093,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-04-12T18:35:18.771267",
+    "calculation_timestamp": "2026-04-12T19:27:08.789481",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
       "activities_7d": 7,
       "activities_28d": 30,
-      "planned_workouts_7d": 5,
+      "planned_workouts_7d": 6,
       "ftp_history_days": {
         "indoor": 0,
         "outdoor": 0
@@ -467,7 +471,10 @@
           "z5_time": 0
         }
       },
-      "has_intervals": true
+      "has_intervals": true,
+      "chat_notes": [
+        "6 x 6 mins on Thones track. ITB a bit better again this morning so thought I'd crack on with the session. 6 x 6 mins, aiming for HMP pace and HR. Was aiming for around 3:41, HR seemed quite responsive and was getting up to the mid 160s after the first. Decent workout and effort was good."
+      ]
     },
     {
       "id": "i138706220",
@@ -1062,6 +1069,17 @@
       "description_preview": null
     },
     {
+      "id": 103934121,
+      "date": "2026-04-22",
+      "name": "Chase the sun Battersea 10km",
+      "type": "RACE_B",
+      "planned_tss": null,
+      "duration_hours": 0.0,
+      "duration_formatted": "0s",
+      "workout_summary": null,
+      "description_preview": null
+    },
+    {
       "id": 95627327,
       "date": "2026-04-27",
       "name": "Weekly",
@@ -1135,15 +1153,24 @@
   },
   "race_calendar": {
     "next_race": {
-      "name": "Leutasch Trail",
-      "date": "2026-06-20",
-      "category": "RACE_C",
-      "type": "TrailRun",
-      "days_until": 69,
+      "name": "Chase the sun Battersea 10km",
+      "date": "2026-04-22",
+      "category": "RACE_B",
+      "type": "Run",
+      "days_until": 10,
       "moving_time_seconds": null,
-      "distance_meters": 68000.0
+      "distance_meters": 10000.0
     },
     "all_races": [
+      {
+        "name": "Chase the sun Battersea 10km",
+        "date": "2026-04-22",
+        "category": "RACE_B",
+        "type": "Run",
+        "days_until": 10,
+        "moving_time_seconds": null,
+        "distance_meters": 10000.0
+      },
       {
         "name": "Leutasch Trail",
         "date": "2026-06-20",
