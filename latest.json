@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-04-22T07:04:52.809445",
+    "last_updated": "2026-04-22T08:55:33.009378",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -89,45 +89,26 @@
     "years_on_platform": 6
   },
   "athlete_notes": null,
-  "alerts": [
-    {
-      "metric": "race_week",
-      "value": 0,
-      "severity": "info",
-      "threshold": "RACE_B within 7 days",
-      "context": "Race week D-0 of 'Chase the sun Battersea 10km'. Today: Race day, 0-0 TSS. Race effort",
-      "persistence_days": null,
-      "tier": 1
-    },
-    {
-      "metric": "race_week_tsb",
-      "value": 4.7,
-      "severity": "warning",
-      "threshold": "TSB target 5-15",
-      "context": "Projected race-day TSB 4.7 is below target range 5-15. Consider additional rest to reach target.",
-      "persistence_days": null,
-      "tier": 1
-    }
-  ],
+  "alerts": [],
   "readiness_decision": {
     "recommendation": "go",
     "priority": 3,
     "signals": {
       "hrv": {
-        "status": "unavailable",
-        "value": null,
-        "baseline_7d": 89.7,
-        "delta_pct": null
+        "status": "green",
+        "value": 91.0,
+        "baseline_7d": 89.9,
+        "delta_pct": 1.2
       },
       "rhr": {
         "status": "unavailable",
         "value": null,
-        "baseline_7d": 43.8,
+        "baseline_7d": 43.3,
         "delta_bpm": null
       },
       "sleep": {
-        "status": "unavailable",
-        "hours": null,
+        "status": "green",
+        "hours": 8.39,
         "quality": null
       },
       "acwr": {
@@ -137,7 +118,7 @@
       "ri": {
         "status": "unavailable",
         "value": null,
-        "value_yesterday": null
+        "value_yesterday": 1.2
       },
       "tsb": {
         "status": "green",
@@ -145,20 +126,20 @@
       }
     },
     "signal_summary": {
-      "green": 2,
+      "green": 4,
       "amber": 0,
       "red": 0,
-      "unavailable": 4
+      "unavailable": 2
     },
     "phase_context": {
-      "phase": "Taper",
+      "phase": "Base",
       "phase_week": 1,
-      "amber_threshold": 1,
-      "modifier_applied": "race_week_tightened"
+      "amber_threshold": 2,
+      "modifier_applied": "default"
     },
     "race_week_defers": false,
     "modification": null,
-    "reason": "P3 green light. 2 green, 0 amber (threshold 1), 0 red. Note: 4 signals unavailable \u2014 limited data.",
+    "reason": "P3 green light. 4 green, 0 amber (threshold 2), 0 red.",
     "alarm_refs": []
   },
   "history": {
@@ -187,8 +168,8 @@
       "ctl": 55.39,
       "atl": 50.73,
       "tsb": 4.66,
-      "ramp_rate": 0.66,
-      "fitness_source": "Decayed from yesterday (today's planned workouts not yet completed)"
+      "ramp_rate": -1.05,
+      "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
       "eftp": 240.4,
@@ -225,12 +206,12 @@
     },
     "current_metrics": {
       "weight_kg": 72.0,
-      "resting_hr": 45,
-      "hrv": null,
+      "resting_hr": 41,
+      "hrv": 91.0,
       "sleep_quality": null,
-      "sleep_hours": null,
-      "sleep_formatted": null,
-      "sleep_score": null,
+      "sleep_hours": 8.39,
+      "sleep_formatted": "8h23m",
+      "sleep_score": 95.0,
       "fatigue": null,
       "soreness": null,
       "stress": null,
@@ -242,7 +223,7 @@
       "blood_glucose": null,
       "systolic": null,
       "diastolic": null,
-      "baevsky_si": null,
+      "baevsky_si": 2.91,
       "lactate": null,
       "respiration": null,
       "body_fat_pct": null,
@@ -255,17 +236,17 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 92.0
     }
   },
   "derived_metrics": {
     "recovery_index": null,
-    "recovery_index_yesterday": null,
-    "hrv_baseline_7d": 89.7,
-    "rhr_baseline_7d": 43.8,
-    "hrv_baseline_28d": 77.8,
-    "rhr_baseline_28d": 43.6,
-    "latest_hrv": null,
+    "recovery_index_yesterday": 1.2,
+    "hrv_baseline_7d": 89.9,
+    "rhr_baseline_7d": 43.3,
+    "hrv_baseline_28d": 78.3,
+    "rhr_baseline_28d": 43.5,
+    "latest_hrv": 91.0,
     "latest_rhr": null,
     "acwr": 0.88,
     "acwr_interpretation": "optimal",
@@ -571,10 +552,10 @@
       "completed_dates": []
     },
     "phase_detection": {
-      "phase": "Taper",
+      "phase": "Base",
       "confidence": "medium",
       "reason_codes": [
-        "RACE_IMMINENT"
+        "NO_PLANNED_WORKOUTS"
       ],
       "basis": {
         "stream_1": {
@@ -585,25 +566,25 @@
         },
         "stream_2": {
           "planned_tss_delta": null,
-          "hard_sessions_planned": 1,
+          "hard_sessions_planned": 0,
           "current_week_hard_days_completed": 0,
-          "current_week_hard_days_total": 1,
-          "race_proximity": 0,
+          "current_week_hard_days_total": 0,
+          "race_proximity": 59,
           "next_week_load": null,
-          "plan_coverage_current_week": 0.12,
+          "plan_coverage_current_week": 0.0,
           "plan_coverage_next_week": 0.0
         },
         "data_quality": "good",
-        "stream_agreement": false
+        "stream_agreement": null
       },
       "previous_phase": null,
       "phase_duration_weeks": 1,
       "dossier_declared": null,
       "dossier_agreement": null
     },
-    "phase_detected": "Taper",
+    "phase_detected": "Base",
     "phase_triggers": [
-      "RACE_IMMINENT"
+      "NO_PLANNED_WORKOUTS"
     ],
     "seasonal_context": "Late Base / Build",
     "benchmark_indoor": {
@@ -626,13 +607,13 @@
     "p_max": 1091,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-04-22T07:04:52.808386",
+    "calculation_timestamp": "2026-04-22T08:55:33.008282",
     "data_quality": {
-      "hrv_data_points": 6,
-      "rhr_data_points": 5,
+      "hrv_data_points": 7,
+      "rhr_data_points": 6,
       "activities_7d": 6,
       "activities_28d": 31,
-      "planned_workouts_7d": 5,
+      "planned_workouts_7d": 4,
       "ftp_history_days": {
         "indoor": 0,
         "outdoor": 0
@@ -2486,9 +2467,9 @@
     {
       "date": "2026-04-21",
       "weight_kg": null,
-      "resting_hr": null,
+      "resting_hr": 41,
       "hrv_rmssd": 102.0,
-      "hrv_sdnn": null,
+      "hrv_sdnn": 87.0,
       "sleep_hours": 7.88,
       "sleep_formatted": "7h52m",
       "sleep_quality": null,
@@ -2503,13 +2484,13 @@
       "motivation": null,
       "injury": null,
       "hydration": null,
-      "spO2": null,
+      "spO2": 97.25,
       "blood_glucose": null,
       "systolic": null,
       "diastolic": null,
       "baevsky_si": 2.56,
       "lactate": null,
-      "respiration": null,
+      "respiration": 13.726415,
       "body_fat_pct": null,
       "abdomen_cm": null,
       "steps": 10400,
@@ -2526,14 +2507,14 @@
       "date": "2026-04-22",
       "weight_kg": null,
       "resting_hr": null,
-      "hrv_rmssd": null,
+      "hrv_rmssd": 91.0,
       "hrv_sdnn": null,
-      "sleep_hours": null,
-      "sleep_formatted": null,
+      "sleep_hours": 8.39,
+      "sleep_formatted": "8h23m",
       "sleep_quality": null,
-      "sleep_score": null,
+      "sleep_score": 95.0,
       "mental_energy": null,
-      "avg_sleeping_hr": null,
+      "avg_sleeping_hr": 42.0,
       "vo2max": null,
       "fatigue": null,
       "soreness": null,
@@ -2546,7 +2527,7 @@
       "blood_glucose": null,
       "systolic": null,
       "diastolic": null,
-      "baevsky_si": null,
+      "baevsky_si": 2.91,
       "lactate": null,
       "respiration": null,
       "body_fat_pct": null,
@@ -2559,24 +2540,10 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 92.0
     }
   ],
-  "planned_workouts": [
-    {
-      "id": 103934121,
-      "date": "2026-04-22",
-      "name": "Chase the sun Battersea 10km",
-      "type": "RACE_B",
-      "sport_type": "Run",
-      "planned_tss": null,
-      "duration_hours": 0.0,
-      "duration_formatted": "0s",
-      "workout_summary": null,
-      "has_terrain": false,
-      "description": ""
-    }
-  ],
+  "planned_workouts": [],
   "workout_summary_stats": {
     "attempted": 0,
     "success": 0,
@@ -2590,31 +2557,21 @@
     "total_training_formatted": "5h40m",
     "total_tss": 352,
     "activities_count": 6,
-    "avg_hrv": 89.7,
-    "avg_resting_hr": 43.8
+    "avg_hrv": 89.9,
+    "avg_resting_hr": 43.3
   },
   "race_calendar": {
     "next_race": {
-      "name": "Chase the sun Battersea 10km",
-      "date": "2026-04-22",
-      "category": "RACE_B",
-      "type": "Run",
-      "days_until": 0,
+      "name": "Leutasch Trail",
+      "date": "2026-06-20",
+      "category": "RACE_C",
+      "type": "TrailRun",
+      "days_until": 59,
       "moving_time_seconds": null,
-      "distance_meters": 10000.0,
+      "distance_meters": 68000.0,
       "has_terrain": false
     },
     "all_races": [
-      {
-        "name": "Chase the sun Battersea 10km",
-        "date": "2026-04-22",
-        "category": "RACE_B",
-        "type": "Run",
-        "days_until": 0,
-        "moving_time_seconds": null,
-        "distance_meters": 10000.0,
-        "has_terrain": false
-      },
       {
         "name": "Leutasch Trail",
         "date": "2026-06-20",
@@ -2630,58 +2587,7 @@
       "active": false
     },
     "race_week": {
-      "active": true,
-      "event_name": "Chase the sun Battersea 10km",
-      "event_date": "2026-04-22",
-      "event_category": "RACE_B",
-      "event_type": "Run",
-      "event_duration_class": "medium",
-      "event_moving_time_seconds": null,
-      "days_until_event": 0,
-      "current_day": "D-0",
-      "ctl_baseline": 55.4,
-      "normal_weekly_tss": 387.7,
-      "race_week_tss_budget": {
-        "min": 194,
-        "max": 252
-      },
-      "race_week_tss_spent": 352,
-      "race_week_tss_remaining": {
-        "min": 0,
-        "max": 0
-      },
-      "projected_race_day_tsb": 4.7,
-      "tsb_target_range": {
-        "min": 5,
-        "max": 15
-      },
-      "today": {
-        "label": "Race day",
-        "load_target_tss": {
-          "min": 0,
-          "max": 0
-        },
-        "zones": "Race effort",
-        "purpose": "Go/no-go assessment. Execute race plan."
-      },
-      "carb_loading": {
-        "applicable": false,
-        "active": false,
-        "starts": "D-4",
-        "start_date": "2026-04-18",
-        "note": null
-      },
-      "opener": {
-        "day": "D-2",
-        "date": "2026-04-20",
-        "intensity": "standard"
-      },
-      "go_no_go": {
-        "tsb_status": "flag",
-        "notes": [
-          "Projected race-day TSB 4.7 is below target range 5-15. Consider additional rest."
-        ]
-      }
+      "active": false
     }
   }
 }
