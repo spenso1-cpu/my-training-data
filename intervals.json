@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-29T23:45:21.193014",
+  "generated_at": "2026-04-30T02:07:13.460941",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -121,66 +121,6 @@
           "zone": 1,
           "training_load": 4.527576,
           "decoupling": -18.76506
-        }
-      ]
-    },
-    {
-      "activity_id": "i140052454",
-      "date": "2026-04-15",
-      "type": "Ride",
-      "name": "Cycling",
-      "interval_summary": [
-        "1x 2m56s 217w"
-      ],
-      "intervals": [
-        {
-          "type": "RECOVERY",
-          "duration_secs": 464,
-          "avg_power": 35,
-          "max_power": 222,
-          "avg_cadence": 16.6447,
-          "zone": 1,
-          "training_load": 1.55742
-        },
-        {
-          "type": "WORK",
-          "label": "176s@217w72rpm",
-          "duration_secs": 176,
-          "avg_power": 217,
-          "max_power": 264,
-          "avg_cadence": 71.732956,
-          "zone": 3,
-          "training_load": 3.042579
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 805,
-          "avg_power": 147,
-          "max_power": 394,
-          "avg_cadence": 52.75693,
-          "zone": 1,
-          "training_load": 8.841359
-        }
-      ]
-    },
-    {
-      "activity_id": "i139999137",
-      "date": "2026-04-15",
-      "type": "Run",
-      "name": "Run",
-      "interval_summary": null,
-      "intervals": [
-        {
-          "type": "RECOVERY",
-          "duration_secs": 3974,
-          "avg_power": 246,
-          "max_power": 374,
-          "avg_hr": 121,
-          "max_hr": 139,
-          "avg_cadence": 85.285484,
-          "zone": 1,
-          "training_load": 34.826378,
-          "decoupling": 6.6647925
         }
       ]
     },
