@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T11:52:00.504320",
+  "generated_at": "2026-05-01T12:58:46.379630",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2862,6 +2862,67 @@
           "zone": 1,
           "training_load": 6.1424694,
           "decoupling": 1.9307492
+        }
+      ]
+    },
+    {
+      "activity_id": "i144544757",
+      "date": "2026-05-01",
+      "type": "Run",
+      "name": "60 mins easy",
+      "interval_summary": [
+        "1x 34m9s 5:43",
+        "1x 4m41s 5:12",
+        "1x 30m2s 5:46"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "2049s@215w84rpm",
+          "duration_secs": 2049,
+          "avg_power": 215,
+          "max_power": 341,
+          "avg_hr": 114,
+          "max_hr": 135,
+          "avg_cadence": 84.30419,
+          "zone": 1,
+          "training_load": 19.28243,
+          "decoupling": 9.032479
+        },
+        {
+          "type": "WORK",
+          "label": "281s@239w87rpm",
+          "duration_secs": 281,
+          "avg_power": 239,
+          "max_power": 276,
+          "avg_hr": 124,
+          "max_hr": 131,
+          "avg_cadence": 86.88256,
+          "zone": 1,
+          "training_load": 3.8892734,
+          "decoupling": 3.499134
+        },
+        {
+          "type": "WORK",
+          "label": "1802s@236w86rpm",
+          "duration_secs": 1802,
+          "avg_power": 236,
+          "max_power": 312,
+          "avg_hr": 126,
+          "max_hr": 141,
+          "avg_cadence": 85.94069,
+          "zone": 1,
+          "training_load": 22.866667,
+          "decoupling": 6.9788194
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_power": 245,
+          "max_power": 245,
+          "avg_hr": 131,
+          "max_hr": 131,
+          "zone": 1
         }
       ]
     }
