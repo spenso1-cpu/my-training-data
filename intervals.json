@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-03T06:38:08.199046",
+  "generated_at": "2026-05-03T08:23:33.160651",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2651,6 +2651,132 @@
           "zone": 1,
           "training_load": 18.997658,
           "decoupling": 0.35998952
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_power": 278,
+          "max_power": 278,
+          "avg_hr": 144,
+          "max_hr": 144,
+          "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i144961427",
+      "date": "2026-05-02",
+      "type": "Run",
+      "name": "Annecy / Saint-Jorioz",
+      "interval_summary": [
+        "1x 42m5s 8:42",
+        "3x 20m33s 4:06",
+        "2x 6m17s 6:17",
+        "1x 1s 4:10",
+        "1x 25m 6:04"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "2525s@249w71rpm",
+          "duration_secs": 2525,
+          "avg_power": 249,
+          "max_power": 275,
+          "avg_hr": 115,
+          "max_hr": 129,
+          "avg_cadence": 71.0,
+          "zone": 1,
+          "training_load": 21.55018
+        },
+        {
+          "type": "WORK",
+          "label": "1233s@315w71rpm",
+          "duration_secs": 1251,
+          "avg_power": 314,
+          "max_power": 362,
+          "avg_hr": 152,
+          "max_hr": 159,
+          "avg_cadence": 71.0,
+          "zone": 2,
+          "training_load": 28.320047,
+          "decoupling": 1.8915063
+        },
+        {
+          "type": "WORK",
+          "label": "377s@254w71rpm",
+          "duration_secs": 391,
+          "avg_power": 255,
+          "max_power": 319,
+          "avg_hr": 136,
+          "max_hr": 158,
+          "avg_cadence": 71.0,
+          "zone": 1,
+          "training_load": 4.8840694,
+          "decoupling": -3.7707968
+        },
+        {
+          "type": "WORK",
+          "label": "1233s@315w71rpm",
+          "duration_secs": 1202,
+          "avg_power": 317,
+          "max_power": 355,
+          "avg_hr": 160,
+          "max_hr": 165,
+          "avg_cadence": 71.0,
+          "zone": 3,
+          "training_load": 29.02436,
+          "decoupling": 2.9652376
+        },
+        {
+          "type": "WORK",
+          "label": "377s@254w71rpm",
+          "duration_secs": 362,
+          "avg_power": 252,
+          "max_power": 313,
+          "avg_hr": 136,
+          "max_hr": 164,
+          "avg_cadence": 71.0,
+          "zone": 1,
+          "training_load": 4.7438235,
+          "decoupling": -3.7261631
+        },
+        {
+          "type": "WORK",
+          "label": "1233s@315w71rpm",
+          "duration_secs": 1247,
+          "avg_power": 314,
+          "max_power": 362,
+          "avg_hr": 162,
+          "max_hr": 169,
+          "avg_cadence": 71.0,
+          "zone": 2,
+          "training_load": 28.524986,
+          "decoupling": 5.832591
+        },
+        {
+          "type": "WORK",
+          "label": "1s@326w71rpm",
+          "duration_secs": 1,
+          "avg_power": 326,
+          "max_power": 326,
+          "avg_hr": 167,
+          "max_hr": 167,
+          "avg_cadence": 71.0,
+          "zone": 2,
+          "training_load": 0.025694204
+        },
+        {
+          "type": "WORK",
+          "label": "1500s@259w71rpm",
+          "duration_secs": 1500,
+          "avg_power": 259,
+          "max_power": 326,
+          "avg_hr": 138,
+          "max_hr": 167,
+          "avg_cadence": 71.0,
+          "zone": 1,
+          "training_load": 19.929533,
+          "decoupling": 0.27792713
         },
         {
           "type": "RECOVERY",
