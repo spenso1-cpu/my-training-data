@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-13T08:10:15.490300",
+  "generated_at": "2026-05-13T10:41:33.962191",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1881,6 +1881,84 @@
           "zone": 1
         }
       ]
+    },
+    {
+      "activity_id": "i147805305",
+      "date": "2026-05-13",
+      "type": "Run",
+      "name": "Budapest Running",
+      "interval_summary": [
+        "1x 1h3m 5:37"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3806s@121bpm86rpm",
+          "duration_secs": 3806,
+          "avg_hr": 121,
+          "max_hr": 146,
+          "avg_cadence": 86.2227,
+          "zone": 1,
+          "avg_dfa_a1": 1.131789
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 122,
+          "max_hr": 122,
+          "avg_cadence": 83.0,
+          "zone": 1,
+          "avg_dfa_a1": 1.1420968
+        }
+      ],
+      "dfa": {
+        "avg": 1.132,
+        "p25": 1.009,
+        "p50": 1.137,
+        "p75": 1.242,
+        "tiz_below_lt1": {
+          "secs": 2845,
+          "pct": 77.2,
+          "avg_hr": 122,
+          "avg_watts": null
+        },
+        "tiz_lt1_transition": {
+          "secs": 837,
+          "pct": 22.7,
+          "avg_hr": 121,
+          "avg_watts": null
+        },
+        "tiz_transition_lt2": {
+          "secs": 1,
+          "pct": 0.0,
+          "avg_hr": 119,
+          "avg_watts": null
+        },
+        "tiz_above_lt2": null,
+        "drift": {
+          "first_third_avg": 1.207,
+          "last_third_avg": 1.07,
+          "delta": -0.137,
+          "interpretable": true
+        },
+        "lt1_crossing": {
+          "secs_in_band": 879,
+          "avg_hr": 121,
+          "avg_watts": null
+        },
+        "lt2_crossing": {
+          "secs_in_band": 0,
+          "avg_hr": null,
+          "avg_watts": null
+        },
+        "quality": {
+          "valid_secs": 3683,
+          "total_secs": 3683,
+          "valid_pct": 100.0,
+          "artifact_rate_avg": 0.59,
+          "sufficient": true
+        }
+      }
     }
   ]
 }
