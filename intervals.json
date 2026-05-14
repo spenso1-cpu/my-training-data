@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-14T10:39:35.173496",
+  "generated_at": "2026-05-14T12:16:17.920066",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1779,6 +1779,153 @@
           "total_secs": 3683,
           "valid_pct": 100.0,
           "artifact_rate_avg": 0.59,
+          "sufficient": true
+        }
+      }
+    },
+    {
+      "activity_id": "i148136585",
+      "date": "2026-05-14",
+      "type": "Run",
+      "name": "Budapest Running",
+      "interval_summary": [
+        "2x 16m1s 5:58",
+        "3x 10m2s 3:55",
+        "2x 95s 15:33",
+        "1x 78s 11:22"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "961s@125bpm84rpm",
+          "duration_secs": 960,
+          "avg_hr": 119,
+          "max_hr": 138,
+          "avg_cadence": 83.91946,
+          "zone": 1,
+          "avg_dfa_a1": 0.9383422
+        },
+        {
+          "type": "WORK",
+          "label": "602s@163bpm89rpm",
+          "duration_secs": 602,
+          "avg_hr": 160,
+          "max_hr": 169,
+          "avg_cadence": 89.033226,
+          "zone": 3,
+          "avg_dfa_a1": 0.7315893
+        },
+        {
+          "type": "WORK",
+          "label": "95s@136bpm29rpm",
+          "duration_secs": 93,
+          "avg_hr": 133,
+          "max_hr": 167,
+          "avg_cadence": 19.387096,
+          "zone": 1,
+          "avg_dfa_a1": 1.3234134
+        },
+        {
+          "type": "WORK",
+          "label": "602s@163bpm89rpm",
+          "duration_secs": 602,
+          "avg_hr": 163,
+          "max_hr": 171,
+          "avg_cadence": 89.55648,
+          "zone": 3,
+          "avg_dfa_a1": 0.82694656
+        },
+        {
+          "type": "WORK",
+          "label": "95s@136bpm29rpm",
+          "duration_secs": 97,
+          "avg_hr": 138,
+          "max_hr": 167,
+          "avg_cadence": 38.804123,
+          "zone": 1,
+          "avg_dfa_a1": 0.960318
+        },
+        {
+          "type": "WORK",
+          "label": "602s@163bpm89rpm",
+          "duration_secs": 601,
+          "avg_hr": 166,
+          "max_hr": 174,
+          "avg_cadence": 88.86855,
+          "zone": 3,
+          "avg_dfa_a1": 0.7272242
+        },
+        {
+          "type": "WORK",
+          "label": "78s@146bpm48rpm",
+          "duration_secs": 78,
+          "avg_hr": 146,
+          "max_hr": 168,
+          "avg_cadence": 47.705128,
+          "zone": 1,
+          "avg_dfa_a1": 0.7649364
+        },
+        {
+          "type": "WORK",
+          "label": "961s@125bpm84rpm",
+          "duration_secs": 961,
+          "avg_hr": 131,
+          "max_hr": 154,
+          "avg_cadence": 84.459,
+          "zone": 1,
+          "avg_dfa_a1": 0.7969056
+        }
+      ],
+      "dfa": {
+        "avg": 0.853,
+        "p25": 0.639,
+        "p50": 0.759,
+        "p75": 1.016,
+        "tiz_below_lt1": {
+          "secs": 993,
+          "pct": 26.1,
+          "avg_hr": 131,
+          "avg_watts": null
+        },
+        "tiz_lt1_transition": {
+          "secs": 951,
+          "pct": 25.0,
+          "avg_hr": 130,
+          "avg_watts": null
+        },
+        "tiz_transition_lt2": {
+          "secs": 1635,
+          "pct": 43.0,
+          "avg_hr": 161,
+          "avg_watts": null
+        },
+        "tiz_above_lt2": {
+          "secs": 220,
+          "pct": 5.8,
+          "avg_hr": 157,
+          "avg_watts": null
+        },
+        "drift": {
+          "first_third_avg": 0.948,
+          "last_third_avg": 0.746,
+          "delta": -0.202,
+          "interpretable": true
+        },
+        "lt1_crossing": {
+          "secs_in_band": 285,
+          "avg_hr": 128,
+          "avg_watts": null
+        },
+        "lt2_crossing": {
+          "secs_in_band": 304,
+          "avg_hr": 162,
+          "avg_watts": null
+        },
+        "quality": {
+          "valid_secs": 3799,
+          "total_secs": 3907,
+          "valid_pct": 97.2,
+          "artifact_rate_avg": 0.55,
           "sufficient": true
         }
       }
