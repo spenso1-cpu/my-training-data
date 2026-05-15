@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-15T11:32:22.381959",
+  "generated_at": "2026-05-15T13:17:02.873405",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1515,6 +1515,75 @@
           "total_secs": 3907,
           "valid_pct": 97.2,
           "artifact_rate_avg": 0.55,
+          "sufficient": true
+        }
+      }
+    },
+    {
+      "activity_id": "i148466148",
+      "date": "2026-05-15",
+      "type": "Run",
+      "name": "City of Glasgow Running",
+      "interval_summary": [
+        "1x 1h8m 5:27"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4103s@120bpm86rpm",
+          "duration_secs": 4103,
+          "avg_hr": 120,
+          "max_hr": 139,
+          "avg_cadence": 85.75776,
+          "zone": 1,
+          "avg_dfa_a1": 1.0695716
+        }
+      ],
+      "dfa": {
+        "avg": 1.087,
+        "p25": 0.972,
+        "p50": 1.047,
+        "p75": 1.166,
+        "tiz_below_lt1": {
+          "secs": 2388,
+          "pct": 67.7,
+          "avg_hr": 121,
+          "avg_watts": null
+        },
+        "tiz_lt1_transition": {
+          "secs": 1067,
+          "pct": 30.3,
+          "avg_hr": 122,
+          "avg_watts": null
+        },
+        "tiz_transition_lt2": {
+          "secs": 70,
+          "pct": 2.0,
+          "avg_hr": 130,
+          "avg_watts": null
+        },
+        "tiz_above_lt2": null,
+        "drift": {
+          "first_third_avg": 1.187,
+          "last_third_avg": 1.08,
+          "delta": -0.107,
+          "interpretable": true
+        },
+        "lt1_crossing": {
+          "secs_in_band": 1093,
+          "avg_hr": 121,
+          "avg_watts": null
+        },
+        "lt2_crossing": {
+          "secs_in_band": 0,
+          "avg_hr": null,
+          "avg_watts": null
+        },
+        "quality": {
+          "valid_secs": 3525,
+          "total_secs": 3802,
+          "valid_pct": 92.7,
+          "artifact_rate_avg": 0.87,
           "sufficient": true
         }
       }
