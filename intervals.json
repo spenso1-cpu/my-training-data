@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-17T10:47:19.674125",
+  "generated_at": "2026-05-17T11:54:50.821942",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1113,6 +1113,121 @@
           "sufficient": true
         }
       }
+    },
+    {
+      "activity_id": "i149035084",
+      "date": "2026-05-17",
+      "type": "Run",
+      "name": "Cotswold Running",
+      "interval_summary": [
+        "1x 15m51s 4:51",
+        "5x 6m 3:51",
+        "2x 67s 7:35",
+        "1x 81s 11:57",
+        "1x 1m51s 9:50",
+        "1x 17m22s 4:49"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "951s@121bpm89rpm",
+          "duration_secs": 951,
+          "avg_hr": 121,
+          "max_hr": 135,
+          "avg_cadence": 88.87413,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "360s@160bpm89rpm",
+          "duration_secs": 361,
+          "avg_hr": 156,
+          "max_hr": 160,
+          "avg_cadence": 89.56786,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "67s@137bpm75rpm",
+          "duration_secs": 63,
+          "avg_hr": 139,
+          "max_hr": 155,
+          "avg_cadence": 82.349205,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "360s@160bpm89rpm",
+          "duration_secs": 360,
+          "avg_hr": 158,
+          "max_hr": 167,
+          "avg_cadence": 89.397224,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "67s@137bpm75rpm",
+          "duration_secs": 70,
+          "avg_hr": 134,
+          "max_hr": 162,
+          "avg_cadence": 68.52857,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "360s@160bpm89rpm",
+          "duration_secs": 360,
+          "avg_hr": 158,
+          "max_hr": 170,
+          "avg_cadence": 88.825,
+          "zone": 4
+        },
+        {
+          "type": "WORK",
+          "label": "81s@137bpm36rpm",
+          "duration_secs": 81,
+          "avg_hr": 137,
+          "max_hr": 168,
+          "avg_cadence": 36.11111,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "360s@160bpm89rpm",
+          "duration_secs": 360,
+          "avg_hr": 164,
+          "max_hr": 172,
+          "avg_cadence": 89.31944,
+          "zone": 3
+        },
+        {
+          "type": "WORK",
+          "label": "111s@135bpm50rpm",
+          "duration_secs": 111,
+          "avg_hr": 135,
+          "max_hr": 171,
+          "avg_cadence": 50.25225,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "360s@160bpm89rpm",
+          "duration_secs": 361,
+          "avg_hr": 162,
+          "max_hr": 172,
+          "avg_cadence": 88.89474,
+          "zone": 4
+        },
+        {
+          "type": "WORK",
+          "label": "1042s@135bpm86rpm",
+          "duration_secs": 1042,
+          "avg_hr": 135,
+          "max_hr": 169,
+          "avg_cadence": 85.85931,
+          "zone": 1
+        }
+      ]
     }
   ]
 }
