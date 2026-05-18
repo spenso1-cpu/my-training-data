@@ -1,97 +1,10 @@
 {
-  "generated_at": "2026-05-17T23:39:18.131166",
+  "generated_at": "2026-05-18T01:33:53.826047",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i145101218",
-      "date": "2026-05-03",
-      "type": "Run",
-      "name": "Saint-Jean-de-Sixt Running",
-      "interval_summary": [
-        "1x 6m7s 5:31",
-        "3x 5m24s 5:24",
-        "1x 2m34s 5:01"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "367s@221w86rpm",
-          "duration_secs": 367,
-          "avg_power": 221,
-          "max_power": 267,
-          "avg_hr": 108,
-          "max_hr": 120,
-          "avg_cadence": 85.701256,
-          "zone": 1,
-          "training_load": 3.9887784,
-          "decoupling": 2.8123007
-        },
-        {
-          "type": "WORK",
-          "label": "324s@240w87rpm",
-          "duration_secs": 331,
-          "avg_power": 249,
-          "max_power": 271,
-          "avg_hr": 119,
-          "max_hr": 125,
-          "avg_cadence": 86.98187,
-          "zone": 1,
-          "training_load": 4.931356,
-          "decoupling": 2.602118
-        },
-        {
-          "type": "WORK",
-          "label": "324s@240w87rpm",
-          "duration_secs": 327,
-          "avg_power": 239,
-          "max_power": 274,
-          "avg_hr": 120,
-          "max_hr": 127,
-          "avg_cadence": 86.651375,
-          "zone": 1,
-          "training_load": 4.5259514,
-          "decoupling": -1.214901
-        },
-        {
-          "type": "WORK",
-          "label": "324s@240w87rpm",
-          "duration_secs": 314,
-          "avg_power": 233,
-          "max_power": 287,
-          "avg_hr": 120,
-          "max_hr": 135,
-          "avg_cadence": 86.27707,
-          "zone": 1,
-          "training_load": 4.166823,
-          "decoupling": -1.6481816
-        },
-        {
-          "type": "WORK",
-          "label": "154s@247w87rpm",
-          "duration_secs": 154,
-          "avg_power": 247,
-          "max_power": 264,
-          "avg_hr": 123,
-          "max_hr": 128,
-          "avg_cadence": 87.08442,
-          "zone": 1,
-          "training_load": 2.2759554,
-          "decoupling": 1.421325
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 1,
-          "avg_power": 249,
-          "max_power": 249,
-          "avg_hr": 125,
-          "max_hr": 125,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i145289559",
       "date": "2026-05-04",
