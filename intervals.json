@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-23T06:44:01.541850",
+  "generated_at": "2026-05-23T08:53:13.177993",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -957,6 +957,34 @@
           "avg_hr": 141,
           "max_hr": 141,
           "avg_cadence": 88.0,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i150752318",
+      "date": "2026-05-23",
+      "type": "Run",
+      "name": "Saint-Jean-de-Sixt Running",
+      "interval_summary": [
+        "1x 58m22s 5:05"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3502s@134bpm87rpm",
+          "duration_secs": 3502,
+          "avg_hr": 134,
+          "max_hr": 148,
+          "avg_cadence": 87.21301,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 141,
+          "max_hr": 141,
+          "avg_cadence": 86.0,
           "zone": 1
         }
       ]
