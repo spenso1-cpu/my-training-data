@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-28T12:44:18.996253",
+  "generated_at": "2026-05-28T16:43:03.274112",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1132,6 +1132,34 @@
           "avg_hr": 119,
           "max_hr": 135,
           "avg_cadence": 86.10249,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i152308828",
+      "date": "2026-05-28",
+      "type": "Run",
+      "name": "Hounslow Running",
+      "interval_summary": [
+        "1x 21m13s 5:33"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "1273s@105bpm85rpm",
+          "duration_secs": 1273,
+          "avg_hr": 105,
+          "max_hr": 119,
+          "avg_cadence": 85.07253,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 112,
+          "max_hr": 112,
+          "avg_cadence": 87.0,
           "zone": 1
         }
       ]
