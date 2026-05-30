@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-30T14:46:23.029808",
+  "generated_at": "2026-05-30T15:59:08.070974",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -944,6 +944,34 @@
           "avg_hr": 112,
           "max_hr": 112,
           "avg_cadence": 87.0,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i152739027",
+      "date": "2026-05-30",
+      "type": "Run",
+      "name": "City of Edinburgh Running",
+      "interval_summary": [
+        "1x 1h3m 4:32"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3839s@140bpm87rpm",
+          "duration_secs": 3839,
+          "avg_hr": 140,
+          "max_hr": 169,
+          "avg_cadence": 86.85588,
+          "zone": 2
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 123,
+          "max_hr": 123,
+          "avg_cadence": 88.0,
           "zone": 1
         }
       ]
