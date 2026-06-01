@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T07:20:54.143748",
+  "generated_at": "2026-06-01T13:07:51.338057",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -860,6 +860,80 @@
           "zone": 1
         }
       ]
+    },
+    {
+      "activity_id": "i153104529",
+      "date": "2026-06-01",
+      "type": "Run",
+      "name": "Saint-Jean-de-Sixt Running",
+      "interval_summary": [
+        "1x 1h2m 5:17"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3767s@132bpm86rpm",
+          "duration_secs": 3767,
+          "avg_hr": 132,
+          "max_hr": 150,
+          "avg_cadence": 86.46269,
+          "zone": 1,
+          "avg_dfa_a1": 0.66268754
+        }
+      ],
+      "dfa": {
+        "avg": 0.662,
+        "p25": 0.394,
+        "p50": 0.545,
+        "p75": 0.814,
+        "tiz_below_lt1": {
+          "secs": 512,
+          "pct": 14.8,
+          "avg_hr": 115,
+          "avg_watts": null
+        },
+        "tiz_lt1_transition": {
+          "secs": 540,
+          "pct": 15.6,
+          "avg_hr": 131,
+          "avg_watts": null
+        },
+        "tiz_transition_lt2": {
+          "secs": 944,
+          "pct": 27.3,
+          "avg_hr": 134,
+          "avg_watts": null
+        },
+        "tiz_above_lt2": {
+          "secs": 1461,
+          "pct": 42.3,
+          "avg_hr": 141,
+          "avg_watts": null
+        },
+        "drift": {
+          "first_third_avg": 0.852,
+          "last_third_avg": 0.496,
+          "delta": -0.356,
+          "interpretable": false
+        },
+        "lt1_crossing": {
+          "secs_in_band": 130,
+          "avg_hr": 125,
+          "avg_watts": null
+        },
+        "lt2_crossing": {
+          "secs_in_band": 559,
+          "avg_hr": 136,
+          "avg_watts": null
+        },
+        "quality": {
+          "valid_secs": 3457,
+          "total_secs": 3605,
+          "valid_pct": 95.9,
+          "artifact_rate_avg": 0.47,
+          "sufficient": true
+        }
+      }
     }
   ]
 }
