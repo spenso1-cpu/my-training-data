@@ -1,38 +1,10 @@
 {
-  "generated_at": "2026-06-03T22:36:08.393590",
+  "generated_at": "2026-06-04T00:18:10.995773",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i149981040",
-      "date": "2026-05-20",
-      "type": "Run",
-      "name": "Th\u00f4nes Running",
-      "interval_summary": [
-        "1x 57m30s 5:12"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "3450s@118bpm87rpm",
-          "duration_secs": 3450,
-          "avg_hr": 118,
-          "max_hr": 131,
-          "avg_cadence": 87.094574,
-          "zone": 1
-        },
-        {
-          "type": "RECOVERY",
-          "duration_secs": 1,
-          "avg_hr": 128,
-          "max_hr": 128,
-          "avg_cadence": 87.0,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i150257683",
       "date": "2026-05-21",
