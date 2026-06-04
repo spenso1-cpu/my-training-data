@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T15:54:26.823218",
+  "generated_at": "2026-06-04T18:09:11.903542",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1026,6 +1026,26 @@
           "sufficient": true
         }
       }
+    },
+    {
+      "activity_id": "i154335913",
+      "date": "2026-06-04",
+      "type": "Run",
+      "name": "Munich Running",
+      "interval_summary": [
+        "1x 40m35s 4:56"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "2435s@123bpm87rpm",
+          "duration_secs": 2435,
+          "avg_hr": 123,
+          "max_hr": 146,
+          "avg_cadence": 86.58753,
+          "zone": 1
+        }
+      ]
     }
   ]
 }
