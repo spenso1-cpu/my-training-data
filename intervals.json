@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T14:27:41.038232",
+  "generated_at": "2026-06-05T16:58:35.213102",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -955,6 +955,34 @@
           "avg_hr": 123,
           "max_hr": 146,
           "avg_cadence": 86.58753,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i154596198",
+      "date": "2026-06-05",
+      "type": "Run",
+      "name": "Rome Running",
+      "interval_summary": [
+        "1x 59m7s 5:08"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3547s@120bpm85rpm",
+          "duration_secs": 3547,
+          "avg_hr": 120,
+          "max_hr": 152,
+          "avg_cadence": 84.97887,
+          "zone": 1
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 112,
+          "max_hr": 112,
+          "avg_cadence": 86.0,
           "zone": 1
         }
       ]
