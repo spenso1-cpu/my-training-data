@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T14:52:18.760445",
+  "generated_at": "2026-06-06T16:01:27.662088",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -955,6 +955,26 @@
           "avg_hr": 112,
           "max_hr": 112,
           "avg_cadence": 86.0,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i154826417",
+      "date": "2026-06-06",
+      "type": "Run",
+      "name": "Paris Running",
+      "interval_summary": [
+        "1x 59m50s 4:49"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3590s@125bpm88rpm",
+          "duration_secs": 3590,
+          "avg_hr": 125,
+          "max_hr": 138,
+          "avg_cadence": 88.350945,
           "zone": 1
         }
       ]
