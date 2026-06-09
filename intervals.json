@@ -1,30 +1,10 @@
 {
-  "generated_at": "2026-06-08T23:58:08.406506",
+  "generated_at": "2026-06-09T03:29:48.674427",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i151301146",
-      "date": "2026-05-25",
-      "type": "Run",
-      "name": "Neuvecelle Running",
-      "interval_summary": [
-        "1x 1h5m 6:10"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "3929s@115bpm81rpm",
-          "duration_secs": 3929,
-          "avg_hr": 115,
-          "max_hr": 132,
-          "avg_cadence": 80.766304,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i151569621",
       "date": "2026-05-26",
