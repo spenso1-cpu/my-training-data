@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-20T19:54:45.192222",
+  "generated_at": "2026-06-20T21:05:41.263286",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -193,6 +193,34 @@
           "zone": 1,
           "training_load": 7.7475996,
           "decoupling": -23.621119
+        }
+      ]
+    },
+    {
+      "activity_id": "i158962215",
+      "date": "2026-06-20",
+      "type": "Run",
+      "name": "Troms\u00f8 midnight sun half marathon",
+      "interval_summary": [
+        "1x 1h21m 3:53"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4918s@170bpm88rpm",
+          "duration_secs": 4918,
+          "avg_hr": 170,
+          "max_hr": 189,
+          "avg_cadence": 87.94144,
+          "zone": 3
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 188,
+          "max_hr": 188,
+          "avg_cadence": 90.0,
+          "zone": 5
         }
       ]
     }
