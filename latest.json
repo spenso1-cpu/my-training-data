@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-06-24T16:00:00.085241",
+    "last_updated": "2026-06-24T17:59:40.052190",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -81,7 +81,7 @@
   "athlete_profile": {
     "date_of_birth": "1984-12-06",
     "age": 41,
-    "height_m": null,
+    "height_m": 1.79,
     "sex": "M",
     "location": "Saint-Jean-De-Sixt, Haute-Savoie, France",
     "timezone": "Europe/Paris",
@@ -90,6 +90,15 @@
   },
   "athlete_notes": null,
   "alerts": [
+    {
+      "metric": "rhr",
+      "value": 67,
+      "severity": "warning",
+      "threshold": "\u2191\u22655bpm vs baseline (46.1)",
+      "context": "RHR 67 is 20.9bpm above baseline. Monitor \u2014 alarm if persists >2 days.",
+      "persistence_days": 1,
+      "tier": 1
+    },
     {
       "metric": "acwr",
       "value": 1.63,
@@ -111,10 +120,10 @@
         "delta_pct": 8.9
       },
       "rhr": {
-        "status": "unavailable",
-        "value": null,
-        "baseline_7d": 42.7,
-        "delta_bpm": null
+        "status": "red",
+        "value": 67,
+        "baseline_7d": 46.1,
+        "delta_bpm": 20.9
       },
       "sleep": {
         "status": "green",
@@ -126,16 +135,16 @@
         "value": 1.63
       },
       "ri": {
-        "status": "unavailable",
-        "value": null,
-        "value_yesterday": 0.98
+        "status": "green",
+        "value": 0.75,
+        "value_yesterday": 1.05
       }
     },
     "signal_summary": {
-      "green": 2,
+      "green": 3,
       "amber": 0,
-      "red": 1,
-      "unavailable": 2
+      "red": 2,
+      "unavailable": 0
     },
     "phase_context": {
       "phase": "Base",
@@ -224,7 +233,7 @@
     },
     "current_metrics": {
       "weight_kg": 72.0,
-      "resting_hr": 43,
+      "resting_hr": 67,
       "hrv": 93.0,
       "sleep_quality": null,
       "sleep_hours": 7.77,
@@ -258,14 +267,14 @@
     }
   },
   "derived_metrics": {
-    "recovery_index": null,
-    "recovery_index_yesterday": 0.98,
+    "recovery_index": 0.75,
+    "recovery_index_yesterday": 1.05,
     "hrv_baseline_7d": 85.4,
-    "rhr_baseline_7d": 42.7,
+    "rhr_baseline_7d": 46.1,
     "hrv_baseline_28d": 85.4,
-    "rhr_baseline_28d": 42.1,
+    "rhr_baseline_28d": 43.0,
     "latest_hrv": 93.0,
-    "latest_rhr": null,
+    "latest_rhr": 67,
     "acwr": 1.63,
     "acwr_interpretation": "danger",
     "monotony": 0.79,
@@ -277,7 +286,7 @@
     "multi_sport_detected": true,
     "strain": 250.0,
     "stress_tolerance": 3.2,
-    "load_recovery_ratio": null,
+    "load_recovery_ratio": 4.2,
     "tss_7d_total": 317.0,
     "tss_28d_total": 780.0,
     "zone_distribution_7d": {
@@ -594,10 +603,10 @@
     "p_max": 1051,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-06-24T16:00:00.084066",
+    "calculation_timestamp": "2026-06-24T17:59:40.051024",
     "data_quality": {
       "hrv_data_points": 7,
-      "rhr_data_points": 6,
+      "rhr_data_points": 7,
       "activities_7d": 8,
       "activities_28d": 25,
       "planned_workouts_7d": 0,
@@ -1989,7 +1998,7 @@
     {
       "date": "2026-06-24",
       "weight_kg": null,
-      "resting_hr": null,
+      "resting_hr": 67,
       "hrv_rmssd": 93.0,
       "hrv_sdnn": null,
       "sleep_hours": 7.77,
@@ -2068,7 +2077,7 @@
     "total_tss": 317,
     "activities_count": 8,
     "avg_hrv": 85.4,
-    "avg_resting_hr": 42.7
+    "avg_resting_hr": 46.1
   },
   "race_calendar": {
     "next_race": null,
