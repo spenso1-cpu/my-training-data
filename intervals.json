@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-27T08:05:21.644053",
+  "generated_at": "2026-06-27T10:21:00.589360",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -384,6 +384,26 @@
           "zone": 1,
           "training_load": 5.706166,
           "decoupling": -19.604416
+        }
+      ]
+    },
+    {
+      "activity_id": "i160705108",
+      "date": "2026-06-27",
+      "type": "Run",
+      "name": "Hounslow Running",
+      "interval_summary": [
+        "1x 1h8m 4:55"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4122s@130bpm87rpm",
+          "duration_secs": 4122,
+          "avg_hr": 130,
+          "max_hr": 154,
+          "avg_cadence": 86.73335,
+          "zone": 1
         }
       ]
     }
