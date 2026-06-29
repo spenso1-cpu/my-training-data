@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T07:14:46.095802",
+  "generated_at": "2026-06-29T12:09:00.065883",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -403,6 +403,26 @@
           "avg_hr": 130,
           "max_hr": 154,
           "avg_cadence": 86.73335,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i161184477",
+      "date": "2026-06-29",
+      "type": "Run",
+      "name": "Inverness - along the river Ness",
+      "interval_summary": [
+        "1x 1h7m 4:42"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4047s@126bpm88rpm",
+          "duration_secs": 4047,
+          "avg_hr": 126,
+          "max_hr": 142,
+          "avg_cadence": 87.512474,
           "zone": 1
         }
       ]
