@@ -1,42 +1,10 @@
 {
-  "generated_at": "2026-07-30T23:39:41.834774",
+  "generated_at": "2026-07-31T01:11:28.629950",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i166254192",
-      "date": "2026-07-16",
-      "type": "Ride",
-      "name": "Aravis and La Giettaz",
-      "interval_summary": [
-        "1x 3h9m 151w"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "11394s@151w60rpm",
-          "duration_secs": 11394,
-          "avg_power": 151,
-          "max_power": 517,
-          "avg_hr": 129,
-          "max_hr": 173,
-          "avg_cadence": 60.270634,
-          "zone": 2,
-          "training_load": 127.50588,
-          "decoupling": 4.125241
-        },
-        {
-          "type": "WORK",
-          "duration_secs": 4,
-          "avg_hr": 108,
-          "max_hr": 109,
-          "zone": 1,
-          "decoupling": "NaN"
-        }
-      ]
-    },
     {
       "activity_id": "i166567233",
       "date": "2026-07-17",
