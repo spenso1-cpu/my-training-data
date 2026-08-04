@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-04T09:08:08.255452",
+  "generated_at": "2026-08-04T11:32:20.182882",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1563,6 +1563,53 @@
           "zone": 1,
           "training_load": 4.8557873,
           "decoupling": -73.74987
+        }
+      ]
+    },
+    {
+      "activity_id": "i172325937",
+      "date": "2026-08-04",
+      "type": "Ride",
+      "name": "Col des Annes",
+      "interval_summary": [
+        "1x 31m18s 166w",
+        "1x 1h18m 172w"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "1878s@166w79rpm",
+          "duration_secs": 1878,
+          "avg_power": 166,
+          "max_power": 701,
+          "avg_hr": 117,
+          "max_hr": 146,
+          "avg_cadence": 79.24546,
+          "zone": 2,
+          "training_load": 30.19369,
+          "decoupling": 5.0189633
+        },
+        {
+          "type": "WORK",
+          "label": "4685s@172w59rpm",
+          "duration_secs": 4685,
+          "avg_power": 172,
+          "max_power": 534,
+          "avg_hr": 129,
+          "max_hr": 172,
+          "avg_cadence": 59.093845,
+          "zone": 2,
+          "training_load": 94.65064,
+          "decoupling": -10.917187
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 2,
+          "avg_hr": 74,
+          "max_hr": 74,
+          "zone": 1,
+          "training_load": 8.543723e-07,
+          "decoupling": "NaN"
         }
       ]
     }
