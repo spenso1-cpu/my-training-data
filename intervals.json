@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T07:35:41.284415",
+  "generated_at": "2026-08-05T10:14:46.092383",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1356,6 +1356,27 @@
           "zone": 1,
           "training_load": 8.543723e-07,
           "decoupling": "NaN"
+        }
+      ]
+    },
+    {
+      "activity_id": "i172664573",
+      "date": "2026-08-05",
+      "type": "VirtualRide",
+      "name": "Zwift - Waisted 8 in Watopia",
+      "interval_summary": null,
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 3626,
+          "avg_power": 138,
+          "max_power": 251,
+          "avg_hr": 103,
+          "max_hr": 116,
+          "avg_cadence": 86.44098,
+          "zone": 1,
+          "training_load": 31.216343,
+          "decoupling": -0.6441688
         }
       ]
     }
