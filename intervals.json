@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T17:34:16.905981",
+  "generated_at": "2026-08-15T17:54:58.667427",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -903,6 +903,25 @@
           "duration_secs": 489,
           "avg_hr": 106,
           "max_hr": 117,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i176171081",
+      "date": "2026-08-15",
+      "type": "Ride",
+      "name": "Cotswold Cycling",
+      "interval_summary": [
+        "1x 43m8s 63bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "2588s@63bpm",
+          "duration_secs": 2588,
+          "avg_hr": 63,
+          "max_hr": 99,
           "zone": 1
         }
       ]
