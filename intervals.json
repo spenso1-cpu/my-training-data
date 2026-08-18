@@ -1,104 +1,10 @@
 {
-  "generated_at": "2026-08-17T23:58:14.832942",
+  "generated_at": "2026-08-18T01:10:29.530787",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i172004410",
-      "date": "2026-08-03",
-      "type": "MountainBikeRide",
-      "name": "Danay and LCZ MTB",
-      "interval_summary": [
-        "1x 18m58s 140w",
-        "1x 33m48s 219w",
-        "1x 28m18s 106w",
-        "1x 29m19s 137w",
-        "1x 13m2s 59w",
-        "1x 11m26s 59w"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "1138s@140w72rpm",
-          "duration_secs": 1138,
-          "avg_power": 140,
-          "max_power": 580,
-          "avg_hr": 112,
-          "max_hr": 137,
-          "avg_cadence": 72.01318,
-          "zone": 1,
-          "training_load": 14.739577,
-          "decoupling": 2.8119655
-        },
-        {
-          "type": "WORK",
-          "label": "2028s@219w82rpm",
-          "duration_secs": 2028,
-          "avg_power": 219,
-          "max_power": 566,
-          "avg_hr": 142,
-          "max_hr": 156,
-          "avg_cadence": 81.98324,
-          "zone": 3,
-          "training_load": 44.248848,
-          "decoupling": 9.751536
-        },
-        {
-          "type": "WORK",
-          "label": "1698s@106w48rpm",
-          "duration_secs": 1698,
-          "avg_power": 106,
-          "max_power": 567,
-          "avg_hr": 114,
-          "max_hr": 153,
-          "avg_cadence": 48.237835,
-          "zone": 1,
-          "training_load": 19.449629,
-          "decoupling": -32.094738
-        },
-        {
-          "type": "WORK",
-          "label": "1759s@137w55rpm",
-          "duration_secs": 1759,
-          "avg_power": 137,
-          "max_power": 532,
-          "avg_hr": 126,
-          "max_hr": 152,
-          "avg_cadence": 55.38374,
-          "zone": 1,
-          "training_load": 26.946575,
-          "decoupling": 10.33495
-        },
-        {
-          "type": "WORK",
-          "label": "782s@59w36rpm",
-          "duration_secs": 782,
-          "avg_power": 59,
-          "max_power": 475,
-          "avg_hr": 98,
-          "max_hr": 130,
-          "avg_cadence": 35.7711,
-          "zone": 1,
-          "training_load": 4.357148,
-          "decoupling": -141.377
-        },
-        {
-          "type": "WORK",
-          "label": "686s@59w32rpm",
-          "duration_secs": 686,
-          "avg_power": 59,
-          "max_power": 286,
-          "avg_hr": 91,
-          "max_hr": 135,
-          "avg_cadence": 32.112606,
-          "zone": 1,
-          "training_load": 4.8557873,
-          "decoupling": -73.74987
-        }
-      ]
-    },
     {
       "activity_id": "i172325937",
       "date": "2026-08-04",
