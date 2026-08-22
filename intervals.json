@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T09:57:06.405502",
+  "generated_at": "2026-08-22T10:18:33.886777",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -805,6 +805,108 @@
           "zone": 1,
           "training_load": 4.027682,
           "decoupling": -19.33263
+        }
+      ]
+    },
+    {
+      "activity_id": "i178539249",
+      "date": "2026-08-22",
+      "type": "Ride",
+      "name": "Egkomi Cycling",
+      "interval_summary": [
+        "8x 15m8s 127bpm",
+        "1x 19m39s 132bpm",
+        "1x 32m16s 136bpm",
+        "1x 11m10s 127bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 1045,
+          "avg_hr": 113,
+          "max_hr": 148,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 865,
+          "avg_hr": 132,
+          "max_hr": 147,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 865,
+          "avg_hr": 135,
+          "max_hr": 143,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "1179s@132bpm",
+          "duration_secs": 1179,
+          "avg_hr": 132,
+          "max_hr": 145,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 996,
+          "avg_hr": 133,
+          "max_hr": 166,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "1936s@136bpm",
+          "duration_secs": 1936,
+          "avg_hr": 136,
+          "max_hr": 166,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 806,
+          "avg_hr": 126,
+          "max_hr": 150,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "670s@127bpm",
+          "duration_secs": 670,
+          "avg_hr": 127,
+          "max_hr": 148,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 903,
+          "avg_hr": 124,
+          "max_hr": 139,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 981,
+          "avg_hr": 120,
+          "max_hr": 138,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "908s@127bpm",
+          "duration_secs": 802,
+          "avg_hr": 134,
+          "max_hr": 154,
+          "zone": 2
         }
       ]
     }
