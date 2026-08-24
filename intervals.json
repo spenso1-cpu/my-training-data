@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T10:51:01.058430",
+  "generated_at": "2026-08-24T11:18:26.127501",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -926,6 +926,84 @@
           "avg_hr": 129,
           "max_hr": 166,
           "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i179193166",
+      "date": "2026-08-24",
+      "type": "Ride",
+      "name": "Cotswold Cycling",
+      "interval_summary": [
+        "1x 14m 111bpm",
+        "1x 17m56s 115bpm",
+        "5x 11m19s 124bpm",
+        "1x 31m1s 110bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "840s@111bpm",
+          "duration_secs": 840,
+          "avg_hr": 111,
+          "max_hr": 141,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "1076s@115bpm",
+          "duration_secs": 1076,
+          "avg_hr": 115,
+          "max_hr": 132,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "679s@124bpm",
+          "duration_secs": 710,
+          "avg_hr": 123,
+          "max_hr": 139,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "1861s@110bpm",
+          "duration_secs": 1861,
+          "avg_hr": 110,
+          "max_hr": 150,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "679s@124bpm",
+          "duration_secs": 686,
+          "avg_hr": 124,
+          "max_hr": 149,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "679s@124bpm",
+          "duration_secs": 684,
+          "avg_hr": 125,
+          "max_hr": 150,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "679s@124bpm",
+          "duration_secs": 690,
+          "avg_hr": 131,
+          "max_hr": 168,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "679s@124bpm",
+          "duration_secs": 623,
+          "avg_hr": 116,
+          "max_hr": 134,
+          "zone": 1
         }
       ]
     }
