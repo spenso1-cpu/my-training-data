@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-08-26T07:30:49.167003",
+    "last_updated": "2026-08-26T08:22:05.156351",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -232,8 +232,8 @@
       "hrv": 76.0,
       "sleep_quality": 2,
       "sleep_hours": 8.27,
-      "sleep_formatted": "8h16m",
-      "sleep_score": 80.0,
+      "sleep_formatted": "8h15m",
+      "sleep_score": 96.0,
       "fatigue": null,
       "soreness": null,
       "stress": null,
@@ -250,7 +250,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": null,
+      "steps": 146,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -258,7 +258,7 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 86.0
     }
   },
   "derived_metrics": {
@@ -624,7 +624,7 @@
     "p_max": 1141,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-08-26T07:30:49.166148",
+    "calculation_timestamp": "2026-08-26T08:22:05.155119",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -3020,11 +3020,11 @@
       "hrv_rmssd": 76.0,
       "hrv_sdnn": null,
       "sleep_hours": 8.27,
-      "sleep_formatted": "8h16m",
+      "sleep_formatted": "8h15m",
       "sleep_quality": 2,
-      "sleep_score": 80.0,
+      "sleep_score": 96.0,
       "mental_energy": null,
-      "avg_sleeping_hr": null,
+      "avg_sleeping_hr": 45.0,
       "vo2max": null,
       "fatigue": null,
       "soreness": null,
@@ -3042,7 +3042,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": null,
+      "steps": 146,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -3050,7 +3050,7 @@
       "fat_g": null,
       "menstrual_phase": null,
       "menstrual_phase_predicted": null,
-      "readiness": null
+      "readiness": 86.0
     }
   ],
   "planned_workouts": [
