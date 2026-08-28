@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T05:01:52.593307",
+  "generated_at": "2026-08-28T17:25:13.547600",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -915,6 +915,85 @@
           "duration_secs": 525,
           "avg_hr": 89,
           "max_hr": 113,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i180660920",
+      "date": "2026-08-28",
+      "type": "Ride",
+      "name": "Prague river",
+      "interval_summary": [
+        "1x 54m14s 80bpm",
+        "4x 12m44s 112bpm",
+        "1x 22m29s 124bpm",
+        "1x 43m16s 114bpm",
+        "1x 4m7s 95bpm"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3254s@80bpm",
+          "duration_secs": 3254,
+          "avg_hr": 80,
+          "max_hr": 117,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "764s@112bpm",
+          "duration_secs": 803,
+          "avg_hr": 103,
+          "max_hr": 121,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "764s@112bpm",
+          "duration_secs": 730,
+          "avg_hr": 113,
+          "max_hr": 140,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "764s@112bpm",
+          "duration_secs": 752,
+          "avg_hr": 111,
+          "max_hr": 125,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "1349s@124bpm",
+          "duration_secs": 1349,
+          "avg_hr": 124,
+          "max_hr": 148,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "764s@112bpm",
+          "duration_secs": 772,
+          "avg_hr": 122,
+          "max_hr": 148,
+          "zone": 2
+        },
+        {
+          "type": "WORK",
+          "label": "2596s@114bpm",
+          "duration_secs": 2596,
+          "avg_hr": 114,
+          "max_hr": 134,
+          "zone": 1
+        },
+        {
+          "type": "WORK",
+          "label": "247s@95bpm",
+          "duration_secs": 247,
+          "avg_hr": 95,
+          "max_hr": 119,
           "zone": 1
         }
       ]
