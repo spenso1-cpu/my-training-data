@@ -65,15 +65,15 @@
       "menstrual": "menstrual_phase and menstrual_phase_predicted are not on the 1-4 scale. Values: PERIOD, FOLLICULAR, OVULATION, LUTEAL, etc."
     },
     "quick_stats": {
-      "total_training_hours": 8.7,
-      "total_training_formatted": "8h41m",
-      "total_activities": 5,
-      "total_tss": 288
+      "total_training_hours": 10.37,
+      "total_training_formatted": "10h22m",
+      "total_activities": 7,
+      "total_tss": 317
     }
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-08-31T15:25:52.895716",
+    "last_updated": "2026-08-31T20:55:23.756167",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -123,7 +123,7 @@
       },
       "acwr": {
         "status": "green",
-        "value": 0.74
+        "value": 0.8
       },
       "ri": {
         "status": "green",
@@ -132,7 +132,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": 10.9
+        "value": 7.7
       }
     },
     "signal_summary": {
@@ -162,14 +162,14 @@
   "summary": {
     "period_description": "Last 7 days of training (including today)",
     "note": "Duration calculated from API moving_time field.",
-    "total_duration_decimal_hours": 8.7,
-    "total_activities": 5,
+    "total_duration_decimal_hours": 10.37,
+    "total_activities": 7,
     "by_activity_type": {
       "Golf": {
-        "duration_decimal_hours": 3.32,
-        "count": 2,
-        "tss": 45,
-        "distance_km": 8.9
+        "duration_decimal_hours": 5.0,
+        "count": 4,
+        "tss": 74,
+        "distance_km": 13.8
       },
       "Ride": {
         "duration_decimal_hours": 5.38,
@@ -181,10 +181,10 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 59.02,
-      "atl": 48.11,
-      "tsb": 10.91,
-      "ramp_rate": -3.35,
+      "ctl": 59.7,
+      "atl": 51.97,
+      "tsb": 7.73,
+      "ramp_rate": -2.66,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
@@ -244,7 +244,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 2144,
+      "steps": 17355,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -264,26 +264,26 @@
     "rhr_baseline_28d": 43.5,
     "latest_hrv": 69.0,
     "latest_rhr": 43,
-    "acwr": 0.74,
-    "acwr_interpretation": "undertraining",
-    "monotony": 0.78,
+    "acwr": 0.8,
+    "acwr_interpretation": "optimal",
+    "monotony": 0.8,
     "monotony_interpretation": "normal",
     "primary_sport": "cycling",
     "primary_sport_monotony": 0.8,
     "primary_sport_tss_7d": 243.0,
     "effective_monotony": 0.8,
     "multi_sport_detected": true,
-    "strain": 225.0,
-    "stress_tolerance": 2.9,
-    "load_recovery_ratio": 3.0,
-    "tss_7d_total": 288.0,
-    "tss_28d_total": 1552.0,
+    "strain": 254.0,
+    "stress_tolerance": 3.2,
+    "load_recovery_ratio": 3.3,
+    "tss_7d_total": 317.0,
+    "tss_28d_total": 1581.0,
     "zone_distribution_7d": {
-      "z1_hours": 7.66,
+      "z1_hours": 9.33,
       "z2_hours": 1.04,
       "z3_hours": 0.03,
       "z4_plus_hours": 0.01,
-      "total_hours": 8.73,
+      "total_hours": 10.41,
       "zone_basis": "hr"
     },
     "grey_zone_percentage": 0.3,
@@ -295,10 +295,10 @@
     "hard_days_this_week": 0,
     "hard_days_note": "Power ladder: z3+ >= 30min, z4+ >= 10min, z5+ >= 5min, z6+ >= 2min, z7 >= 1min. HR fallback (when no power): z4+ >= 10min, z5+ >= 5min. Per Seiler 3-zone model + Foster. HR-based days flagged with intensity_basis: hr",
     "seiler_tid_7d": {
-      "z1_seconds": 31293,
+      "z1_seconds": 37337,
       "z2_seconds": 108,
       "z3_seconds": 43,
-      "z1_pct": 99.5,
+      "z1_pct": 99.6,
       "z2_pct": 0.3,
       "z3_pct": 0.1,
       "polarization_index": null,
@@ -318,12 +318,12 @@
       "sport": "cycling"
     },
     "seiler_tid_28d": {
-      "z1_seconds": 135120,
+      "z1_seconds": 141164,
       "z2_seconds": 7004,
       "z3_seconds": 9128,
-      "z1_pct": 89.3,
-      "z2_pct": 4.6,
-      "z3_pct": 6.0,
+      "z1_pct": 89.7,
+      "z2_pct": 4.5,
+      "z3_pct": 5.8,
       "polarization_index": 2.07,
       "classification": "Polarized",
       "zone_basis": "mixed"
@@ -618,12 +618,12 @@
     "p_max": 1136,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-08-31T15:25:52.894507",
+    "calculation_timestamp": "2026-08-31T20:55:23.754947",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
-      "activities_7d": 5,
-      "activities_28d": 37,
+      "activities_7d": 7,
+      "activities_28d": 39,
       "planned_workouts_7d": 0,
       "ftp_history_days": {
         "indoor": 187,
@@ -632,6 +632,106 @@
     }
   },
   "recent_activities": [
+    {
+      "id": "i181781177",
+      "date": "2026-08-31T17:29:32",
+      "type": "Golf",
+      "name": "Bad Ragaz Golf",
+      "duration_hours": 0.24,
+      "distance_km": 0.69,
+      "tss": 2,
+      "intensity_factor": 26.211123,
+      "avg_power": null,
+      "normalized_power": null,
+      "avg_hr": 81,
+      "max_hr": 116,
+      "avg_cadence": null,
+      "avg_speed": 2.4,
+      "avg_speed_unit": "KPH",
+      "max_speed": 6.1,
+      "max_speed_unit": "KPH",
+      "avg_pace": null,
+      "avg_temp": 22.937513,
+      "avg_temp_unit": "C",
+      "weather": null,
+      "humidity": null,
+      "wind_speed": 3.675072,
+      "wind_speed_unit": "KMH",
+      "work_kj": null,
+      "calories": 57,
+      "carbs_used": null,
+      "carbs_ingested": null,
+      "variability_index": null,
+      "decoupling": null,
+      "efficiency_factor": null,
+      "hrrc": null,
+      "elevation_m": 12.0,
+      "feel": null,
+      "rpe": null,
+      "zone_distribution": {
+        "hr_zones": {
+          "z1_time": 880,
+          "z2_time": 0,
+          "z3_time": 0,
+          "z4_time": 0,
+          "z5_time": 0,
+          "z6_time": 0,
+          "z7_time": 0
+        }
+      },
+      "has_intervals": false,
+      "has_dfa": false
+    },
+    {
+      "id": "i181781190",
+      "date": "2026-08-31T13:00:14",
+      "type": "Golf",
+      "name": "Bad Ragaz Golf",
+      "duration_hours": 1.43,
+      "distance_km": 4.16,
+      "tss": 27,
+      "intensity_factor": 41.086327,
+      "avg_power": null,
+      "normalized_power": null,
+      "avg_hr": 102,
+      "max_hr": 145,
+      "avg_cadence": null,
+      "avg_speed": 2.6,
+      "avg_speed_unit": "KPH",
+      "max_speed": 12.1,
+      "max_speed_unit": "KPH",
+      "avg_pace": null,
+      "avg_temp": 21.988327,
+      "avg_temp_unit": "C",
+      "weather": null,
+      "humidity": null,
+      "wind_speed": 4.9957857,
+      "wind_speed_unit": "KMH",
+      "work_kj": null,
+      "calories": 503,
+      "carbs_used": null,
+      "carbs_ingested": null,
+      "variability_index": null,
+      "decoupling": null,
+      "efficiency_factor": null,
+      "hrrc": null,
+      "elevation_m": 67.0,
+      "feel": null,
+      "rpe": null,
+      "zone_distribution": {
+        "hr_zones": {
+          "z1_time": 5164,
+          "z2_time": 0,
+          "z3_time": 0,
+          "z4_time": 0,
+          "z5_time": 0,
+          "z6_time": 0,
+          "z7_time": 0
+        }
+      },
+      "has_intervals": false,
+      "has_dfa": false
+    },
     {
       "id": "i181656926",
       "date": "2026-08-31T10:24:42",
@@ -2747,7 +2847,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 2144,
+      "steps": 17355,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -2782,10 +2882,10 @@
     "bail_no_match": 0
   },
   "weekly_summary": {
-    "total_training_hours": 8.7,
-    "total_training_formatted": "8h41m",
-    "total_tss": 288,
-    "activities_count": 5,
+    "total_training_hours": 10.37,
+    "total_training_formatted": "10h22m",
+    "total_tss": 317,
+    "activities_count": 7,
     "avg_hrv": 77.7,
     "avg_resting_hr": 46.9
   },
