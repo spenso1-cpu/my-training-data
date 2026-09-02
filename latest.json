@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-09-02T13:58:08.457067",
+    "last_updated": "2026-09-02T17:36:55.784743",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -608,7 +608,7 @@
     "p_max": 1134,
     "power_model_source": "wellness.sportInfo",
     "vo2max": 58.0,
-    "calculation_timestamp": "2026-09-02T13:58:08.455825",
+    "calculation_timestamp": "2026-09-02T17:36:55.783598",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -626,7 +626,7 @@
       "id": "i182412979",
       "date": "2026-09-02T10:30:58",
       "type": "Ride",
-      "name": "Saint-Jean-de-Sixt Road Cycling",
+      "name": "Coffee ride sans coffee",
       "duration_hours": 1.7,
       "distance_km": 35.53,
       "tss": 128,
