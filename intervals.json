@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T05:54:18.687484",
+  "generated_at": "2026-09-06T09:57:10.394419",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -787,6 +787,92 @@
           "zone": 1,
           "training_load": 5.0294333,
           "decoupling": -21.275097
+        }
+      ]
+    },
+    {
+      "activity_id": "i183834292",
+      "date": "2026-09-06",
+      "type": "Ride",
+      "name": "Saint-Jean-de-Sixt Road Cycling",
+      "interval_summary": [
+        "2x 38m58s 137w",
+        "1x 11m8s 279w",
+        "1x 6m 178w",
+        "1x 13m12s 272w"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "2338s@137w67rpm",
+          "duration_secs": 2339,
+          "avg_power": 135,
+          "max_power": 706,
+          "avg_hr": 107,
+          "max_hr": 150,
+          "avg_cadence": 74.99303,
+          "zone": 1,
+          "training_load": 27.424368,
+          "decoupling": -9.107873
+        },
+        {
+          "type": "WORK",
+          "label": "668s@279w88rpm",
+          "duration_secs": 668,
+          "avg_power": 279,
+          "max_power": 363,
+          "avg_hr": 159,
+          "max_hr": 164,
+          "avg_cadence": 88.36976,
+          "zone": 5,
+          "training_load": 22.37225,
+          "decoupling": 2.1956365
+        },
+        {
+          "type": "WORK",
+          "label": "360s@178w88rpm",
+          "duration_secs": 360,
+          "avg_power": 178,
+          "max_power": 424,
+          "avg_hr": 133,
+          "max_hr": 163,
+          "avg_cadence": 87.922226,
+          "zone": 2,
+          "training_load": 6.0290656,
+          "decoupling": -10.183406
+        },
+        {
+          "type": "WORK",
+          "label": "792s@272w86rpm",
+          "duration_secs": 792,
+          "avg_power": 272,
+          "max_power": 368,
+          "avg_hr": 161,
+          "max_hr": 170,
+          "avg_cadence": 85.55934,
+          "zone": 5,
+          "training_load": 25.03111,
+          "decoupling": 3.4666893
+        },
+        {
+          "type": "WORK",
+          "label": "2338s@137w67rpm",
+          "duration_secs": 2336,
+          "avg_power": 138,
+          "max_power": 446,
+          "avg_hr": 122,
+          "max_hr": 167,
+          "avg_cadence": 58.260834,
+          "zone": 1,
+          "training_load": 38.669758,
+          "decoupling": -11.446824
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 77,
+          "max_hr": 77,
+          "zone": 1
         }
       ]
     }
