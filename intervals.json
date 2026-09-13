@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T06:12:02.823924",
+  "generated_at": "2026-09-13T11:49:30.359432",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -795,6 +795,92 @@
           "zone": 1,
           "training_load": 13.760432,
           "decoupling": -53.998356
+        }
+      ]
+    },
+    {
+      "activity_id": "i186202300",
+      "date": "2026-09-13",
+      "type": "Ride",
+      "name": "Croix Fry - Plan Bois - St Jean",
+      "interval_summary": [
+        "1x 1h2m 171w",
+        "1x 24m35s 293w",
+        "1x 32m29s 111w",
+        "1x 18m4s 199w"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3721s@171w70rpm",
+          "duration_secs": 3721,
+          "avg_power": 171,
+          "max_power": 580,
+          "avg_hr": 126,
+          "max_hr": 160,
+          "avg_cadence": 70.07449,
+          "zone": 2,
+          "training_load": 69.1889,
+          "decoupling": -13.9958935
+        },
+        {
+          "type": "WORK",
+          "label": "1475s@293w84rpm",
+          "duration_secs": 1475,
+          "avg_power": 293,
+          "max_power": 505,
+          "avg_hr": 170,
+          "max_hr": 180,
+          "avg_cadence": 84.05556,
+          "zone": 5,
+          "training_load": 54.18623,
+          "decoupling": 5.4377675
+        },
+        {
+          "type": "WORK",
+          "label": "1949s@111w52rpm",
+          "duration_secs": 1949,
+          "avg_power": 111,
+          "max_power": 405,
+          "avg_hr": 115,
+          "max_hr": 156,
+          "avg_cadence": 51.69574,
+          "zone": 1,
+          "training_load": 26.08408,
+          "decoupling": 4.4621315
+        },
+        {
+          "type": "WORK",
+          "label": "1084s@199w79rpm",
+          "duration_secs": 1084,
+          "avg_power": 199,
+          "max_power": 404,
+          "avg_hr": 137,
+          "max_hr": 162,
+          "avg_cadence": 78.680336,
+          "zone": 3,
+          "training_load": 21.942942,
+          "decoupling": 2.355739
+        }
+      ]
+    },
+    {
+      "activity_id": "i186119327",
+      "date": "2026-09-12",
+      "type": "Run",
+      "name": "Lunch Run",
+      "interval_summary": [
+        "1x 53m10s 4:30"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3190s@127bpm82rpm",
+          "duration_secs": 3190,
+          "avg_hr": 127,
+          "max_hr": 144,
+          "avg_cadence": 82.4768,
+          "zone": 2
         }
       ]
     }
