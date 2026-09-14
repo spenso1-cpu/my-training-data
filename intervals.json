@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T05:28:32.854126",
+  "generated_at": "2026-09-14T10:52:56.998296",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -881,6 +881,26 @@
           "max_hr": 144,
           "avg_cadence": 82.4768,
           "zone": 2
+        }
+      ]
+    },
+    {
+      "activity_id": "i186538482",
+      "date": "2026-09-14",
+      "type": "VirtualRun",
+      "name": "Running",
+      "interval_summary": [
+        "1x 1h9m 5:03"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "4195s@127bpm76rpm",
+          "duration_secs": 4195,
+          "avg_hr": 127,
+          "max_hr": 154,
+          "avg_cadence": 75.67843,
+          "zone": 1
         }
       ]
     }
