@@ -1,29 +1,10 @@
 {
-  "generated_at": "2026-09-14T23:27:56.327867",
+  "generated_at": "2026-09-15T01:43:16.760680",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i181656926",
-      "date": "2026-08-31",
-      "type": "Ride",
-      "name": "Morning Ride",
-      "interval_summary": [
-        "1x 1h52m 87bpm"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "6773s@87bpm",
-          "duration_secs": 6773,
-          "avg_hr": 87,
-          "max_hr": 138,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i182412979",
       "date": "2026-09-02",
