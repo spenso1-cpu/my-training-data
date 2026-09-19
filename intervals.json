@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T10:53:26.873682",
+  "generated_at": "2026-09-19T14:02:46.780375",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -411,6 +411,26 @@
           "avg_hr": 121,
           "max_hr": 140,
           "avg_cadence": 79.89542,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i188220951",
+      "date": "2026-09-19",
+      "type": "Run",
+      "name": "Richmond river loop",
+      "interval_summary": [
+        "1x 55m8s 4:57"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3308s@132bpm83rpm",
+          "duration_secs": 3308,
+          "avg_hr": 132,
+          "max_hr": 147,
+          "avg_cadence": 83.37001,
           "zone": 1
         }
       ]
