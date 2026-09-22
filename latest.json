@@ -67,13 +67,13 @@
     "quick_stats": {
       "total_training_hours": 1.82,
       "total_training_formatted": "1h49m",
-      "total_activities": 6,
+      "total_activities": 7,
       "total_tss": 82
     }
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-09-22T10:19:03.082371",
+    "last_updated": "2026-09-22T15:04:23.929531",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -113,7 +113,7 @@
       "value": 5,
       "severity": "info",
       "threshold": "RACE_B within 7 days",
-      "context": "Race week D-5 of 'Doussard 10km'. Today: Moderate endurance, 22-33 TSS. Z1-Z2 + 2-3 race-pace touches",
+      "context": "Race week D-5 of 'Doussard 10km'. Today: Moderate endurance, 23-34 TSS. Z1-Z2 + 2-3 race-pace touches",
       "persistence_days": null,
       "tier": 1
     }
@@ -150,7 +150,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": 15.6
+        "value": 8.6
       }
     },
     "signal_summary": {
@@ -190,7 +190,7 @@
     "period_description": "Last 7 days of training (including today)",
     "note": "Duration calculated from API moving_time field.",
     "total_duration_decimal_hours": 1.82,
-    "total_activities": 6,
+    "total_activities": 7,
     "by_activity_type": {
       "Run": {
         "duration_decimal_hours": 0.91,
@@ -200,7 +200,7 @@
       },
       "Unknown": {
         "duration_decimal_hours": 0.0,
-        "count": 4,
+        "count": 5,
         "tss": 0,
         "distance_km": 0.0
       },
@@ -214,10 +214,10 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 54.86,
-      "atl": 39.26,
-      "tsb": 15.6,
-      "ramp_rate": -5.4,
+      "ctl": 56.37,
+      "atl": 47.78,
+      "tsb": 8.59,
+      "ramp_rate": -3.9,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
@@ -651,12 +651,12 @@
     "p_max": 1119,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-09-22T10:19:03.081235",
+    "calculation_timestamp": "2026-09-22T15:04:23.928373",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 6,
-      "activities_7d": 6,
-      "activities_28d": 23,
+      "activities_7d": 7,
+      "activities_28d": 24,
       "planned_workouts_7d": 0,
       "ftp_history_days": {
         "indoor": 209,
@@ -665,6 +665,46 @@
     }
   },
   "recent_activities": [
+    {
+      "id": "20281683317",
+      "date": "2026-09-22T09:39:33",
+      "type": "Unknown",
+      "name": "",
+      "duration_hours": 0.0,
+      "distance_km": 0.0,
+      "tss": null,
+      "intensity_factor": null,
+      "avg_power": null,
+      "normalized_power": null,
+      "avg_hr": null,
+      "max_hr": null,
+      "avg_cadence": null,
+      "avg_speed": null,
+      "avg_speed_unit": "KPH",
+      "max_speed": null,
+      "max_speed_unit": "KPH",
+      "avg_pace": null,
+      "avg_temp": null,
+      "avg_temp_unit": "C",
+      "weather": null,
+      "humidity": null,
+      "wind_speed": null,
+      "wind_speed_unit": "KMH",
+      "work_kj": null,
+      "calories": null,
+      "carbs_used": null,
+      "carbs_ingested": null,
+      "variability_index": null,
+      "decoupling": null,
+      "efficiency_factor": null,
+      "hrrc": null,
+      "elevation_m": null,
+      "feel": null,
+      "rpe": null,
+      "zone_distribution": null,
+      "has_intervals": false,
+      "has_dfa": false
+    },
     {
       "id": "20270987739",
       "date": "2026-09-21T18:22:12",
@@ -2081,7 +2121,7 @@
     "total_training_hours": 1.82,
     "total_training_formatted": "1h49m",
     "total_tss": 82,
-    "activities_count": 6,
+    "activities_count": 7,
     "avg_hrv": 88.3,
     "avg_resting_hr": 45.8
   },
@@ -2132,18 +2172,18 @@
       "event_moving_time_seconds": null,
       "days_until_event": 5,
       "current_day": "D-5",
-      "ctl_baseline": 54.9,
-      "normal_weekly_tss": 384.0,
+      "ctl_baseline": 56.4,
+      "normal_weekly_tss": 394.6,
       "race_week_tss_budget": {
-        "min": 192,
-        "max": 250
+        "min": 197,
+        "max": 256
       },
       "race_week_tss_spent": 0,
       "race_week_tss_remaining": {
-        "min": 192,
-        "max": 250
+        "min": 197,
+        "max": 256
       },
-      "projected_race_day_tsb": 29.5,
+      "projected_race_day_tsb": 26.7,
       "tsb_target_range": {
         "min": 5,
         "max": 15
@@ -2151,8 +2191,8 @@
       "today": {
         "label": "Moderate endurance",
         "load_target_tss": {
-          "min": 22,
-          "max": 33
+          "min": 23,
+          "max": 34
         },
         "zones": "Z1-Z2 + 2-3 race-pace touches",
         "purpose": "Maintain feel without adding fatigue."
