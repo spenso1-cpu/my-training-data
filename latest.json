@@ -67,13 +67,13 @@
     "quick_stats": {
       "total_training_hours": 0.91,
       "total_training_formatted": "54m",
-      "total_activities": 6,
+      "total_activities": 7,
       "total_tss": 53
     }
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-09-23T07:57:31.280666",
+    "last_updated": "2026-09-23T13:20:34.990027",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -141,7 +141,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": 13.6
+        "value": 9.3
       }
     },
     "signal_summary": {
@@ -181,7 +181,7 @@
     "period_description": "Last 7 days of training (including today)",
     "note": "Duration calculated from API moving_time field.",
     "total_duration_decimal_hours": 0.91,
-    "total_activities": 6,
+    "total_activities": 7,
     "by_activity_type": {
       "Run": {
         "duration_decimal_hours": 0.91,
@@ -191,7 +191,7 @@
       },
       "Unknown": {
         "duration_decimal_hours": 0.0,
-        "count": 5,
+        "count": 6,
         "tss": 0,
         "distance_km": 0.0
       }
@@ -199,10 +199,10 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 55.04,
-      "atl": 41.42,
-      "tsb": 13.62,
-      "ramp_rate": -4.49,
+      "ctl": 55.96,
+      "atl": 46.61,
+      "tsb": 9.35,
+      "ramp_rate": -3.57,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
@@ -636,12 +636,12 @@
     "p_max": 1118,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-09-23T07:57:31.279806",
+    "calculation_timestamp": "2026-09-23T13:20:34.988906",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 6,
-      "activities_7d": 6,
-      "activities_28d": 23,
+      "activities_7d": 7,
+      "activities_28d": 24,
       "planned_workouts_7d": 0,
       "ftp_history_days": {
         "indoor": 210,
@@ -650,6 +650,46 @@
     }
   },
   "recent_activities": [
+    {
+      "id": "20292803007",
+      "date": "2026-09-23T08:18:48",
+      "type": "Unknown",
+      "name": "",
+      "duration_hours": 0.0,
+      "distance_km": 0.0,
+      "tss": null,
+      "intensity_factor": null,
+      "avg_power": null,
+      "normalized_power": null,
+      "avg_hr": null,
+      "max_hr": null,
+      "avg_cadence": null,
+      "avg_speed": null,
+      "avg_speed_unit": "KPH",
+      "max_speed": null,
+      "max_speed_unit": "KPH",
+      "avg_pace": null,
+      "avg_temp": null,
+      "avg_temp_unit": "C",
+      "weather": null,
+      "humidity": null,
+      "wind_speed": null,
+      "wind_speed_unit": "KMH",
+      "work_kj": null,
+      "calories": null,
+      "carbs_used": null,
+      "carbs_ingested": null,
+      "variability_index": null,
+      "decoupling": null,
+      "efficiency_factor": null,
+      "hrrc": null,
+      "elevation_m": null,
+      "feel": null,
+      "rpe": null,
+      "zone_distribution": null,
+      "has_intervals": false,
+      "has_dfa": false
+    },
     {
       "id": "20281683317",
       "date": "2026-09-22T09:39:33",
@@ -2056,7 +2096,7 @@
     "total_training_hours": 0.91,
     "total_training_formatted": "54m",
     "total_tss": 53,
-    "activities_count": 6,
+    "activities_count": 7,
     "avg_hrv": 87.4,
     "avg_resting_hr": 46.3
   },
@@ -2107,18 +2147,18 @@
       "event_moving_time_seconds": null,
       "days_until_event": 4,
       "current_day": "D-4",
-      "ctl_baseline": 55.0,
-      "normal_weekly_tss": 385.3,
+      "ctl_baseline": 56.0,
+      "normal_weekly_tss": 391.7,
       "race_week_tss_budget": {
-        "min": 193,
-        "max": 250
+        "min": 196,
+        "max": 255
       },
       "race_week_tss_spent": 0,
       "race_week_tss_remaining": {
-        "min": 193,
-        "max": 250
+        "min": 196,
+        "max": 255
       },
-      "projected_race_day_tsb": 26.6,
+      "projected_race_day_tsb": 24.6,
       "tsb_target_range": {
         "min": 5,
         "max": 15
