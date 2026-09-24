@@ -65,15 +65,15 @@
       "menstrual": "menstrual_phase and menstrual_phase_predicted are not on the 1-4 scale. Values: PERIOD, FOLLICULAR, OVULATION, LUTEAL, etc."
     },
     "quick_stats": {
-      "total_training_hours": 0.91,
-      "total_training_formatted": "54m",
+      "total_training_hours": 1.96,
+      "total_training_formatted": "1h57m",
       "total_activities": 7,
-      "total_tss": 53
+      "total_tss": 114
     }
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-09-24T20:28:59.530091",
+    "last_updated": "2026-09-24T23:18:28.870314",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -107,15 +107,6 @@
       "context": "TID shift: 7d Base vs 28d Polarized. Training distribution changing.",
       "persistence_days": null,
       "tier": 3
-    },
-    {
-      "metric": "race_week",
-      "value": 3,
-      "severity": "info",
-      "threshold": "RACE_B within 7 days",
-      "context": "Race week D-3 of 'Doussard 10km'. Today: Easy / rest, 0-22 TSS. Z1-Z2 only",
-      "persistence_days": null,
-      "tier": 1
     }
   ],
   "readiness_decision": {
@@ -141,7 +132,7 @@
       },
       "acwr": {
         "status": "green",
-        "value": 0.19
+        "value": 0.39
       },
       "ri": {
         "status": "green",
@@ -150,7 +141,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": 7.7
+        "value": 7.5
       }
     },
     "signal_summary": {
@@ -160,12 +151,12 @@
       "unavailable": 0
     },
     "phase_context": {
-      "phase": "Taper",
+      "phase": "Build",
       "phase_week": 1,
-      "amber_threshold": 1,
-      "modifier_applied": "race_week_tightened"
+      "amber_threshold": 3,
+      "modifier_applied": "build_loosened"
     },
-    "race_week_defers": true,
+    "race_week_defers": false,
     "modification": {
       "triggers": [
         "rhr",
@@ -190,18 +181,18 @@
   "summary": {
     "period_description": "Last 7 days of training (including today)",
     "note": "Duration calculated from API moving_time field.",
-    "total_duration_decimal_hours": 0.91,
+    "total_duration_decimal_hours": 1.96,
     "total_activities": 7,
     "by_activity_type": {
       "Run": {
-        "duration_decimal_hours": 0.91,
-        "count": 1,
-        "tss": 53,
-        "distance_km": 11.1
+        "duration_decimal_hours": 1.96,
+        "count": 2,
+        "tss": 114,
+        "distance_km": 24.1
       },
       "Unknown": {
         "duration_decimal_hours": 0.0,
-        "count": 6,
+        "count": 5,
         "tss": 0,
         "distance_km": 0.0
       }
@@ -209,10 +200,10 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 56.05,
-      "atl": 48.39,
-      "tsb": 7.66,
-      "ramp_rate": -3.25,
+      "ctl": 56.08,
+      "atl": 48.53,
+      "tsb": 7.55,
+      "ramp_rate": -3.23,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
@@ -292,26 +283,26 @@
     "rhr_baseline_28d": 44.1,
     "latest_hrv": 71.0,
     "latest_rhr": 68,
-    "acwr": 0.19,
+    "acwr": 0.39,
     "acwr_interpretation": "undertraining",
-    "monotony": 0.38,
+    "monotony": 0.58,
     "monotony_interpretation": "normal",
     "primary_sport": "run",
     "primary_sport_monotony": null,
-    "primary_sport_tss_7d": 53.0,
-    "effective_monotony": 0.38,
+    "primary_sport_tss_7d": 114.0,
+    "effective_monotony": 0.58,
     "multi_sport_detected": false,
-    "strain": 20.0,
-    "stress_tolerance": 0.5,
-    "load_recovery_ratio": 0.8,
-    "tss_7d_total": 53.0,
-    "tss_28d_total": 1112.0,
+    "strain": 66.0,
+    "stress_tolerance": 1.1,
+    "load_recovery_ratio": 1.8,
+    "tss_7d_total": 114.0,
+    "tss_28d_total": 1173.0,
     "zone_distribution_7d": {
-      "z1_hours": 0.27,
-      "z2_hours": 0.64,
+      "z1_hours": 0.76,
+      "z2_hours": 1.22,
       "z3_hours": 0.0,
       "z4_plus_hours": 0.0,
-      "total_hours": 0.91,
+      "total_hours": 1.98,
       "zone_basis": "hr"
     },
     "grey_zone_percentage": 0.0,
@@ -323,7 +314,7 @@
     "hard_days_this_week": 0,
     "hard_days_note": "Power ladder: z3+ >= 30min, z4+ >= 10min, z5+ >= 5min, z6+ >= 2min, z7 >= 1min. HR fallback (when no power): z4+ >= 10min, z5+ >= 5min. Per Seiler 3-zone model + Foster. HR-based days flagged with intensity_basis: hr",
     "seiler_tid_7d": {
-      "z1_seconds": 3264,
+      "z1_seconds": 7123,
       "z2_seconds": 0,
       "z3_seconds": 0,
       "z1_pct": 100.0,
@@ -334,7 +325,7 @@
       "zone_basis": "hr"
     },
     "seiler_tid_7d_primary": {
-      "z1_seconds": 3264,
+      "z1_seconds": 7123,
       "z2_seconds": 0,
       "z3_seconds": 0,
       "z1_pct": 100.0,
@@ -346,18 +337,18 @@
       "sport": "run"
     },
     "seiler_tid_28d": {
-      "z1_seconds": 52010,
+      "z1_seconds": 55869,
       "z2_seconds": 6314,
       "z3_seconds": 12298,
-      "z1_pct": 73.6,
-      "z2_pct": 8.9,
-      "z3_pct": 17.4,
+      "z1_pct": 75.0,
+      "z2_pct": 8.5,
+      "z3_pct": 16.5,
       "polarization_index": 2.16,
       "classification": "Polarized",
       "zone_basis": "mixed"
     },
     "seiler_tid_28d_primary": {
-      "z1_seconds": 12567,
+      "z1_seconds": 16426,
       "z2_seconds": 0,
       "z3_seconds": 0,
       "z1_pct": 100.0,
@@ -591,10 +582,10 @@
       "note": "No planned workouts in period"
     },
     "phase_detection": {
-      "phase": "Taper",
+      "phase": "Build",
       "confidence": "medium",
       "reason_codes": [
-        "RACE_IMMINENT"
+        "NO_PLANNED_WORKOUTS"
       ],
       "basis": {
         "stream_1": {
@@ -605,12 +596,12 @@
         },
         "stream_2": {
           "planned_tss_delta": null,
-          "hard_sessions_planned": 1,
+          "hard_sessions_planned": 0,
           "current_week_hard_days_completed": 0,
-          "current_week_hard_days_total": 1,
-          "race_proximity": 3,
+          "current_week_hard_days_total": 0,
+          "race_proximity": 73,
           "next_week_load": null,
-          "plan_coverage_current_week": 0.14,
+          "plan_coverage_current_week": 0.0,
           "plan_coverage_next_week": 0.0
         },
         "data_quality": "good",
@@ -621,9 +612,9 @@
       "dossier_declared": null,
       "dossier_agreement": null
     },
-    "phase_detected": "Taper",
+    "phase_detected": "Build",
     "phase_triggers": [
-      "RACE_IMMINENT"
+      "NO_PLANNED_WORKOUTS"
     ],
     "seasonal_context": "Late Season / Transition",
     "benchmark_indoor": {
@@ -646,7 +637,7 @@
     "p_max": 1117,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-09-24T20:28:59.529144",
+    "calculation_timestamp": "2026-09-24T23:18:28.869493",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -661,43 +652,58 @@
   },
   "recent_activities": [
     {
-      "id": "20308275522",
+      "id": "i190060912",
       "date": "2026-09-24T10:07:35",
-      "type": "Unknown",
-      "name": "",
-      "duration_hours": 0.0,
-      "distance_km": 0.0,
-      "tss": null,
-      "intensity_factor": null,
-      "avg_power": null,
-      "normalized_power": null,
-      "avg_hr": null,
-      "max_hr": null,
-      "avg_cadence": null,
-      "avg_speed": null,
+      "type": "Run",
+      "name": "Richmond Park",
+      "duration_hours": 1.05,
+      "distance_km": 13.03,
+      "tss": 61,
+      "intensity_factor": 76.17647,
+      "avg_power": 257,
+      "normalized_power": 259,
+      "avg_hr": 129,
+      "max_hr": 144,
+      "avg_cadence": 87.20064,
+      "avg_speed": 12.4,
       "avg_speed_unit": "KPH",
-      "max_speed": null,
+      "max_speed": 15.1,
       "max_speed_unit": "KPH",
       "avg_pace": null,
-      "avg_temp": null,
+      "avg_temp": 15.608499,
       "avg_temp_unit": "C",
       "weather": null,
       "humidity": null,
-      "wind_speed": null,
+      "wind_speed": 2.1682208,
       "wind_speed_unit": "KMH",
-      "work_kj": null,
-      "calories": null,
+      "work_kj": 997.4,
+      "calories": 857,
       "carbs_used": null,
       "carbs_ingested": null,
-      "variability_index": null,
-      "decoupling": null,
-      "efficiency_factor": null,
+      "variability_index": 1.0077821,
+      "decoupling": 0.44088832,
+      "efficiency_factor": 2.007752,
       "hrrc": null,
-      "elevation_m": null,
+      "elevation_m": 79.25239,
       "feel": null,
       "rpe": null,
-      "zone_distribution": null,
-      "has_intervals": false,
+      "zone_distribution": {
+        "hr_zones": {
+          "z1_time": 1765,
+          "z2_time": 2094,
+          "z3_time": 0,
+          "z4_time": 0,
+          "z5_time": 0
+        },
+        "power_zones": {
+          "z1_time": 3304,
+          "z2_time": 405,
+          "z3_time": 66,
+          "z4_time": 8,
+          "z5_time": 0
+        }
+      },
+      "has_intervals": true,
       "has_dfa": false
     },
     {
@@ -2119,21 +2125,7 @@
       "readiness": 92.0
     }
   ],
-  "planned_workouts": [
-    {
-      "id": 102196027,
-      "date": "2026-09-27",
-      "name": "Doussard 10km",
-      "type": "RACE_B",
-      "sport_type": "Run",
-      "planned_tss": null,
-      "duration_hours": 0.0,
-      "duration_formatted": "0s",
-      "workout_summary": null,
-      "has_terrain": false,
-      "description": ""
-    }
-  ],
+  "planned_workouts": [],
   "workout_summary_stats": {
     "attempted": 0,
     "success": 0,
@@ -2143,35 +2135,26 @@
     "bail_no_match": 0
   },
   "weekly_summary": {
-    "total_training_hours": 0.91,
-    "total_training_formatted": "54m",
-    "total_tss": 53,
+    "total_training_hours": 1.96,
+    "total_training_formatted": "1h57m",
+    "total_tss": 114,
     "activities_count": 7,
     "avg_hrv": 82.3,
     "avg_resting_hr": 49.6
   },
   "race_calendar": {
     "next_race": {
-      "name": "Doussard 10km",
-      "date": "2026-09-27",
-      "category": "RACE_B",
+      "name": "Valencia Marathon",
+      "date": "2026-12-06",
+      "category": "RACE_A",
       "type": "Run",
-      "days_until": 3,
+      "days_until": 73,
       "moving_time_seconds": null,
-      "distance_meters": 10000.0,
-      "has_terrain": false
+      "distance_meters": 42200.0,
+      "has_terrain": false,
+      "start_time": "09:00"
     },
     "all_races": [
-      {
-        "name": "Doussard 10km",
-        "date": "2026-09-27",
-        "category": "RACE_B",
-        "type": "Run",
-        "days_until": 3,
-        "moving_time_seconds": null,
-        "distance_meters": 10000.0,
-        "has_terrain": false
-      },
       {
         "name": "Valencia Marathon",
         "date": "2026-12-06",
@@ -2188,56 +2171,7 @@
       "active": false
     },
     "race_week": {
-      "active": true,
-      "event_name": "Doussard 10km",
-      "event_date": "2026-09-27",
-      "event_category": "RACE_B",
-      "event_type": "Run",
-      "event_duration_class": "medium",
-      "event_moving_time_seconds": null,
-      "days_until_event": 3,
-      "current_day": "D-3",
-      "ctl_baseline": 56.0,
-      "normal_weekly_tss": 392.3,
-      "race_week_tss_budget": {
-        "min": 196,
-        "max": 255
-      },
-      "race_week_tss_spent": 0,
-      "race_week_tss_remaining": {
-        "min": 196,
-        "max": 255
-      },
-      "projected_race_day_tsb": 20.7,
-      "tsb_target_range": {
-        "min": 5,
-        "max": 15
-      },
-      "today": {
-        "label": "Easy / rest",
-        "load_target_tss": {
-          "min": 0,
-          "max": 22
-        },
-        "zones": "Z1-Z2 only",
-        "purpose": "Taper tantrums expected (D-4 to D-2). Normal \u2014 not lost fitness."
-      },
-      "carb_loading": {
-        "applicable": false,
-        "active": false,
-        "starts": "D-4",
-        "start_date": "2026-09-23",
-        "note": null
-      },
-      "opener": {
-        "day": "D-2",
-        "date": "2026-09-25",
-        "intensity": "standard"
-      },
-      "go_no_go": {
-        "tsb_status": "green",
-        "notes": []
-      }
+      "active": false
     }
   }
 }
