@@ -65,15 +65,15 @@
       "menstrual": "menstrual_phase and menstrual_phase_predicted are not on the 1-4 scale. Values: PERIOD, FOLLICULAR, OVULATION, LUTEAL, etc."
     },
     "quick_stats": {
-      "total_training_hours": 1.05,
-      "total_training_formatted": "1h3m",
-      "total_activities": 4,
-      "total_tss": 61
+      "total_training_hours": 1.6,
+      "total_training_formatted": "1h36m",
+      "total_activities": 5,
+      "total_tss": 92
     }
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-09-28T10:09:33.602005",
+    "last_updated": "2026-09-28T18:08:49.721851",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -132,7 +132,7 @@
       },
       "acwr": {
         "status": "green",
-        "value": 0.25
+        "value": 0.36
       },
       "ri": {
         "status": "unavailable",
@@ -141,7 +141,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": 23.6
+        "value": 20.2
       }
     },
     "signal_summary": {
@@ -180,14 +180,14 @@
   "summary": {
     "period_description": "Last 7 days of training (including today)",
     "note": "Duration calculated from API moving_time field.",
-    "total_duration_decimal_hours": 1.05,
-    "total_activities": 4,
+    "total_duration_decimal_hours": 1.6,
+    "total_activities": 5,
     "by_activity_type": {
       "Run": {
-        "duration_decimal_hours": 1.05,
-        "count": 1,
-        "tss": 61,
-        "distance_km": 13.0
+        "duration_decimal_hours": 1.6,
+        "count": 2,
+        "tss": 92,
+        "distance_km": 19.7
       },
       "Unknown": {
         "duration_decimal_hours": 0.0,
@@ -199,10 +199,10 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 50.98,
-      "atl": 27.4,
-      "tsb": 23.58,
-      "ramp_rate": -5.2,
+      "ctl": 51.71,
+      "atl": 31.53,
+      "tsb": 20.18,
+      "ramp_rate": -4.47,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
@@ -262,7 +262,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 332,
+      "steps": 539,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -282,26 +282,26 @@
     "rhr_baseline_28d": 45,
     "latest_hrv": 54.0,
     "latest_rhr": null,
-    "acwr": 0.25,
+    "acwr": 0.36,
     "acwr_interpretation": "undertraining",
-    "monotony": 0.38,
+    "monotony": 0.55,
     "monotony_interpretation": "normal",
     "primary_sport": "run",
     "primary_sport_monotony": null,
-    "primary_sport_tss_7d": 61.0,
-    "effective_monotony": 0.38,
+    "primary_sport_tss_7d": 92.0,
+    "effective_monotony": 0.55,
     "multi_sport_detected": false,
-    "strain": 23.0,
-    "stress_tolerance": 0.6,
+    "strain": 51.0,
+    "stress_tolerance": 0.9,
     "load_recovery_ratio": null,
-    "tss_7d_total": 61.0,
-    "tss_28d_total": 991.0,
+    "tss_7d_total": 92.0,
+    "tss_28d_total": 1022.0,
     "zone_distribution_7d": {
-      "z1_hours": 0.49,
-      "z2_hours": 0.58,
+      "z1_hours": 0.67,
+      "z2_hours": 0.95,
       "z3_hours": 0.0,
       "z4_plus_hours": 0.0,
-      "total_hours": 1.07,
+      "total_hours": 1.63,
       "zone_basis": "hr"
     },
     "grey_zone_percentage": 0.0,
@@ -313,7 +313,7 @@
     "hard_days_this_week": 0,
     "hard_days_note": "Power ladder: z3+ >= 30min, z4+ >= 10min, z5+ >= 5min, z6+ >= 2min, z7 >= 1min. HR fallback (when no power): z4+ >= 10min, z5+ >= 5min. Per Seiler 3-zone model + Foster. HR-based days flagged with intensity_basis: hr",
     "seiler_tid_7d": {
-      "z1_seconds": 3859,
+      "z1_seconds": 5857,
       "z2_seconds": 0,
       "z3_seconds": 0,
       "z1_pct": 100.0,
@@ -324,7 +324,7 @@
       "zone_basis": "hr"
     },
     "seiler_tid_7d_primary": {
-      "z1_seconds": 3859,
+      "z1_seconds": 5857,
       "z2_seconds": 0,
       "z3_seconds": 0,
       "z1_pct": 100.0,
@@ -336,18 +336,18 @@
       "sport": "run"
     },
     "seiler_tid_28d": {
-      "z1_seconds": 37167,
+      "z1_seconds": 39165,
       "z2_seconds": 6280,
       "z3_seconds": 12298,
-      "z1_pct": 66.7,
-      "z2_pct": 11.3,
-      "z3_pct": 22.1,
+      "z1_pct": 67.8,
+      "z2_pct": 10.9,
+      "z3_pct": 21.3,
       "polarization_index": 2.12,
       "classification": "Polarized",
       "zone_basis": "mixed"
     },
     "seiler_tid_28d_primary": {
-      "z1_seconds": 16426,
+      "z1_seconds": 18424,
       "z2_seconds": 0,
       "z3_seconds": 0,
       "z1_pct": 100.0,
@@ -636,12 +636,12 @@
     "p_max": 1112,
     "power_model_source": "wellness.sportInfo",
     "vo2max": null,
-    "calculation_timestamp": "2026-09-28T10:09:33.601165",
+    "calculation_timestamp": "2026-09-28T18:08:49.720601",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 6,
-      "activities_7d": 4,
-      "activities_28d": 22,
+      "activities_7d": 5,
+      "activities_28d": 23,
       "planned_workouts_7d": 0,
       "ftp_history_days": {
         "indoor": 215,
@@ -650,6 +650,62 @@
     }
   },
   "recent_activities": [
+    {
+      "id": "i191257330",
+      "date": "2026-09-28T17:54:28",
+      "type": "Run",
+      "name": "Grand Bornand",
+      "duration_hours": 0.55,
+      "distance_km": 6.69,
+      "tss": 31,
+      "intensity_factor": 75.588234,
+      "avg_power": 256,
+      "normalized_power": 257,
+      "avg_hr": 132,
+      "max_hr": 148,
+      "avg_cadence": 86.891235,
+      "avg_speed": 12.1,
+      "avg_speed_unit": "KPH",
+      "max_speed": 14.6,
+      "max_speed_unit": "KPH",
+      "avg_pace": null,
+      "avg_temp": 19.460377,
+      "avg_temp_unit": "C",
+      "weather": null,
+      "humidity": null,
+      "wind_speed": 0.60180384,
+      "wind_speed_unit": "KMH",
+      "work_kj": 510.3,
+      "calories": 416,
+      "carbs_used": null,
+      "carbs_ingested": null,
+      "variability_index": 1.0039062,
+      "decoupling": 2.1111696,
+      "efficiency_factor": 1.9469697,
+      "hrrc": null,
+      "elevation_m": 85.84888,
+      "feel": null,
+      "rpe": null,
+      "zone_distribution": {
+        "hr_zones": {
+          "z1_time": 655,
+          "z2_time": 1343,
+          "z3_time": 0,
+          "z4_time": 0,
+          "z5_time": 0
+        },
+        "power_zones": {
+          "z1_time": 1569,
+          "z2_time": 414,
+          "z3_time": 10,
+          "z4_time": 0,
+          "z5_time": 0
+        }
+      },
+      "has_intervals": true,
+      "has_dfa": false,
+      "description": "48 Training Load\n-- from COROS"
+    },
     {
       "id": "20336099699",
       "date": "2026-09-26T11:16:45",
@@ -1957,7 +2013,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 332,
+      "steps": 539,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -1978,10 +2034,10 @@
     "bail_no_match": 0
   },
   "weekly_summary": {
-    "total_training_hours": 1.05,
-    "total_training_formatted": "1h3m",
-    "total_tss": 61,
-    "activities_count": 4,
+    "total_training_hours": 1.6,
+    "total_training_formatted": "1h36m",
+    "total_tss": 92,
+    "activities_count": 5,
     "avg_hrv": 78.3,
     "avg_resting_hr": 51.3
   },
