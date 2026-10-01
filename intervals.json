@@ -1,30 +1,10 @@
 {
-  "generated_at": "2026-09-30T20:47:17.377968",
+  "generated_at": "2026-10-01T00:16:43.306638",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
   "retention_days": 14,
   "activities": [
-    {
-      "activity_id": "i187254295",
-      "date": "2026-09-16",
-      "type": "VirtualRun",
-      "name": "Running",
-      "interval_summary": [
-        "1x 57m3s 4:46"
-      ],
-      "intervals": [
-        {
-          "type": "WORK",
-          "label": "3423s@121bpm80rpm",
-          "duration_secs": 3423,
-          "avg_hr": 121,
-          "max_hr": 140,
-          "avg_cadence": 79.89542,
-          "zone": 1
-        }
-      ]
-    },
     {
       "activity_id": "i188220951",
       "date": "2026-09-19",
