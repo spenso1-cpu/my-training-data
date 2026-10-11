@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T22:28:11.246707",
+  "generated_at": "2026-10-11T01:08:23.125531",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -105,22 +105,6 @@
           "zone": 1,
           "training_load": 3.6658607,
           "decoupling": -3.294089
-        }
-      ]
-    },
-    {
-      "activity_id": "i191409703",
-      "date": "2026-09-26",
-      "type": "Run",
-      "name": "Inverness canal run",
-      "interval_summary": null,
-      "intervals": [
-        {
-          "type": "RECOVERY",
-          "duration_secs": 5881,
-          "avg_hr": 113,
-          "max_hr": 141,
-          "zone": 1
         }
       ]
     },
