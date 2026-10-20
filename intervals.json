@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-20T06:35:42.352948",
+  "generated_at": "2026-10-20T12:10:13.891072",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2605,6 +2605,44 @@
           "avg_hr": 124,
           "max_hr": 124,
           "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i199417580",
+      "date": "2026-10-20",
+      "type": "Run",
+      "name": "Evian",
+      "interval_summary": [
+        "1x 15m35s 5:21",
+        "1x 1h6m 5:30"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "935s@223w86rpm",
+          "duration_secs": 935,
+          "avg_power": 223,
+          "max_power": 274,
+          "avg_hr": 116,
+          "max_hr": 129,
+          "avg_cadence": 86.48704,
+          "zone": 1,
+          "training_load": 11.009028,
+          "decoupling": 8.0506735
+        },
+        {
+          "type": "WORK",
+          "label": "3984s@240w86rpm",
+          "duration_secs": 3984,
+          "avg_power": 240,
+          "max_power": 380,
+          "avg_hr": 122,
+          "max_hr": 145,
+          "avg_cadence": 86.346466,
+          "zone": 1,
+          "training_load": 51.301445,
+          "decoupling": -2.7149222
         }
       ]
     }
