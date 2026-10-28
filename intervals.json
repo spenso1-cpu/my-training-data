@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T07:52:00.451784",
+  "generated_at": "2026-10-28T14:42:41.236150",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2366,6 +2366,57 @@
           "avg_hr": 128,
           "max_hr": 128,
           "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i202688867",
+      "date": "2026-10-28",
+      "type": "Run",
+      "name": "River tempo",
+      "interval_summary": [
+        "2x 15m29s 4:52",
+        "1x 40m43s 4:04"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "929s@255w89rpm",
+          "duration_secs": 910,
+          "avg_power": 253,
+          "max_power": 350,
+          "avg_hr": 129,
+          "max_hr": 147,
+          "avg_cadence": 89.629585,
+          "zone": 1,
+          "training_load": 13.918919,
+          "decoupling": -3.1275246
+        },
+        {
+          "type": "WORK",
+          "label": "2443s@310w90rpm",
+          "duration_secs": 2443,
+          "avg_power": 310,
+          "max_power": 352,
+          "avg_hr": 154,
+          "max_hr": 161,
+          "avg_cadence": 89.55137,
+          "zone": 2,
+          "training_load": 56.7785,
+          "decoupling": 1.7380552
+        },
+        {
+          "type": "WORK",
+          "label": "929s@255w89rpm",
+          "duration_secs": 947,
+          "avg_power": 257,
+          "max_power": 326,
+          "avg_hr": 132,
+          "max_hr": 156,
+          "avg_cadence": 88.8837,
+          "zone": 1,
+          "training_load": 13.918919,
+          "decoupling": -1.1255147
         }
       ]
     }
