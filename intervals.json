@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T08:15:25.113209",
+  "generated_at": "2026-11-07T14:58:19.035699",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2572,6 +2572,64 @@
           "duration_secs": 1,
           "avg_hr": 129,
           "max_hr": 129,
+          "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i206927542",
+      "date": "2026-11-07",
+      "type": "Run",
+      "name": "Lake Maggiore long run",
+      "interval_summary": [
+        "1x 16m54s 5:18",
+        "1x 1h24m 4:10",
+        "1x 14m51s 5:36"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "1014s@237w89rpm",
+          "duration_secs": 1014,
+          "avg_power": 237,
+          "max_power": 370,
+          "avg_hr": 119,
+          "max_hr": 149,
+          "avg_cadence": 89.2699,
+          "zone": 1,
+          "training_load": 11.1590185
+        },
+        {
+          "type": "WORK",
+          "label": "5090s@304w89rpm",
+          "duration_secs": 5090,
+          "avg_power": 304,
+          "max_power": 368,
+          "avg_hr": 147,
+          "max_hr": 156,
+          "avg_cadence": 89.42969,
+          "zone": 2,
+          "training_load": 111.63179,
+          "decoupling": -0.2202389
+        },
+        {
+          "type": "WORK",
+          "label": "891s@212w86rpm",
+          "duration_secs": 891,
+          "avg_power": 212,
+          "max_power": 313,
+          "avg_hr": 114,
+          "max_hr": 149,
+          "avg_cadence": 85.986115,
+          "zone": 1,
+          "training_load": 7.262918,
+          "decoupling": -17.919329
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_hr": 125,
+          "max_hr": 125,
           "zone": 1
         }
       ]
