@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T11:45:31.388481",
+  "generated_at": "2026-11-10T19:05:18.010265",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2643,6 +2643,54 @@
           "avg_cadence": 88.0,
           "zone": 1,
           "training_load": 0.0175173
+        }
+      ]
+    },
+    {
+      "activity_id": "i208354191",
+      "date": "2026-11-10",
+      "type": "VirtualRide",
+      "name": "Zwift - Chapman's Peak in Video",
+      "interval_summary": [
+        "1x 4m52s 223w"
+      ],
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 822,
+          "avg_power": 157,
+          "max_power": 269,
+          "avg_hr": 113,
+          "max_hr": 130,
+          "avg_cadence": 80.56326,
+          "zone": 2,
+          "training_load": 10.337781,
+          "decoupling": -9.273503
+        },
+        {
+          "type": "WORK",
+          "label": "292s@223w89rpm",
+          "duration_secs": 292,
+          "avg_power": 223,
+          "max_power": 266,
+          "avg_hr": 137,
+          "max_hr": 143,
+          "avg_cadence": 89.25685,
+          "zone": 3,
+          "training_load": 6.147605,
+          "decoupling": 3.5388043
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 699,
+          "avg_power": 151,
+          "max_power": 236,
+          "avg_hr": 120,
+          "max_hr": 140,
+          "avg_cadence": 93.94707,
+          "zone": 2,
+          "training_load": 7.4949865,
+          "decoupling": 2.2827444
         }
       ]
     }
