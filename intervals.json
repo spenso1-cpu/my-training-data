@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-13T10:52:27.140625",
+  "generated_at": "2026-11-13T18:17:40.868727",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2613,6 +2613,69 @@
           "avg_hr": 117,
           "max_hr": 117,
           "zone": 1
+        }
+      ]
+    },
+    {
+      "activity_id": "i209582877",
+      "date": "2026-11-13",
+      "type": "Run",
+      "name": "Aberdeen long tempo",
+      "interval_summary": [
+        "1x 16m17s 5:01",
+        "1x 48m20s 3:59",
+        "1x 9m15s 5:22"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "977s@250w89rpm",
+          "duration_secs": 977,
+          "avg_power": 250,
+          "max_power": 344,
+          "avg_hr": 121,
+          "max_hr": 132,
+          "avg_cadence": 89.33184,
+          "zone": 1,
+          "training_load": 13.501418,
+          "decoupling": 2.4171436
+        },
+        {
+          "type": "WORK",
+          "label": "2900s@318w89rpm",
+          "duration_secs": 2900,
+          "avg_power": 318,
+          "max_power": 366,
+          "avg_hr": 158,
+          "max_hr": 167,
+          "avg_cadence": 89.366936,
+          "zone": 3,
+          "training_load": 69.301094,
+          "decoupling": 4.8689547
+        },
+        {
+          "type": "WORK",
+          "label": "555s@230w87rpm",
+          "duration_secs": 555,
+          "avg_power": 230,
+          "max_power": 333,
+          "avg_hr": 130,
+          "max_hr": 161,
+          "avg_cadence": 87.48214,
+          "zone": 1,
+          "training_load": 6.3456054,
+          "decoupling": -6.503012
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_power": 256,
+          "max_power": 256,
+          "avg_hr": 130,
+          "max_hr": 130,
+          "avg_cadence": 83.0,
+          "zone": 1,
+          "training_load": 0.01713019
         }
       ]
     }
