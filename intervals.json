@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T04:31:44.317241",
+  "generated_at": "2026-11-16T13:08:08.213736",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2402,6 +2402,54 @@
           "zone": 1,
           "training_load": 1.0551019,
           "decoupling": 1.8163006
+        }
+      ]
+    },
+    {
+      "activity_id": "i210675286",
+      "date": "2026-11-16",
+      "type": "VirtualRun",
+      "name": "Treadmill Running",
+      "interval_summary": [
+        "1x 26m23s 5:03"
+      ],
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 237,
+          "avg_power": 282,
+          "max_power": 330,
+          "avg_hr": 108,
+          "max_hr": 123,
+          "avg_cadence": 84.04219,
+          "zone": 1,
+          "training_load": 4.4648213,
+          "decoupling": -0.95358163
+        },
+        {
+          "type": "WORK",
+          "label": "1583s@333w85rpm",
+          "duration_secs": 1583,
+          "avg_power": 333,
+          "max_power": 351,
+          "avg_hr": 130,
+          "max_hr": 141,
+          "avg_cadence": 85.224335,
+          "zone": 1,
+          "training_load": 41.794857,
+          "decoupling": 3.0951343
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 55,
+          "avg_power": 370,
+          "max_power": 445,
+          "avg_hr": 143,
+          "max_hr": 152,
+          "avg_cadence": 86.29091,
+          "zone": 2,
+          "training_load": 1.7510765,
+          "decoupling": -3.7974894
         }
       ]
     }
