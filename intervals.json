@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T13:59:50.747557",
+  "generated_at": "2026-11-17T22:05:35.492263",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2318,6 +2318,79 @@
           "zone": 1,
           "training_load": 22.192057,
           "decoupling": 1.0944605
+        }
+      ]
+    },
+    {
+      "activity_id": "i211248598",
+      "date": "2026-11-17",
+      "type": "Run",
+      "name": "Saint-Jean-de-Sixt Running",
+      "interval_summary": [
+        "1x 4m18s 6:16",
+        "1x 7m42s 6:13"
+      ],
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1359,
+          "avg_power": 324,
+          "max_power": 432,
+          "avg_hr": 116,
+          "max_hr": 134,
+          "avg_cadence": 86.437454,
+          "zone": 1,
+          "training_load": 25.623829,
+          "decoupling": -1.3233755
+        },
+        {
+          "type": "WORK",
+          "label": "258s@363w87rpm",
+          "duration_secs": 258,
+          "avg_power": 363,
+          "max_power": 395,
+          "avg_hr": 130,
+          "max_hr": 135,
+          "avg_cadence": 86.503876,
+          "zone": 1,
+          "training_load": 6.0001125,
+          "decoupling": 0.61961025
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 52,
+          "avg_power": 321,
+          "max_power": 365,
+          "avg_hr": 107,
+          "max_hr": 130,
+          "avg_cadence": 81.4,
+          "zone": 1,
+          "training_load": 0.11223559
+        },
+        {
+          "type": "WORK",
+          "label": "462s@370w86rpm",
+          "duration_secs": 462,
+          "avg_power": 370,
+          "max_power": 397,
+          "avg_hr": 130,
+          "max_hr": 139,
+          "avg_cadence": 86.27273,
+          "zone": 1,
+          "training_load": 10.862133,
+          "decoupling": 2.7398684
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 2441,
+          "avg_power": 343,
+          "max_power": 436,
+          "avg_hr": 120,
+          "max_hr": 140,
+          "avg_cadence": 85.04069,
+          "zone": 1,
+          "training_load": 45.057934,
+          "decoupling": -2.9843235
         }
       ]
     }
