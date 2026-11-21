@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-21T11:45:33.955593",
+  "generated_at": "2026-11-21T18:28:54.421939",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2016,6 +2016,55 @@
           "zone": 1,
           "training_load": 2.1256416,
           "decoupling": 10.383665
+        }
+      ]
+    },
+    {
+      "activity_id": "i212788494",
+      "date": "2026-11-21",
+      "type": "Run",
+      "name": "Cairo hotel loop",
+      "interval_summary": [
+        "1x 1h4m 4:28",
+        "1x 17m44s 6:07"
+      ],
+      "intervals": [
+        {
+          "type": "WORK",
+          "label": "3859s@393w89rpm",
+          "duration_secs": 3859,
+          "avg_power": 393,
+          "max_power": 533,
+          "avg_hr": 148,
+          "max_hr": 179,
+          "avg_cadence": 89.26502,
+          "zone": 2,
+          "training_load": 99.63882,
+          "decoupling": 6.7264786
+        },
+        {
+          "type": "WORK",
+          "label": "1064s@289w82rpm",
+          "duration_secs": 1064,
+          "avg_power": 289,
+          "max_power": 467,
+          "avg_hr": 133,
+          "max_hr": 177,
+          "avg_cadence": 82.2827,
+          "zone": 1,
+          "training_load": 16.625769,
+          "decoupling": -51.138256
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1,
+          "avg_power": 310,
+          "max_power": 310,
+          "avg_hr": 134,
+          "max_hr": 134,
+          "avg_cadence": 85.0,
+          "zone": 1,
+          "training_load": 0.018000694
         }
       ]
     }
