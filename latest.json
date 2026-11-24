@@ -73,7 +73,7 @@
   },
   "metadata": {
     "athlete_id": "REDACTED",
-    "last_updated": "2026-11-24T13:18:55.939714",
+    "last_updated": "2026-11-24T23:09:05.191365",
     "data_range_days": 7,
     "extended_range_days": 28,
     "version": "3.103"
@@ -132,7 +132,7 @@
       },
       "tsb": {
         "status": "green",
-        "value": -3.3
+        "value": -0.6
       }
     },
     "signal_summary": {
@@ -181,10 +181,10 @@
   },
   "current_status": {
     "fitness": {
-      "ctl": 61.95,
-      "atl": 65.22,
-      "tsb": -3.27,
-      "ramp_rate": 0.93,
+      "ctl": 61.38,
+      "atl": 62.02,
+      "tsb": -0.64,
+      "ramp_rate": 0.36,
       "fitness_source": "From Intervals.icu API (reflects completed workouts)"
     },
     "thresholds": {
@@ -244,7 +244,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 12845,
+      "steps": 15028,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
@@ -622,7 +622,7 @@
     "p_max": 1089,
     "power_model_source": "wellness.sportInfo",
     "vo2max": 61.0,
-    "calculation_timestamp": "2026-11-24T13:18:55.938886",
+    "calculation_timestamp": "2026-11-24T23:09:05.190715",
     "data_quality": {
       "hrv_data_points": 7,
       "rhr_data_points": 7,
@@ -640,7 +640,7 @@
       "id": "i214024406",
       "date": "2026-11-24T10:20:32",
       "type": "Run",
-      "name": "Le Grand-Bornand Running",
+      "name": "Gale W6 \u2013 Very easy 12 km",
       "duration_hours": 1.04,
       "distance_km": 12.09,
       "tss": 58,
@@ -2624,7 +2624,7 @@
       "respiration": null,
       "body_fat_pct": null,
       "abdomen_cm": null,
-      "steps": 12845,
+      "steps": 15028,
       "hydration_volume_l": null,
       "kcal_consumed": null,
       "carbohydrates_g": null,
