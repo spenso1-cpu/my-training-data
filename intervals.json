@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T02:58:14.535263",
+  "generated_at": "2026-11-24T13:18:55.546166",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -2039,6 +2039,54 @@
           "zone": 1,
           "training_load": 5.0724287,
           "decoupling": 5.406658
+        }
+      ]
+    },
+    {
+      "activity_id": "i214024406",
+      "date": "2026-11-24",
+      "type": "Run",
+      "name": "Le Grand-Bornand Running",
+      "interval_summary": [
+        "1x 6m57s 5:35"
+      ],
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1799,
+          "avg_power": 349,
+          "max_power": 409,
+          "avg_hr": 119,
+          "max_hr": 133,
+          "avg_cadence": 87.81499,
+          "zone": 1,
+          "training_load": 36.28212,
+          "decoupling": 1.4472872
+        },
+        {
+          "type": "WORK",
+          "label": "417s@376w88rpm",
+          "duration_secs": 417,
+          "avg_power": 376,
+          "max_power": 432,
+          "avg_hr": 125,
+          "max_hr": 136,
+          "avg_cadence": 87.8681,
+          "zone": 1,
+          "training_load": 9.964635,
+          "decoupling": 3.3213804
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 2100,
+          "avg_power": 346,
+          "max_power": 455,
+          "avg_hr": 120,
+          "max_hr": 136,
+          "avg_cadence": 87.15239,
+          "zone": 2,
+          "training_load": 33.89875,
+          "decoupling": 0.37107486
         }
       ]
     }
