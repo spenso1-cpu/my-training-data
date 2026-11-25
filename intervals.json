@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T05:24:35.785617",
+  "generated_at": "2026-11-25T23:54:52.203856",
   "version": "3.103",
   "script_hash": "504417168730",
   "scan_hours": 72,
@@ -1703,6 +1703,75 @@
           "zone": 2,
           "training_load": 33.89875,
           "decoupling": 0.37107486
+        }
+      ]
+    },
+    {
+      "activity_id": "i214496443",
+      "date": "2026-11-25",
+      "type": "Run",
+      "name": "Bonneville",
+      "interval_summary": [
+        "1x 16m24s 4:48"
+      ],
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 903,
+          "avg_power": 333,
+          "max_power": 410,
+          "avg_hr": 112,
+          "max_hr": 123,
+          "avg_cadence": 89.701035,
+          "zone": 1,
+          "training_load": 14.175022,
+          "decoupling": -2.8315089
+        },
+        {
+          "type": "WORK",
+          "label": "984s@365w90rpm",
+          "duration_secs": 984,
+          "avg_power": 365,
+          "max_power": 420,
+          "avg_hr": 126,
+          "max_hr": 131,
+          "avg_cadence": 90.17785,
+          "zone": 1,
+          "training_load": 22.759272,
+          "decoupling": 3.6793325
+        },
+        {
+          "type": "RECOVERY",
+          "duration_secs": 2002,
+          "avg_power": 341,
+          "max_power": 514,
+          "avg_hr": 128,
+          "max_hr": 140,
+          "avg_cadence": 88.1156,
+          "zone": 1,
+          "training_load": 41.608475,
+          "decoupling": 7.0046406
+        }
+      ]
+    },
+    {
+      "activity_id": "i214435545",
+      "date": "2026-11-25",
+      "type": "VirtualRun",
+      "name": "Treadmill Running",
+      "interval_summary": null,
+      "intervals": [
+        {
+          "type": "RECOVERY",
+          "duration_secs": 1881,
+          "avg_power": 340,
+          "max_power": 413,
+          "avg_hr": 129,
+          "max_hr": 139,
+          "avg_cadence": 85.12068,
+          "zone": 1,
+          "training_load": 38.17575,
+          "decoupling": 4.6496162
         }
       ]
     }
